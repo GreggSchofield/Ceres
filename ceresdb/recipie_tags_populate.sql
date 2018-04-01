@@ -6,7 +6,7 @@
 -- The recipie_tags relation schema has the recipieTagID and tagName attributes with
 -- character varying and character varying types respectively.
 
--- comment this command out if you are attempting to create this table for the
+-- comment this command out if you are attempting to populate this table for the
 -- first time.
 DELETE * FROM recipie_tags;
 

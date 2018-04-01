@@ -7,7 +7,7 @@
 -- weight attributes with character varying, character varying and integer
 -- types respectively.
 
--- comment this command out if you are attempting to create this table for the
+-- comment this command out if you are attempting to populate this table for the
 -- first time.
 DELETE * FROM recipie_ingredients;
 

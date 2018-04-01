@@ -6,7 +6,7 @@
 -- The saved_recipies relation schema has the userID and recipieID attributes with
 -- character varying and character varying types respectively.
 
--- comment this command out if you are attempting to create this table for the
+-- comment this command out if you are attempting to populate this table for the
 -- first time.
 DELETE * FROM saved_recipies;
 
