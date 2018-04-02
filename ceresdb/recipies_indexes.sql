@@ -8,3 +8,9 @@
 DROP INDEX recipies_index;
 
 CREATE INDEX recipies_index ON recipies USING HASH (recipieID);
+
+-- comment this command out if you are attempting to create this index for the
+-- first time.
+DROP INDEX recipies_dateUploaded_recipieViews_index;
+
+CREATE INDEX recipies_dateUploaded_recipieViews_index ON recipies USING B-tree (dateUploaded,recipieViews);
