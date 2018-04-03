@@ -15,5 +15,20 @@
   $options = '--client_encoding=UTF8';
 
   // Attempts to open a connection to the PostgreSQL database
-  $dbconn = pg_connect($dbname,$host,$port,$user,$password,$options);
+  function establishConnection() {
+    $dbconn = pg_connect($dbname,$host,$port,$user,$password,$options)
+      or die('A connection could not be successfully established.');
+    echo "Connection successfully established.";
+  }
+
+  //
+  function executePreparedQuery($queryName, $queryContent) {
+    $result = pg_prepare($dbconn, $queryName, $queryContent);
+    return $result = pg_execute($dbconn, $queryName, $param1);
+  }
+
+  // Attempts to close the connection to the PostgreSQL database
+  function closeConnection() {
+    pg_close($dbconn);
+  }
 ?>
