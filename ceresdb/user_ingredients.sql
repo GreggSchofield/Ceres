@@ -6,8 +6,10 @@
 -- first time.
 DROP TABLE user_ingredients;
 
-CREATE TABLE user_ingredients (
-	userID character varying (10) NOT NULL REFERENCES users (userID),
-	ingredientID character varying (10) NOT NULL REFERENCES ingredients (ingredientID),
-	weighting integer NOT NULL
+CREATE TABLE IF NOT EXISTS user_ingredients (
+	userID character varying (10) NOT NULL,
+	ingredientID character varying (10) NOT NULL,
+	weighting integer NOT NULL,
+	FOREIGN KEY (userID) REFERENCES users (userID),
+	FOREIGN KEY (ingredientID) REFERENCES ingredients (ingredientID)
 );

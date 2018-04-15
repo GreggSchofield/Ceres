@@ -6,11 +6,13 @@
 -- first time.
 DROP TABLE reviews;
 
-CREATE TABLE reviews (
+CREATE TABLE IF NOT EXISTS reviews (
 	reviewID character varying (10) NOT NULL,
-	userID character varying (10) NOT NULL REFERENCES users (userID),
-	recipieID character varying (10) NOT NULL REFERENCES recipies (recipieID),
+	userID character varying (10) NOT NULL,
+	recipieID character varying (10) NOT NULL,
 	reviewText text,
 	rating smallint,
-	dateTimePosted timestamp with time zone NOT NULL
+	dateTimePosted timestamp with time zone NOT NULL,
+	FOREIGN KEY (userID) REFERENCES users (userID),
+	FOREIGN KEY (recipieID) REFERENCES recipies (recipieID)
 );

@@ -6,8 +6,8 @@
 -- first time.
 DROP TABLE recipie_ingredients;
 
-CREATE TABLE recipie_ingredients (
-	recipieID character varying NOT NULL REFERENCES recipies (recipieID),
-	ingredientID character varying (10) NOT NULL REFERENCES ingredients (ingredientID),
-	weight integer NOT NULL
+CREATE TABLE IF NOT EXISTS recipie_ingredients (
+	recipieID VARCHAR (10) NOT NULL REFERENCES recipies (recipieID),
+	ingredientID VARCHAR (10) NOT NULL REFERENCES ingredients (ingredientID),
+	weight FLOAT NOT NULL
 );

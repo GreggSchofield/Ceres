@@ -6,8 +6,8 @@
 -- first time.
 DROP TABLE saved_recipies;
 
-CREATE TABLE saved_recipies (
-	userID character varying (10) NOT NULL,
-	recipieID character varying (10) NOT NULL,
+CREATE TABLE IF NOT EXISTS saved_recipies (
+	userID VARCHAR (10) NOT NULL,
+	recipieID VARCHAR (10) NOT NULL,
 	PRIMARY KEY (userID, recipieID)
 );

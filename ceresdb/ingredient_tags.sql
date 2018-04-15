@@ -6,7 +6,8 @@
 -- first time.
 DROP TABLE ingredient_tags;
 
-CREATE TABLE ingredient_tags (
-	ingredientTagID character varying (10) UNIQUE NOT NULL PRIMARY KEY,
-	tagName character varying (32) NOT NULL
+CREATE TABLE IF NOT EXISTS ingredient_tags (
+	ingredientTagID VARCHAR (10) UNIQUE NOT NULL,
+	tagName VARCHAR (32) NOT NULL,
+	PRIMARY KEY (ingredientTagID)
 );

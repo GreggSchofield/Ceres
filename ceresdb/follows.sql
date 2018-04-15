@@ -6,9 +6,11 @@
 -- first time.
 DROP TABLE follows;
 
-CREATE TABLE follows (
-	userIDa character varying (10) NOT NULL REFERENCES users (userID),
-	userIDb character varying (10) NOT NULL REFERENCES users (userID),
+CREATE TABLE IF NOT EXISTS follows (
+	userIDa VARCHAR (32) NOT NULL,
+	userIDb VARCHAR (32) NOT NULL,
 	dateOfFollow timestamp with time zone NOT NULL,
-	weighting integer NOT NULL
+	weighting integer NOT NULL,
+	FOREIGN KEY (userIDa) REFERENCES users(userIDa),
+	FOREIGN KEY (userIDb) REFERENCES users(userIDb)
 );

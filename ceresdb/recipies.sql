@@ -6,15 +6,17 @@
 -- first time.
 DROP TABLE recipies;
 
-CREATE TABLE recipies (
-	recipieID character varying (10) UNIQUE NOT NULL PRIMARY KEY,
-	userID character varying (10) NOT NULL REFERENCES users (userID),
-	recipieName character varying (100) NOT NULL,
+CREATE TABLE IF NOT EXISTS recipies (
+	recipieID VARCHAR (10) UNIQUE NOT NULL,
+	userID VARCHAR (10) NOT NULL,
+	recipieName VARCHAR (100) NOT NULL,
 	dateUploaded timestamp with time zone NOT NULL,
-	pictureURL character varying (64),
-	steps character varying (1000) NOT NULL,
-	uses integer NOT NULL,
-	recipieViews integer NOT NULL,
-	tags character varying (1000),
-	servings integer NOT NULL
+	pictureURL VARCHAR (64),
+	steps VARCHAR (1000) NOT NULL,
+	uses INT NOT NULL,
+	recipieViews INT NOT NULL,
+	tags VARCHAR (1000),
+	servings INT NOT NULL,
+	PRIMARY KEY (recipieID),
+	FOREIGN KEY (userID) REFERENCES users (userID)
 );

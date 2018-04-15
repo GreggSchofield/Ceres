@@ -6,7 +6,7 @@
 -- first time.
 DROP TABLE recipie_tags;
 
-CREATE TABLE recipie_tags (
-	recipieTagID character varying (10) UNIQUE NOT NULL PRIMARY KEY,
-	tagName character varying (32) NOT NULL
+CREATE TABLE IF NOT EXISTS recipie_tags (
+	recipieTagID VARCHAR (10) UNIQUE NOT NULL PRIMARY KEY,
+	tagName VARCHAR (32) NOT NULL
 );
