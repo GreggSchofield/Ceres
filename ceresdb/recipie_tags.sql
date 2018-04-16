@@ -4,7 +4,7 @@
 
 -- comment this command out if you are attempting to create this table for the
 -- first time.
-DROP TABLE recipie_tags;
+--DROP TABLE recipie_tags;
 
 CREATE TABLE IF NOT EXISTS recipie_tags (
 	recipieTagID VARCHAR (10) UNIQUE NOT NULL PRIMARY KEY,

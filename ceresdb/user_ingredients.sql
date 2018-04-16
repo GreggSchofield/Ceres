@@ -4,7 +4,7 @@
 
 -- comment this command out if you are attempting to create this table for the
 -- first time.
-DROP TABLE user_ingredients;
+--DROP TABLE user_ingredients;
 
 CREATE TABLE IF NOT EXISTS user_ingredients (
 	userID character varying (10) NOT NULL,

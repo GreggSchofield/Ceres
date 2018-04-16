@@ -4,7 +4,7 @@
 
 -- comment this command out if you are attempting to create this table for the
 -- first time.
-DROP TABLE reviews;
+--DROP TABLE reviews;
 
 CREATE TABLE IF NOT EXISTS reviews (
 	reviewID character varying (10) NOT NULL,

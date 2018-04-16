@@ -4,7 +4,7 @@
 
 -- comment this command out if you are attempting to create this table for the
 -- first time.
-DROP TABLE ingredient_tags;
+--DROP TABLE ingredient_tags;
 
 CREATE TABLE IF NOT EXISTS ingredient_tags (
 	ingredientTagID VARCHAR (10) UNIQUE NOT NULL,

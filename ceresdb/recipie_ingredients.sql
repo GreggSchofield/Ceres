@@ -4,7 +4,7 @@
 
 -- comment this command out if you are attempting to create this table for the
 -- first time.
-DROP TABLE recipie_ingredients;
+--DROP TABLE recipie_ingredients;
 
 CREATE TABLE IF NOT EXISTS recipie_ingredients (
 	recipieID VARCHAR (10) NOT NULL REFERENCES recipies (recipieID),

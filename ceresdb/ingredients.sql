@@ -4,7 +4,7 @@
 
 -- comment this command out if you are attempting to create this table for the
 -- first time.
-DROP TABLE ingredients;
+--DROP TABLE ingredients;
 
 CREATE TABLE IF NOT EXISTS ingredients (
 	ingredientID VARCHAR (10) UNIQUE NOT NULL,
@@ -17,5 +17,5 @@ CREATE TABLE IF NOT EXISTS ingredients (
 	carbohydrates FLOAT NOT NULL,
 	contentTags VARCHAR (1000),
 	weighting FLOAT NOT NULL,
-	PRIMARY KEY (ingredientTagID)
+	PRIMARY KEY (ingredientID)
 );

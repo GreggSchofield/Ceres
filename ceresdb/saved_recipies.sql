@@ -4,7 +4,7 @@
 
 -- comment this command out if you are attempting to create this table for the
 -- first time.
-DROP TABLE saved_recipies;
+--DROP TABLE saved_recipies;
 
 CREATE TABLE IF NOT EXISTS saved_recipies (
 	userID VARCHAR (10) NOT NULL,

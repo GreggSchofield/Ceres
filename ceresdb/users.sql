@@ -4,7 +4,7 @@
 
 -- comment this command out if you are attempting to create this table for the
 -- first time.
-DROP TABLE users;
+--DROP TABLE users;
 
 CREATE TABLE IF NOT EXISTS users (
 	userID VARCHAR (10) UNIQUE NOT NULL,
