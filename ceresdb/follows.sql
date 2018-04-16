@@ -11,6 +11,6 @@ CREATE TABLE IF NOT EXISTS follows (
 	userIDb VARCHAR (32) NOT NULL,
 	dateOfFollow timestamp with time zone NOT NULL,
 	weighting integer NOT NULL,
-	FOREIGN KEY (userIDa) REFERENCES users(userIDa),
-	FOREIGN KEY (userIDb) REFERENCES users(userIDb)
+	FOREIGN KEY (userIDa) REFERENCES users(userID),
+	FOREIGN KEY (userIDb) REFERENCES users(userID)
 );
