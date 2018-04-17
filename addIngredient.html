@@ -36,33 +36,39 @@
 
     callPHP(callStr);
 
+    alert("Ingredient '" + name + "' added");
+
+    document.getElementById("addIngredientForm").reset();
+
   }
 
   </script>
 
   <body>
 
-    <p>Ingredient name: </p>
-    <input type="text" id="txtName"></input>
-    <p>Preparation: </p>
-    <input type="text" id="txtPrep"></input>
-    <p>Calories (grams per gram of ingredient): </p>
-    <input type="number" id="txtCalories"></input>
-    <p>Protein (per gram): </p>
-    <input type="number" id="txtProtein"></input>
-    <p>Fat (per gram): </p>
-    <input type="number" id="txtFat"></input>
-    <p>Sugar (per gram): </p>
-    <input type="number" id="txtSugar"></input>
-    <p>Fiber (per gram): </p>
-    <input type="number" id="txtFiber"></input>
-    <p>Carbohydrates (per gram): </p>
-    <input type="number" id="txtCarbs"></input>
-    <p>Content: </p>
-    <input type="checkbox" id="boxNuts">Contains nuts</input><br>
-    <input type="checkbox" id="boxGluten">Contains gluten</input><br>
-    <input type="checkbox" id="boxDairy">Contains dairy</input><br>
-    <input type="checkbox" id="boxMeat">Contains meat</input>
+    <form id="addIngredientForm">
+      <p>Ingredient name: </p>
+      <input type="text" id="txtName"></input>
+      <p>Preparation: </p>
+      <input type="text" id="txtPrep"></input>
+      <p>Calories (grams per gram of ingredient): </p>
+      <input type="number" id="txtCalories"></input>
+      <p>Protein (per gram): </p>
+      <input type="number" id="txtProtein"></input>
+      <p>Fat (per gram): </p>
+      <input type="number" id="txtFat"></input>
+      <p>Sugar (per gram): </p>
+      <input type="number" id="txtSugar"></input>
+      <p>Fiber (per gram): </p>
+      <input type="number" id="txtFiber"></input>
+      <p>Carbohydrates (per gram): </p>
+      <input type="number" id="txtCarbs"></input>
+      <p>Content: </p>
+      <input type="checkbox" id="boxNuts">Contains nuts</input><br>
+      <input type="checkbox" id="boxGluten">Contains gluten</input><br>
+      <input type="checkbox" id="boxDairy">Contains dairy</input><br>
+      <input type="checkbox" id="boxMeat">Contains meat</input>
+    </form>
 
     <br><br><br>
 

@@ -1,4 +1,5 @@
-<!-- This script will attempt to establish a connection to the MySQL database.
+<?php
+ /*This script will attempt to establish a connection to the MySQL database.
      In the event that there is a connection error the prefefined PDO error
      message will be echoed to the standard output.
 
@@ -6,9 +7,8 @@
      Ceres system.
 
      Created: 15/04/18
-     Author: Gregg Schofield -->
+     Author: Gregg Schofield */
 
-<?php
   try {
     $db_hostname = "mysql";
     $db_database = "u6gs";

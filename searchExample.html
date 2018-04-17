@@ -15,7 +15,7 @@
       var tagButtons = document.getElementById("tagButtons");
       tagButtons.innerHTML = "";
       if (text != "") {
-        var possibleTags = callPHP("getTagList.php?t=" + text);
+        var possibleTags = callPHP("php/getTagList.php?t=" + text);
         var wordList = possibleTags.split(",");
         var option;
         if (wordList.length > 11) {

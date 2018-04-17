@@ -6,7 +6,134 @@
   <script src="js/phpFunctions.js"></script>
   <script>
 
-  var ingredientsList;
+  var ingredientsList = [];
+  var tagList = [];
+  var tempUserID = 1234;
+
+  function Ingredient(ingID, ingName, weight) {
+    this.ingID = ingID;
+    this.ingName = ingName;
+    this.weight = weight;
+  }
+
+  function checkTag() {
+    var text = document.getElementById("txtSearchIngredient").value;
+    var tagButtons = document.getElementById("ingredientTagList");
+    tagButtons.innerHTML = "";
+    if (text != "") {
+      var possibleTags = callPHP("php/getIngredientList.php?t=" + text);
+      var wordList = possibleTags.split(",");
+      var option;
+      if (wordList.length > 22) {
+        wordList.length = 22;
+      }
+      for (var i = 0; i < wordList.length - 2; i += 2) {
+        button = document.createElement("button");
+        var id = wordList[i];
+        var name = wordList[i+1];
+        button.id = id;
+        button.innerHTML = name;
+        button.onclick = function() {selectTag(button);};
+        tagButtons.appendChild(button);
+      }
+    }
+  }
+
+  var tempIngredient;
+  function selectTag(element) {
+    console.log("Tag selected");
+    tempIngredient = new Ingredient(element.id, element.innerHTML, 0);
+    document.getElementById("txtSearchIngredient").value = element.innerHTML;
+  }
+  function clearTag() {
+    console.log("Tag cleared");
+    tempIngredient = null;
+  }
+
+  function addIngredient() {
+    if (tempIngredient == null) {
+      alert("Please select an appropriate ingredient tag");
+    } else {
+      var weight = document.getElementById("txtIngredientWeight").value;
+      if (weight <= 0) {
+        alert("Please input an appropriate weight for the ingredient")
+      } else {
+        console.log("Ingredient added");
+        var newIngredient = new Ingredient(tempIngredient.ingID, tempIngredient.ingName, document.getElementById("txtIngredientWeight").value);
+        ingredientsList.push(newIngredient);
+        updateIngredients();
+        document.getElementById("txtSearchIngredient").value = "";
+        document.getElementById("txtIngredientWeight").value = "";
+        clearTag();
+        checkTag();
+      }
+    }
+  }
+
+  function updateIngredients() {
+    var ingredientDiv = document.getElementById("ingredientsList");
+    ingredientDiv.innerHTML = "";
+    var text;
+    for (var i = 0; i < ingredientsList.length; i++) {
+      text = document.createTextNode(ingredientsList[i].ingName + ", " + ingredientsList[i].weight + "g ")
+      ingredientDiv.appendChild(text);
+      var button = document.createElement("button");
+      button.id = i;
+      button.innerHTML = "Remove";
+      button.onclick = function() {removeIngredient(this.id);};
+      ingredientDiv.appendChild(button);
+      ingredientDiv.appendChild(document.createElement("br"));
+    }
+  }
+
+  function removeIngredient(i) {
+    console.log("Removing ingredient " + i);
+    ingredientsList.splice(i, 1);
+    updateIngredients();
+  }
+
+  function addTag() {
+    var text = document.getElementById("txtTagName").value;
+    if (text == "") {
+      alert("Please input some text for the tag");
+    } else {
+      tagList.push(text);
+      document.getElementById("txtTagName").value = "";
+      updateTags();
+    }
+  }
+
+  function removeTag(i) {
+    console.log("Removing tag " + i);
+    tagList.splice(i, 1);
+    updateTags();
+  }
+
+  function updateTags() {
+    var tagDiv = document.getElementById("tagList");
+    tagDiv.innerHTML = "";
+    var text;
+    for (var i = 0; i < tagList.length; i++) {
+      text = document.createTextNode(tagList[i] + " ");
+      tagDiv.appendChild(text);
+      var button = document.createElement("button");
+      button.id = i;
+      button.innerHTML = "Remove";
+      button.onclick = function() {removeTag(this.id);};
+      tagDiv.appendChild(button);
+      tagDiv.appendChild(document.createElement("br"));
+    }
+  }
+
+  function addRecipe() {
+    var name = document.getElementById("txtName").value;
+    var instructions = document.getElementById("txtInstructions").value;
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1;
+    var yyyy = today.getFullYear();
+    var servings = document.getElementById("txtServings").value;
+  }
 
   </script>
 
@@ -15,20 +142,35 @@
     <p>Recipe name: </p>
     <input type="text" id="txtName"></input>
     <p>Instructions: </p>
-    <input type="text" id="txtInstructions"></input>
+    <textarea id="txtInstructions" cols=50 rows=20></textarea>
+    <p>Number of servings: </p>
+    <input type ="number" id="txtServings"></input>
 
     <div id="ingredientsSection">
-      <div id="ingredientsList">
-      </div>
+      <br>
+      <b>Ingredients:</b>
       <p>Search for the appropriate ingredient: </p>
-      <input type ="text" id="txtSearchIngredient"></input>
-      <div id="tagList">
+      <input type ="text" id="txtSearchIngredient" onkeyup="checkTag();clearTag();"></input>
+      <div id="ingredientTagList">
       </div>
       <p>Input the weight in grams of the ingredient: </p>
-      <input type ="text" id="txtIngredientWeight"></input>
+      <input type ="number" id="txtIngredientWeight"></input>
       <br><br>
-      <input type="button" id="btnAddIngredient" value="Add ingredient"></input>
+      <button id="btnAddIngredient" onclick="addIngredient()">Add ingredient</button>
+      <br><br>
+      <div id="ingredientsList">
+      </div>
     </div>
+
+    <br><br>
+    <b>Tags: </b>
+    <input type ="text" id="txtTagName"></input>
+    <button id="btnAddTag" onclick="addTag()">Add tag</button>
+    <br><br>
+    <div id="tagList">
+    </div>
+    <br><br>
+    <button id="btnAddRecipe" onclick="addRecipe()">Upload recipe</button>
 
   </body>
 </html>
