@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add ingredient test</title>
+  </head>
+  <script src="js/phpFunctions.js"></script>
+  <script>
+
+  function addIngredient() {
+    var name = document.getElementById("txtName").value.toLowerCase() + " (" + document.getElementById("txtPrep").value.toLowerCase() + ")";
+    var calories = document.getElementById("txtCalories").value;
+    var protein = document.getElementById("txtProtein").value;
+    var fat = document.getElementById("txtFat").value;
+    var sugar = document.getElementById("txtSugar").value;
+    var fiber = document.getElementById("txtFiber").value;
+    var carbs = document.getElementById("txtCarbs").value;
+    var containsNuts = document.getElementById("boxNuts").checked;
+    var containsGluten = document.getElementById("boxGluten").checked;
+    var containsDairy = document.getElementById("boxDairy").checked;
+    var containsMeat = document.getElementById("boxMeat").checked;
+    var content = "";
+    if (containsNuts) {
+      content += "nuts;"
+    }
+    if (containsGluten) {
+      content += "gluten;"
+    }
+    if (containsDairy) {
+      content += "dairy;"
+    }
+    if (containsMeat) {
+      content += "meat;"
+    }
+
+    var callStr = "php/addIngredient.php?name='" + name + "'&calories=" + calories + "&protein=" + protein + "&fat=" + fat + "&sugar=" + sugar + "&fiber=" + fiber + "&carbs=" + carbs + "&contents='" + content + "'";
+
+    callPHP(callStr);
+
+  }
+
+  </script>
+
+  <body>
+
+    <p>Ingredient name: </p>
+    <input type="text" id="txtName"></input>
+    <p>Preparation: </p>
+    <input type="text" id="txtPrep"></input>
+    <p>Calories (grams per gram of ingredient): </p>
+    <input type="number" id="txtCalories"></input>
+    <p>Protein (per gram): </p>
+    <input type="number" id="txtProtein"></input>
+    <p>Fat (per gram): </p>
+    <input type="number" id="txtFat"></input>
+    <p>Sugar (per gram): </p>
+    <input type="number" id="txtSugar"></input>
+    <p>Fiber (per gram): </p>
+    <input type="number" id="txtFiber"></input>
+    <p>Carbohydrates (per gram): </p>
+    <input type="number" id="txtCarbs"></input>
+    <p>Content: </p>
+    <input type="checkbox" id="boxNuts">Contains nuts</input><br>
+    <input type="checkbox" id="boxGluten">Contains gluten</input><br>
+    <input type="checkbox" id="boxDairy">Contains dairy</input><br>
+    <input type="checkbox" id="boxMeat">Contains meat</input>
+
+    <br><br><br>
+
+    <input type="button" id="btnAddIngredient" value="Add ingredient" onclick="addIngredient()"></input>
+
+  </body>
+
+</html>

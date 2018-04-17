@@ -7,7 +7,11 @@
 --DROP TABLE ingredients;
 
 CREATE TABLE IF NOT EXISTS ingredients (
+<<<<<<< HEAD
 	ingredientID MEDIUMINT UNIQUE NOT NULL AUTO_INCREMENT,
+=======
+	ingredientID INTEGER UNIQUE NOT NULL AUTO_INCREMENT,
+>>>>>>> 31649c2521f77669e8badeebf62ee291981705af
 	ingredientName VARCHAR (64) NOT NULL,
 	calories FLOAT NOT NULL,
 	protein FLOAT NOT NULL,

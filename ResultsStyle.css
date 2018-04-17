@@ -1,0 +1,73 @@
+h2{
+	text-align:center;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+textarea{
+	width:180px;
+	height:21px;
+	float:right;
+	resize:none;
+}
+#topBar{
+	height:50px;
+}
+#searchBar{
+	margin-bottom: 10px;
+}
+#results{
+	margin:auto;
+    width:800px;
+    height:500px;
+    border: 1px solid black;
+	overflow-y: auto;
+}
+#return{
+	float: left;
+	margin-top:20px;
+	margin-left:20px;
+	border-radius: 12px;
+}
+#account{
+	float: right;
+	margin-top:20px;
+	margin-right:20px;
+	border-radius: 12px;
+}
+#searchContainer{
+    margin:auto;
+	clear:both;
+	width:235.25px;
+	margin-bottom:10px;
+}
+#resultsTable{
+	position:inherit;
+}
+.dropbtn {
+    background-color: gray;
+    border: none;
+	padding:3px 10px;
+}
+
+.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd}
+
+.dropdown:hover .dropdown-content {
+    display: block;

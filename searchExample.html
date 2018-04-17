@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Testing</title>
+  </head>
+  <script src="js/phpFunctions.js"></script>
+  <script>
+
+    var tagList;
+
+    // Function to get a list of matching tags from the tag table and create a
+    // set of buttons with the appropriate names
+    function checkTag() {
+      var text = document.getElementById("tagTextBox").value;
+      var tagButtons = document.getElementById("tagButtons");
+      tagButtons.innerHTML = "";
+      if (text != "") {
+        var possibleTags = callPHP("getTagList.php?t=" + text);
+        var wordList = possibleTags.split(",");
+        var option;
+        if (wordList.length > 11) {
+          wordList.length = 11;
+        }
+        for (var i = 0; i < wordList.length - 1; i++) {
+          button = document.createElement("input");
+          button.type = "button";
+          button.value = wordList[i];
+          tagButtons.appendChild(button);
+        }
+      }
+    }
+
+    // Keep checking the tag table every 100 milliseconds
+    setInterval("checkTag()", 100);
+
+    function addTag(element) {
+      var text = this.value;
+    }
+
+  </script>
+
+  <body>
+
+    <input ID="tagTextBox" type="text" />
+
+    <br><br>
+
+    <div ID="tagButtons">
+    </div>
+
+  </body>
+</html>
