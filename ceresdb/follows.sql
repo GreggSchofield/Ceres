@@ -7,9 +7,9 @@
 --DROP TABLE follows;
 
 CREATE TABLE IF NOT EXISTS follows (
-	userIDa VARCHAR (32) NOT NULL,
-	userIDb VARCHAR (32) NOT NULL,
-	dateOfFollow timestamp with time zone NOT NULL,
+	userIDa MEDIUMINT NOT NULL,
+	userIDb MEDIUMINT NOT NULL,
+	dateOfFollow TIMESTAMP NOT NULL,
 	weighting integer NOT NULL,
 	FOREIGN KEY (userIDa) REFERENCES users(userID),
 	FOREIGN KEY (userIDb) REFERENCES users(userID)

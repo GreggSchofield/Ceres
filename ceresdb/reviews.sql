@@ -7,12 +7,12 @@
 --DROP TABLE reviews;
 
 CREATE TABLE IF NOT EXISTS reviews (
-	reviewID character varying (10) NOT NULL,
-	userID character varying (10) NOT NULL,
-	recipieID character varying (10) NOT NULL,
+	reviewID MEDIUMINT UNIQUE NOT NULL AUTO_INCREMENT,
+	userID MEDIUMINT NOT NULL,
+	recipeID MEDIUMINT NOT NULL,
 	reviewText text,
 	rating smallint,
-	dateTimePosted timestamp with time zone NOT NULL,
+	dateTimePosted TIMESTAMP NOT NULL,
 	FOREIGN KEY (userID) REFERENCES users (userID),
-	FOREIGN KEY (recipieID) REFERENCES recipies (recipieID)
+	FOREIGN KEY (recipeID) REFERENCES recipes (recipeID)
 );

@@ -7,7 +7,7 @@
 --DROP TABLE ingredient_tags;
 
 CREATE TABLE IF NOT EXISTS ingredient_tags (
-	ingredientTagID VARCHAR (10) UNIQUE NOT NULL,
-	tagName VARCHAR (32) NOT NULL,
+	ingredientTagID MEDIUMINT UNIQUE NOT NULL AUTO_INCREMENT,
+	tagName VARCHAR (32),
 	PRIMARY KEY (ingredientTagID)
 );
