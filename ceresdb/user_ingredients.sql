@@ -7,8 +7,8 @@
 --DROP TABLE user_ingredients;
 
 CREATE TABLE IF NOT EXISTS user_ingredients (
-	userID character varying (10) NOT NULL,
-	ingredientID character varying (10) NOT NULL,
+	userID MEDIUMINT NOT NULL,
+	ingredientID MEDIUMINT NOT NULL,
 	weighting integer NOT NULL,
 	FOREIGN KEY (userID) REFERENCES users (userID),
 	FOREIGN KEY (ingredientID) REFERENCES ingredients (ingredientID)
