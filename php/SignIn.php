@@ -1,4 +1,5 @@
 <?php
+	require_once ('sessionCookieHandlerLib.php');
 	startSession();
 ?>
 
@@ -11,8 +12,12 @@
 	</head>
 	<body>
 		<?php
-			if (isset($_SESSION['email'])) {
-				validateEmail();
+			if (isset($_POST['user_email'])) {
+				if (validateEmailAddress($_POST['user_email']);) {
+					$_SESSION['user_email'] = $_POST['user_email'];
+					// re-direct the user to another page
+				}
+
 			}
 		?>
 		<form id="return" action="main.htm">
