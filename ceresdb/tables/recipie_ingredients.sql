@@ -4,7 +4,7 @@
 
 -- comment this command out if you are attempting to create this table for the
 -- first time.
---DROP TABLE recipe_ingredients;
+DROP TABLE recipe_ingredients;
 
 CREATE TABLE IF NOT EXISTS recipe_ingredients (
 	recipeID MEDIUMINT NOT NULL,

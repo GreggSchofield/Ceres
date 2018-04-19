@@ -1,10 +1,14 @@
 <?php
-  $name = htmlspecialchars($_GET["name"]);
-  $instructions = htmlspecialchars($_GET["instructions"]);
+  $userid = htmlspecialchars($_POST["userid"]);
+  $name = htmlspecialchars($_POST["name"]);
+  $instructions = htmlspecialchars($_POST["instructions"]);
+  $servings = htmlspecialchars($_POST["servings"]);
 
   include 'dbconn.php';
 
-  $stmt = $pdo->query("insert into recipe (userID, recipeName, dateUploaded, steps, uses, recipeViews, tags, servings)");
-//  $stmt = $pdo->query("select last_insert_id();");
-//  echo $stmt->fetch("recipeID");
+  $query = "insert into recipes (userID, recipeName, steps, uses, recipeViews, servings) values (".$userid.", ".$name.", ".$instructions.", 0, 0, ".$servings.");";
+  $stmt = $pdo->query($query);
+  $stmt = $pdo->query("select last_insert_id();");
+  $id = $stmt->fetch()["last_insert_id()"];
+  echo $id;
 ?>
