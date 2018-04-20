@@ -35,9 +35,9 @@
       content += "meat;"
     }
 
-    var callStr = "php/addIngredient.php?name='" + name + "'&calories=" + calories + "&protein=" + protein + "&fat=" + fat + "&sugar=" + sugar + "&fiber=" + fiber + "&carbs=" + carbs + "&contents='" + content + "'";
-
-    callPHP(callStr);
+    var callStr = "php/addIngredient.php";
+    var varStr = "name='" + name + "'&calories=" + calories + "&protein=" + protein + "&fat=" + fat + "&sugar=" + sugar + "&fiber=" + fiber + "&carbs=" + carbs + "&contents='" + content + "'";
+    callPost(callStr, varStr);
 
     alert("Ingredient '" + name + "' added");
 

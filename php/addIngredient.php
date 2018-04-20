@@ -1,12 +1,12 @@
 <?php
-  $name = htmlspecialchars($_GET["name"]);
-  $calories = htmlspecialchars($_GET["calories"]);
-  $protein = htmlspecialchars($_GET["protein"]);
-  $fat = htmlspecialchars($_GET["fat"]);
-  $sugar = htmlspecialchars($_GET["sugar"]);
-  $fiber = htmlspecialchars($_GET["fiber"]);
-  $carbs = htmlspecialchars($_GET["carbs"]);
-  $contents = htmlspecialchars($_GET["contents"]);
+  $name = htmlspecialchars($_POST["name"]);
+  $calories = htmlspecialchars($_POST["calories"]);
+  $protein = htmlspecialchars($_POST["protein"]);
+  $fat = htmlspecialchars($_POST["fat"]);
+  $sugar = htmlspecialchars($_POST["sugar"]);
+  $fiber = htmlspecialchars($_POST["fiber"]);
+  $carbs = htmlspecialchars($_POST["carbs"]);
+  $contents = htmlspecialchars($_POST["contents"]);
 
   include 'dbconn.php';
 

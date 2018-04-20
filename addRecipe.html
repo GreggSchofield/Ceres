@@ -21,7 +21,7 @@
     var tagButtons = document.getElementById("ingredientTagList");
     tagButtons.innerHTML = "";
     if (text != "") {
-      var possibleTags = callPHP("php/getIngredientList.php?t=" + text);
+      var possibleTags = callPost("php/getIngredientList.php", "t=" + text);
       var wordList = possibleTags.split(",");
       var option;
       if (wordList.length > 22) {

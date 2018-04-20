@@ -1,5 +1,5 @@
 // Return the resutl of a PHP request
-function callPHP(filename){
+function callGet(filename){
   console.log("Calling " + filename);
   var xmlhttp;
   if (window.XMLHttpRequest)
