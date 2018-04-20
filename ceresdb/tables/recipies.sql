@@ -4,7 +4,7 @@
 
 -- comment this command out if you are attempting to create this table for the
 -- first time.
---DROP TABLE recipes;
+DROP TABLE recipes;
 
 CREATE TABLE IF NOT EXISTS recipes (
 	recipeID MEDIUMINT UNIQUE NOT NULL AUTO_INCREMENT,
@@ -15,7 +15,6 @@ CREATE TABLE IF NOT EXISTS recipes (
 	steps VARCHAR (1000) NOT NULL,
 	uses INT NOT NULL,
 	recipeViews INT NOT NULL,
-	tags VARCHAR (1000),
 	servings INT NOT NULL,
 	PRIMARY KEY (recipeID),
 	FOREIGN KEY (userID) REFERENCES users (userID)

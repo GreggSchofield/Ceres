@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Add recipe test</title>
+    <title>Upload recipe</title>
   </head>
   <script src="js/phpFunctions.js"></script>
   <script>
 
   var ingredientsList = [];
   var tagList = [];
-  var tempUserID = 1234;
+  var tempUserID = 1;
 
   function Ingredient(ingID, ingName, weight) {
     this.ingID = ingID;
@@ -128,19 +128,43 @@
   function addRecipe() {
     var name = document.getElementById("txtName").value;
     var instructions = document.getElementById("txtInstructions").value;
-    var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth()+1;
-    var yyyy = today.getFullYear();
     var servings = document.getElementById("txtServings").value;
+    var callStr = "php/addRecipe.php";
+    var varStr = "userid=" + tempUserID + "&name='" + name + "'&instructions='" + instructions + "'&servings=" + servings;
+    var recipeID = parseInt(callPost(callStr, varStr));
+    console.log(recipeID)
+    for (var i = 0; i < ingredientsList.length; i++) {
+      callStr = "php/addRecipeIngredient.php"
+      varStr = "recipe=" + recipeID + "&ingredient=" + ingredientsList[i].ingID + "&weight=" + ingredientsList[i].weight;
+      callPost(callStr, varStr);
+    }
+    for (var i = 0; i < tagList.length; i++) {
+      callPost("php/addTag.php", "name='" + tagList[i] + "'");
+      var tagID = callPost("php/findTagID.php", "name='" + tagList[i] + "'");
+      callPost("php/addRecipeTag.php", "recipe=" + recipeID + "&tag=" + tagID);
+    }
+  }
+
+  function uploadImage(file) {
+    var img = document.createElement("img");
+    var reader = new FileReader();
+    reader.onload = function(e) {img.src = e.target.result}
+    reader.readAsDataURL(file);
+    var ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0);
+    var dataurl = canvas.toDataURL("image/png");
   }
 
   </script>
 
   <body>
 
+    <h1>Upload a new recipe</h1>
+
     <p>Recipe name: </p>
     <input type="text" id="txtName"></input>
+    <p>Picture: </p>
+    <input type="file" id="picture" accept=".jpg, .jpeg, .png">
     <p>Instructions: </p>
     <textarea id="txtInstructions" cols=50 rows=20></textarea>
     <p>Number of servings: </p>

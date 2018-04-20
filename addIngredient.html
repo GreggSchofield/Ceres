@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Add ingredient test</title>
+    <title>Add new ingredient</title>
   </head>
   <script src="js/phpFunctions.js"></script>
   <script>
 
   function addIngredient() {
-    var name = document.getElementById("txtName").value.toLowerCase() + " (" + document.getElementById("txtPrep").value.toLowerCase() + ")";
-    var calories = document.getElementById("txtCalories").value;
+    var name = document.getElementById("txtName").value.toLowerCase();
+    if (document.getElementById("txtPrep").value.toLowerCase() != "") {
+      name = document.getElementById("txtName").value.toLowerCase() + " (" + document.getElementById("txtPrep").value.toLowerCase() + ")";
+    }
     var protein = document.getElementById("txtProtein").value;
     var fat = document.getElementById("txtFat").value;
     var sugar = document.getElementById("txtSugar").value;
     var fiber = document.getElementById("txtFiber").value;
     var carbs = document.getElementById("txtCarbs").value;
+    var calories = (9 * fat) + (4 * protein) + (4 * carbs);
     var containsNuts = document.getElementById("boxNuts").checked;
     var containsGluten = document.getElementById("boxGluten").checked;
     var containsDairy = document.getElementById("boxDairy").checked;
@@ -46,14 +49,15 @@
 
   <body>
 
+    <h1>Add a new ingredient</h1>
+
     <form id="addIngredientForm">
       <p>Ingredient name: </p>
       <input type="text" id="txtName"></input>
       <p>Preparation: </p>
       <input type="text" id="txtPrep"></input>
-      <p>Calories (grams per gram of ingredient): </p>
-      <input type="number" id="txtCalories"></input>
-      <p>Protein (per gram): </p>
+      <p>Please enter data to 3 decimal places where possible</p>
+      <p>Protein (grams per gram of ingredient): </p>
       <input type="number" id="txtProtein"></input>
       <p>Fat (per gram): </p>
       <input type="number" id="txtFat"></input>

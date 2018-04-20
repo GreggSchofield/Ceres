@@ -4,13 +4,13 @@
 
 -- comment this command out if you are attempting to create this table for the
 -- first time.
---DROP TABLE users;
+DROP TABLE users;
 
 CREATE TABLE IF NOT EXISTS users (
 	userID MEDIUMINT UNIQUE NOT NULL AUTO_INCREMENT,
 	email VARCHAR (32) NOT NULL,
 	password VARCHAR (20) NOT NULL,
-	joinDate date NOT NULL,
+	joinDate TIMESTAMP NOT NULL,
 	gender boolean,
 	dateOfBirth date,
 	displayName VARCHAR (20) NOT NULL,
