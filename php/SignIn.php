@@ -1,5 +1,6 @@
 <?php
 	require_once ('sessionCookieHandlerLib.php');
+	require_once 'queryLib.php';
 	startSession();
 ?>
 

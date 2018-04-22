@@ -1,6 +1,7 @@
 <?php
   require_once 'sessionCookieHandlerLib.php';
   require_once 'userCredentialsValidation.php';
+  require_once 'queryLib.php';
   startSession();
 ?>
 
@@ -60,10 +61,14 @@
       }
 
       if (!$error) {
-        $query = "insert into users (email, password, displayName) value ('".$email."', '".$password."', '".$displayName."');";
-        $stmt = $pdo->query($query);
-        $stmt = $pdo->query("select last_insert_id();");
-        $id = $stmt->fetch()["last_insert_id()"];
+        //$query = "insert into users (email, password, displayName) value ('".$email."', '".$password."', '".$displayName."');";
+        //$stmt = $pdo->query($query);
+        //$stmt = $pdo->query("select last_insert_id();");
+        //$id = $stmt->fetch()["last_insert_id()"];
+        // Hey jack, I have tidyed this up a little but I need to speak to you about
+        // what the '$_SESSION["userid"] = $id;' statement does because I need to
+        // also include this functionality into the refactor.
+        createUser($email, $password, $displayName);
         $_SESSION["userid"] = $id;
         header("Location: homepage.php");
         die();
