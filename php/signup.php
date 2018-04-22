@@ -11,6 +11,27 @@
   </head>
   <?php
     if (isset($_POST["txtDisplayName"])) {
+
+      // Checks whether the entered display name is valid. If so, it is stored
+      // as a session variable, else, $error is set to true.
+      if (validateDispName($displayName)) {
+        $_SESSION['dispName'] = $displayName;
+      } else { $error = true; }
+
+      // Checks whether the entered email is valid. If so, it is stored
+      // as a session variable, else, $error is set to true.
+      if (validateEmail($email)) {
+        $_SESSION['email'] = $email;
+      } else { $error = true; }
+
+      // Checks whether the entered password is valid. If so, a one-way hash
+      // is created and this is stored as a session variable, else, $error is
+      // set to true.
+      if (validatePswd($password)) {
+        $pswdhash = password_hash($password, PASSWORD_DEFAULT);
+        $_SESSION['pswd'] = $password;
+      } else { $error = true; }
+
       include 'dbconn.php';
       $displayName = htmlspecialchars($_POST["txtDisplayName"]);
       $password = htmlspecialchars($_POST["txtPassword"]);

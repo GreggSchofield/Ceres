@@ -6,33 +6,52 @@
     Author[s]: Gregg Schofield -->
 
 <?php
-
-  // Don't forget that this php library will certainly need to connect with the
-  // ceresdb!
-  //include_once '';
+  // This php library requires a connection to the Ceresdb.
+  include_once 'dbconn.php';
 
   /**
   * This is an internal library function that checks using a regular expression
-  * whether a given e-mail address is valid. Returns true or false accordingly.
-  * @author Altered but ultimately attributed to:
+  * whether a given display name is valid. Returns true or false accordingly.
+  * @author Altered by Gregg Schofield but ultimately attributed to:
   * https://www.w3schools.com/php/php_form_url_email.asp
   */
-  function validateEmailAddress($paramStr) {
-    if (preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$paramStr)) {
+  public function validateDisplayName($paramStr) {
+    if (preg_match('/^[A-Za-z]{1}[A-Za-z0-9]{5-31}$/', $paramStr)) {
       return true;
-    } else {
-        return false;
-    }
+    } else { return false; }
+  }
+
+  /**
+  * This is an internal library function that checks using a regular expression
+  * whether a given password is valid. Returns true or false accordingly.
+  * @author Altered by Gregg Schofield but ultimately attributed to:
+  * https://stackoverflow.com/questions/24164973/regular-expression-to-match-minimum-password-requirements-and-other-characters
+  */
+  public function validatePassword($paramStr) {
+    if (preg_match('/^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)\w{8,20}$/', $paramStr)) {
+      return true;
+    } else { return false; }
   }
 
   /**
   * This is an internal library function that checks using a regular expression
   * whether a given e-mail address is valid. Returns true or false accordingly.
-  * @author Gregg Schofield
-  * WE NEED TO COLLECTIVELY DECIDE ON WHAT CONSTITUTES A VALUE DISPLAYNAME!
+  * @author Altered by Gregg Schofield but ultimately attributed to:
+  * https://www.w3schools.com/php/php_form_url_email.asp
   */
-  public function FunctionName($paramStr) {
-    if (preg_match("",$paramStr)) {
+  function validateEmailAddress($paramStr) {
+    if (preg_match('/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i', $paramStr)) {
+      return true;
+    } else { return false; }
+  }
+
+  /**
+  * This is an internal library function that checks using a regular expression
+  * whether a given biography is valid. Returns true or false accordingly.
+  * @author Gregg Schofield
+  */
+  function validateBiography($paramStr) {
+    if (preg_match('', $paramStr)) {
       return true;
     } else {
         return false;
