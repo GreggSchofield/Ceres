@@ -1,9 +1,12 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html>
   <head>
     <title>Add new ingredient</title>
   </head>
-  <script src="js/phpFunctions.js"></script>
+  <script src="../js/phpFunctions.js"></script>
   <script>
 
   function addIngredient() {
@@ -35,7 +38,7 @@
       content += "meat;"
     }
 
-    var callStr = "php/addIngredient.php";
+    var callStr = "addIngredient.php";
     var varStr = "name='" + name + "'&calories=" + calories + "&protein=" + protein + "&fat=" + fat + "&sugar=" + sugar + "&fiber=" + fiber + "&carbs=" + carbs + "&contents='" + content + "'";
     callPost(callStr, varStr);
 

@@ -1,9 +1,13 @@
+<?php
+//  session_start();
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
     <title>Upload recipe</title>
   </head>
-  <script src="js/phpFunctions.js"></script>
+  <script src="../js/phpFunctions.js"></script>
   <script>
 
   var ingredientsList = [];
@@ -21,7 +25,7 @@
     var tagButtons = document.getElementById("ingredientTagList");
     tagButtons.innerHTML = "";
     if (text != "") {
-      var possibleTags = callPost("php/getIngredientList.php", "t=" + text);
+      var possibleTags = callPost("getIngredientList.php", "t=" + text);
       var wordList = possibleTags.split(",");
       var option;
       if (wordList.length > 22) {
@@ -33,7 +37,7 @@
         var name = wordList[i+1];
         button.id = id;
         button.innerHTML = name;
-        button.onclick = function() {selectTag(button);};
+        button.onclick = function() {selectTag(this);};
         tagButtons.appendChild(button);
       }
     }
@@ -41,9 +45,11 @@
 
   var tempIngredient;
   function selectTag(element) {
+    var id = element.id;
+    var name = element.innerHTML;
     console.log("Tag selected");
-    tempIngredient = new Ingredient(element.id, element.innerHTML, 0);
-    document.getElementById("txtSearchIngredient").value = element.innerHTML;
+    tempIngredient = new Ingredient(id, name, 0);
+    document.getElementById("txtSearchIngredient").value = name;
   }
   function clearTag() {
     console.log("Tag cleared");
@@ -129,22 +135,22 @@
     var name = document.getElementById("txtName").value;
     var instructions = document.getElementById("txtInstructions").value;
     var servings = document.getElementById("txtServings").value;
-    var callStr = "php/addRecipe.php";
+    var callStr = "addRecipe.php";
     var varStr = "userid=" + tempUserID + "&name='" + name + "'&instructions='" + instructions + "'&servings=" + servings;
     var recipeID = parseInt(callPost(callStr, varStr));
     console.log(recipeID)
     for (var i = 0; i < ingredientsList.length; i++) {
-      callStr = "php/addRecipeIngredient.php"
+      callStr = "addRecipeIngredient.php"
       varStr = "recipe=" + recipeID + "&ingredient=" + ingredientsList[i].ingID + "&weight=" + ingredientsList[i].weight;
       callPost(callStr, varStr);
     }
     for (var i = 0; i < tagList.length; i++) {
-      callPost("php/addTag.php", "name='" + tagList[i] + "'");
-      var tagID = callPost("php/findTagID.php", "name='" + tagList[i] + "'");
-      callPost("php/addRecipeTag.php", "recipe=" + recipeID + "&tag=" + tagID);
+      callPost("addTag.php", "name='" + tagList[i] + "'");
+      var tagID = callPost("findTagID.php", "name='" + tagList[i] + "'");
+      callPost("addRecipeTag.php", "recipe=" + recipeID + "&tag=" + tagID);
     }
     var imageName = recipeID + "img";
-    document.getElementById("picture").action = "php/uploadImage2.php";
+    document.getElementById("picture").action = "uploadImage2.php";
     document.getElementById("picture").submit();
 //    uploadImageToServer(image, imageName);
   }
