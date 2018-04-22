@@ -53,7 +53,7 @@ model.fit_generator(training_data,
 
 # Save the entire model into a hierarchical data format file.
 # This includes the model architecture, weights and optimizer state.
-model.save_weights('cnn.h5')
+model.save('cnn.h5')
 
 # Alternatively, you may save only the architecture of the model as a JSON
 # string.
