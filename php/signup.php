@@ -25,11 +25,9 @@
       } else { $error = true; }
 
       // Checks whether the entered password is valid. If so, a one-way hash
-      // is created and this is stored as a session variable, else, $error is
-      // set to true.
+      // is created, else, $error is set to true.
       if (validatePswd($password)) {
         $pswdhash = password_hash($password, PASSWORD_DEFAULT);
-        $_SESSION['pswd'] = $password;
       } else { $error = true; }
 
       include 'dbconn.php';
