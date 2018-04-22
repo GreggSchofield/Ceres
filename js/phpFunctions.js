@@ -36,6 +36,10 @@ function callPost(filename, variables) {
   return returnVal;
 }
 
+function uploadImageToServer(file, filename) {
+  
+}
+
 // Output the result of a PHP request to an alert message
 function alertPHP(filename){
   var str = callPHP(filename);

@@ -2,7 +2,6 @@
 <html>
 	<head>
   </head>
-  <body>
 		<?php
     $recipe = htmlspecialchars($_GET["recipe"]);
 
@@ -20,6 +19,9 @@
     $recipeViews = $row["recipeViews"];
     $servings = $row["servings"];
     $totalCalories = 0;
+
+    echo "<title>".$recipeName."</title>\n";
+    echo "<body>\n";
 
     $recipeViews += 1;
 
@@ -45,7 +47,7 @@
       echo "<p>".$ingName." - ".$weight."g</p>\n";
     }
 
-    $totalCalroies /= $servings;
+    $totalCalories /= $servings;
 
     echo "<b>".$totalCalories." calories per serving</b>\n<br><br>\n";
 
