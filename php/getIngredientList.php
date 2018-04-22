@@ -1,5 +1,5 @@
 <?php
-  $t = htmlspecialchars($_GET["t"]);
+  $t = htmlspecialchars($_POST["t"]);
 
   include 'dbconn.php';
 

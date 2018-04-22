@@ -1,5 +1,5 @@
 // Return the resutl of a PHP request
-function callPHP(filename){
+function callGet(filename){
   console.log("Calling " + filename);
   var xmlhttp;
   if (window.XMLHttpRequest)
@@ -34,6 +34,10 @@ function callPost(filename, variables) {
   }
   xmlhttp.send(variables);
   return returnVal;
+}
+
+function uploadImageToServer(file, filename) {
+  
 }
 
 // Output the result of a PHP request to an alert message
