@@ -9,14 +9,16 @@
   include 'dbconn.php';
 
   function createUser($email, $pswd, $dispName) {
+    // TODO: think about why this has been implemented as a transaction! Check
+    // whether this user does not already exist!!!
     try {
       $stmt = 'INSERT INTO users (email, password, displayName) VALUES ?, ?, ?';
 
       $pdo->beginTransaction();
       $stmt = $pdo->prepare($stmt);
       $stmt->bindParam(1,$email,PDO::PARAM_STR);
-      $stmt->bindParam(1,$pswd,PDO::PARAM_STR);
-      $stmt->bindParam(1,$dispName,PDO::PARAM_STR);
+      $stmt->bindParam(2,$pswd,PDO::PARAM_STR);
+      $stmt->bindParam(3,$dispName,PDO::PARAM_STR);
       $stmt->execute();
       $pdo->commit();
     } catch (PDOException $PDOException) {
@@ -29,6 +31,20 @@
     //
   }
 
+  function updatePassword($updatedPassword) {
+    try {
+      $stmt = 'UPDATE users SET password = ? WHERE email = ?';
+
+      $stmt = $pdo->prepare($stmt);
+      $stmt->bindParam(1,$updatedPassword,PDO::PARAM_STR);
+      $stmt->bindParam(2,$_SESSION['email'],PDO::PARAM_STR);
+      $stmt->execute();
+    } catch (PDOException $PDOException) {
+        exit("PDO Error: ".$PDOException->getMessage()."<br>");
+    }
+
+  }
+
   function loginAuthenticated($pswdAttempt) {
     try {
       $stmt = 'SELECT password FROM users WHERE email = ?';
@@ -38,7 +54,8 @@
       $stmt->execute();
 
       $dbHash = $stmt->fetchColumn();
-      if ($dbPswd === password_hash($pswdAttempt)) {
+      // verifies that the given hash matches the given password
+      if (password_verify($pswdAttempt, $dbHash)) {
         return true;
       } else {
           return false;

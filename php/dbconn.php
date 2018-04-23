@@ -3,8 +3,8 @@
      In the event that there is a connection error the prefefined PDO error
      message will be echoed to the standard output.
 
-     Note that this script should be required on every page within the
-     Ceres system.
+     Note that this script should be required on every module within the
+     Ceres system that needs to interface with the database.
 
      Created: 15/04/18
      Author: Gregg Schofield */
