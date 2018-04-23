@@ -1,0 +1,191 @@
+input {
+  margin-top: 50px;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 50px;
+}
+
+h2 {
+}
+
+#submitBtn {
+	padding : 12px 28px;
+}
+
+#signlogo {
+	position : fixed;
+    top : 25%;
+    left : 50%;
+    width : 300px;
+    height : 100px;
+    margin-top : -150px;
+    margin-left : -200px;
+    border : 1px solid #ccc;
+    background-color : #f3f3f3;
+	text-align : center;
+}
+
+#pagelogo {
+	position : fixed;
+    top : 25%;
+    left : 50%;
+    width : 300px;
+    height : 60px;
+    margin-top : -200px;
+    margin-left : -200px;
+    border : 1px solid #ccc;
+    background-color : #f3f3f3;
+	text-align : center;
+}
+
+#container{
+	position:fixed;
+    top: 50%;
+    left: 50%;
+    width:250px;
+    height:200px;
+    margin-top: -200px;
+    margin-left: -100px;
+    border: 1px solid #ccc;
+    background-color: #f3f3f3;
+	text-align: center;
+}
+
+#details {
+	position : fixed;
+    top : 25%;
+    left : 50%;
+    width : 500px;
+    height : 400px;
+    margin-top : 0px;
+    margin-left : -300px;
+    border : 1px solid #ccc;
+    background-color : #f3f3f3;
+	text-align : center;
+}
+
+#password {
+	position : fixed;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 200px;
+    margin-top: -200px;
+    margin-left: -250px;
+    border: 1px solid #ccc;
+    background-color: #f3f3f3;
+	text-align : center;
+}
+
+#title {
+	position : fixed;
+    top : 25%;
+    left : 50%;
+    width : 425px;
+    height : 120px;
+    margin-top : -100px;
+    margin-left : -500px;
+    border : 1px solid #ccc;
+    background-color : #f3f3f3;
+	text-align : center;
+}
+
+#method {
+	position : fixed;
+    top : 25%;
+    left : 50%;
+    width : 425px;
+    height : 550px;
+    margin-top : 55px;
+    margin-left : -500px;
+    border : 1px solid #ccc;
+    background-color : #f3f3f3;
+	text-align : center;
+}
+
+#image {
+	position : fixed;
+    top : 25%;
+    left : 50%;
+    width : 325px;
+    height : 350px;
+    margin-top : -100px;
+    margin-left : 0px;
+    border : 1px solid #ccc;
+    background-color : #f3f3f3;
+	text-align : center;
+}
+
+#imageUpload {
+	position : fixed;
+    top : 25%;
+    left : 50%;
+    width : 425px;
+    height : 350px;
+    margin-top : -100px;
+    margin-left : 0px;
+    border : 1px solid #ccc;
+    background-color : #f3f3f3;
+	text-align : center;
+}
+
+#ingredient {
+	position : fixed;
+    top : 25%;
+    left : 50%;
+    width : 425px;
+    height : 300px;
+    margin-top : 300px;
+    margin-left : 0px;
+    border : 1px solid #ccc;
+    background-color : #f3f3f3;
+	text-align : center;
+}
+
+#similar {
+	position : fixed;
+    top: 50%;
+    left: 50%;
+    width: 925px;
+    height: 200px;
+    margin-top: -440px;
+    margin-left: -500px;
+    border: 1px solid #ccc;
+    background-color: #f3f3f3;
+	text-align : center;
+}
+
+#star {
+	position : fixed;
+    top : 25%;
+    left : 50%;
+    width : 300px;
+    height : 60px;
+    margin-top : -200px;
+    margin-left : -200px;
+    border : 1px solid #ccc;
+    background-color : #f3f3f3;
+	text-align : center;
+}
+
+#update {
+  position : fixed;
+    top : 25%;
+    left : 50%;
+    width : 30px;
+    height : 30px;
+    margin-top : 570px;
+    margin-left : 282px;
+}
+
+#back {
+	float : left;
+	margin-top : 30px;
+	margin-left : 60px;
+}
+
+#return {
+	float : left;
+	margin-top : -30px;
+	margin-left : 20px;
+}
