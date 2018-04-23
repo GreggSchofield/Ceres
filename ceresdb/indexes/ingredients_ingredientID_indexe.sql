@@ -5,9 +5,9 @@
 
 -- comment this command out if you are attempting to create this index for the
 -- first time.
---DROP INDEX ingredients_ingredientID_index ON ingredients;
+DROP INDEX ingredients_ingredientID_index ON ingredients;
 
-CREATE INDEX ingredients_ingredientID_index
+CREATE INDEX IF EXISTS ingredients_ingredientID_index
   USING HASH
   ON ingredients (ingredientID)
   ALGORITHM = DEFAULT

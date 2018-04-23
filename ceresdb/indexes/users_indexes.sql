@@ -5,9 +5,9 @@
 
 -- comment this command out if you are attempting to create this index for the
 -- first time.
---DROP INDEX users_userID_index ON users;
+DROP INDEX users_userID_index ON users;
 
-CREATE INDEX users_userID_index
+CREATE INDEX IF EXISTS users_userID_index
   USING HASH
   ON users (userID)
   ALGORITHM = DEFAULT

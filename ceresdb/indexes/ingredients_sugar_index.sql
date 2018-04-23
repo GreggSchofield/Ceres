@@ -7,7 +7,7 @@
 -- first time.
 --DROP INDEX ingredients_sugar_index ON ingredients;
 
-CREATE INDEX ingredients_sugar_index
+CREATE INDEX IF EXISTS ingredients_sugar_index
   USING BTREE
   ON ingredients (sugar)
   ALGORITHM = DEFAULT

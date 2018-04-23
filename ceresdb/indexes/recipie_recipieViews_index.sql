@@ -7,7 +7,7 @@
 -- first time.
 --DROP INDEX recipies_recipieViews_index ON recipes;
 
-CREATE INDEX recipies_recipieViews_index
+CREATE INDEX IF EXISTS recipies_recipieViews_index
   USING BTREE
   ON recipes (recipeViews)
   ALGORITHM = DEFAULT

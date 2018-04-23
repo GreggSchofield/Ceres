@@ -5,7 +5,7 @@
 
 -- comment this command out if you are attempting to create this index for the
 -- first time.
---DROP INDEX ingredients_carbohydrates_index ON ingredients;
+DROP INDEX IF EXISTS ingredients_carbohydrates_index ON ingredients;
 
 CREATE INDEX ingredients_carbohydrates_index
   USING BTREE

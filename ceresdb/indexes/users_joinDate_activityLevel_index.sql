@@ -5,7 +5,7 @@
 
 -- comment this command out if you are attempting to create this index for the
 -- first time.
---DROP INDEX users_joinDate_activityLevel_index ON users;
+DROP INDEX IF EXISTS users_joinDate_activityLevel_index ON users;
 
 CREATE INDEX users_joinDate_activityLevel_index
   USING BTREE

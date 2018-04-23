@@ -7,7 +7,7 @@
 -- first time.
 --DROP INDEX reviews_rating_index ON reviews;
 
-CREATE INDEX reviews_rating_index
+CREATE INDEX IF EXISTS reviews_rating_index
   USING BTREE
   ON reviews (rating)
   ALGORITHM = DEFAULT

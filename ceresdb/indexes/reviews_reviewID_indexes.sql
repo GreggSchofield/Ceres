@@ -7,7 +7,7 @@
 -- first time.
 --DROP INDEX reviews_reviewID_index ON reviews;
 
-CREATE INDEX reviews_reviewID_index
+CREATE INDEX IF EXISTS reviews_reviewID_index
   USING HASH
   ON reviews (reviewID)
   ALGORITHM = DEFAULT

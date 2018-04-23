@@ -7,7 +7,7 @@
 -- first time.
 --DROP INDEX recipies_dateUploaded_index ON recipes;
 
-CREATE INDEX recipies_dateUploaded_index
+CREATE INDEX IF EXISTS recipies_dateUploaded_index
   USING BTREE
   ON recipes (dateUploaded)
   ALGORITHM = DEFAULT

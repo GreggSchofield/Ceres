@@ -7,7 +7,7 @@
 -- first time.
 --DROP INDEX recipes_recipieID_index ON recipes;
 
-CREATE INDEX recipes_recipieID_index
+CREATE INDEX IF EXISTS recipes_recipieID_index
   USING HASH
   ON recipes (recipeID)
   ALGORITHM = DEFAULT
