@@ -15,17 +15,11 @@
 		<?php
 		// Checks to see if a password has been entered on the page-load.
 			if (isset($_POST['pswd'])) {
-				if (validatePassword(isset($_POST['pswd']))) {
+				if (validatePassword($_POST['pswd'])) {
 					// Checks whether the password entered
-					checkValidEmail(isset($_POST['pswd'])) or die("Apologies, that was the wrong password");
-				} else {
-					$error = true;
-				}
-			}
-
-			// Obviously move this into the correct php library later on
-			function FunctionName($paramPswd) {
-				$stmt = '';
+					loginAuthenticated($_POST['pswd']) or
+						die("Apologies, that was the wrong password");
+				} else { $error = true; }
 			}
 		?>
 		<div class="">

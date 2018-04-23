@@ -29,17 +29,19 @@
     //
   }
 
-  function loginAuthenticated($userID) {
+  function loginAuthenticated($pswdAttempt) {
     try {
-      $stmt = 'SELECT password FROM users WHERE userID = ?';
+      $stmt = 'SELECT password FROM users WHERE email = ?';
 
       $stmt = $pdo->prepare($stmt);
-      $stmt->bindParam(1,$userID,PDO::PARAM_STR);
+      $stmt->bindParam(1,$_SESSION['email'],PDO::PARAM_STR);
       $stmt->execute();
 
-      $dbPswd = $stmt->fetchColumn();
-      if ($dbPswd === ) {
-        // code...
+      $dbHash = $stmt->fetchColumn();
+      if ($dbPswd === password_hash($pswdAttempt)) {
+        return true;
+      } else {
+          return false;
       }
     } catch (\Exception $e) {
         return false;

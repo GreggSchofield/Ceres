@@ -16,13 +16,13 @@
       // Checks whether the entered display name is valid. If so, it is stored
       // as a session variable, else, $error is set to true.
       if (validateDispName($displayName)) {
-        $_SESSION['dispName'] = $displayName;
+        trim($_SESSION['dispName']) = $displayName;
       } else { $error = true; }
 
       // Checks whether the entered email is valid. If so, it is stored
       // as a session variable, else, $error is set to true.
       if (validateEmail($email)) {
-        $_SESSION['email'] = $email;
+        trim($_SESSION['email']) = $email;
       } else { $error = true; }
 
       // Checks whether the entered password is valid. If so, a one-way hash
@@ -69,7 +69,7 @@
         // what the '$_SESSION["userid"] = $id;' statement does because I need to
         // also include this functionality into the refactor.
         createUser($email, $password, $displayName);
-        $_SESSION["userid"] = $id;
+        trim($_SESSION["userid"]) = $id;
         header("Location: homepage.php");
         die();
       }

@@ -15,7 +15,7 @@
 		<?php
 			if (isset($_POST['user_email'])) {
 				if (validateEmailAddress($_POST['user_email']);) {
-					$_SESSION['user_email'] = $_POST['user_email'];
+					trim($_SESSION['user_email']) = trim($_POST['user_email']);
 					// re-direct the user to another page
 				}
 
