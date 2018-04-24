@@ -20,9 +20,9 @@ The list below represent a high-level checklist of important milestones that mus
 - [ ] Implement basic machine learning (tentative)
 - [ ] Implement Android App (tentative)
 
-_Above all, thank you for viewing the Ceres project! We hope that you will enjoy using it as much as we did building it (phahahahaha)_
-
 Reference-style:
 ![alt text][gantt]
 
-[gantt]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+[gantt]: https://github.com/GreggSchofield/Ceres/blob/master/misc/gantt.png "Gantt chart"
+
+_Above all, thank you for viewing the Ceres project! We hope that you will enjoy using it as much as we did building it (phahahahaha)_
