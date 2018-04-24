@@ -1,12 +1,12 @@
-<?php
-
-  /*
-  This is a small library that will contain functions to allow high-level
+      /*
+      This is a small library that will contain functions to allow high-level
       function calls from the HTHL webpages to complete SQL query-based tasts.
 
       Created: 17/04/18
       Author[s]: Gregg Schofield
       */
+      
+<?php
 
   include 'dbconn.php';
 

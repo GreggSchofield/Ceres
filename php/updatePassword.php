@@ -1,5 +1,5 @@
 <?php
-  session_start();
+  // remember to write all of the include statements here!
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +21,10 @@
                 // In this event an error message should be shown and the script
                 // should die or something?
             }
+      }
+
+      if (condition) {
+        // code...
       }
     ?>
     <div class="">
