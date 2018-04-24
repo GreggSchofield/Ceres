@@ -1,11 +1,14 @@
-<!-- This is a small library that will contain functions to allow high-level
-    function calls from the HTHL webpages to complete non-trivial tasks such as
-    validating whether client input is valid.
-
-    Created: 17/04/18
-    Author[s]: Gregg Schofield -->
-
 <?php
+
+  /*
+  This is a small library that will contain functions to allow high-level
+      function calls from the HTHL webpages to complete non-trivial tasks such as
+      validating whether client input is valid.
+
+      Created: 17/04/18
+      Author[s]: Gregg Schofield
+    */
+
   // This php library requires a connection to the Ceresdb.
   include_once 'dbconn.php';
 

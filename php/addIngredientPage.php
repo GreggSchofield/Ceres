@@ -57,6 +57,10 @@
 
     <h1>Add a new ingredient</h1>
 
+    <form action="addRecipePage.php">
+      <input type ="submit" id="btnReturn" value="Return to recipe page"></input>
+    </form>
+
     <form id="addIngredientForm">
       <p>Ingredient name: </p>
       <input type="text" id="txtName"></input>

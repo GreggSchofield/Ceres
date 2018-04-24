@@ -177,6 +177,10 @@
 
     <h1>Upload a new recipe</h1>
 
+    <form action="homepage.php">
+      <input type ="submit" id="btnReturn" value="Return to homepage"></input>
+    </form>
+
     <p>Recipe name: </p>
     <input type="text" id="txtName"></input>
     <p>Picture: </p>
@@ -195,6 +199,10 @@
       <input type ="text" id="txtSearchIngredient" onkeyup="checkTag();clearTag();"></input>
       <div id="ingredientTagList">
       </div>
+      <form action="addIngredientPage.php">
+        <p>Can't find the ingredient you're looking for? Why not...</p>
+        <input type ="submit" id="btnAddIngredient" value="add a new ingredient!"></input>
+      </form>
       <p>Input the weight in grams of the ingredient: </p>
       <input type ="number" id="txtIngredientWeight"></input>
       <br><br>
