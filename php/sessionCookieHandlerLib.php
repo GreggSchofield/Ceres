@@ -11,7 +11,7 @@
 
   // Temporal constant definitions.
   define("UNIXTIME", 2592000);
-  define("30MINS", 1800);
+  define("MINS30", 1800);
 
   /**
   * Checks if the client is logged in, if this is the case, then the client is
@@ -20,7 +20,7 @@
   *        is to be re-directed to.
   * @author Gregg Schofield
   */
-  public function reDirectIfLoggedIn($relativeRedirectionPath) {
+  function reDirectIfLoggedIn($relativeRedirectionPath) {
     if (isset($_SESSION['x'])) {
       header('Location: '.$relativeRedirectionPath);
     }
@@ -31,7 +31,7 @@
   * client is a first time visitor, otherwise a new session id is generated.
   * @author Gregg Schofield
   */
-  public function startSession() {
+  function startSession() {
     session_start();
     session_regenerate_id();
   }
@@ -43,7 +43,7 @@
   * id, the UNIX time and a relative path (this path).
   * @author Gregg Schofield
   */
-  public function endSession() {
+  function endSession() {
     session_destroy();
     session_unset();
     setcookie(session_name(), session_id(), time()-UNIXTIME, '/');
@@ -57,14 +57,16 @@
   * @author Altered but ultimately attributed to Gumbo
   * https://stackoverflow.com/questions/520237/how-do-i-expire-a-php-session-after-30-minutes
   */
-  public function expSession() {
-    if (isset($_SESSION['x']) && (time() -$_SESSION['x'] > 30MINS)) {
-      endSession();
-      if (session_id() != "" || isset($_COOKIE[session_name()])) {
-        setcookie(session_name(), session_id(), time()-UNIXTIME, '/');
+  function expSession() {
+    if (isset($_SESSION['x'])) {
+      if (time() - $_SESSION['x'] > MINS30) {
+        endSession();
+        if (session_id() != "" || isset($_COOKIE[session_name()])) {
+          setcookie(session_name(), session_id(), time()-UNIXTIME, '/');
+        }
+      } else {
+        $_SESSION['x'] = time();
       }
-    } else {
-      $_SESSION['x'] = time();
     }
   }
 
@@ -77,10 +79,10 @@
   * @author Altered but ultimately attributed to Gumbo
   * https://stackoverflow.com/questions/520237/how-do-i-expire-a-php-session-after-30-minutes
   */
-  public function genNewSessionIdentifier() {
+  function genNewSessionIdentifier() {
     if (!isset($_SESSION['x'])) {
       $_SESSION['x'] = time();
-    } elseif (time() - $_SESSION['x'] > 30MINS) {
+    } elseif (time() - $_SESSION['x'] > MINS30) {
       session_regenerate_id();
       $_SESSION['x'] = time();
     }

@@ -1,10 +1,12 @@
-<!-- This is a small library that will contain functions to allow high-level
-    function calls from the HTHL webpages to complete SQL query-based tasts.
-
-    Created: 17/04/18
-    Author[s]: Gregg Schofield -->
-
 <?php
+
+  /*
+  This is a small library that will contain functions to allow high-level
+      function calls from the HTHL webpages to complete SQL query-based tasts.
+
+      Created: 17/04/18
+      Author[s]: Gregg Schofield
+      */
 
   include 'dbconn.php';
 
@@ -12,7 +14,9 @@
     // TODO: think about why this has been implemented as a transaction! Check
     // whether this user does not already exist!!!
     try {
-      $stmt = 'INSERT INTO users (email, password, displayName) VALUES ?, ?, ?';
+      $stmt = 'INSERT INTO users (email, password, displayName) VALUES (?, ?, ?)';
+
+      include 'dbconn.php';
 
       $pdo->beginTransaction();
       $stmt = $pdo->prepare($stmt);
@@ -21,9 +25,13 @@
       $stmt->bindParam(3,$dispName,PDO::PARAM_STR);
       $stmt->execute();
       $pdo->commit();
+      $stmt = $pdo->query("select last_insert_id();");
+      $id = $stmt->fetch();
+      return $id;
     } catch (PDOException $PDOException) {
       $pdo->rollback();
         exit("PDO Error: ".$PDOException->getMessage()."<br>");
+      return -1;
     }
   }
 

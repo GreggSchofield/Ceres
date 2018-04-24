@@ -68,7 +68,7 @@
     if (tagList.length == 0) {
       alert("Please input a set of search terms");
     } else {
-      callStr =
+//      callStr =
     }
   }
 
