@@ -8,6 +8,9 @@
 <html>
 	<head>
   </head>
+		<form action="homepage.php">
+			<input type="submit" value="Return">
+		</form>
 		<?php
     $recipe = htmlspecialchars($_GET["recipe"]);
 
