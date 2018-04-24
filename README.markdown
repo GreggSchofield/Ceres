@@ -25,4 +25,4 @@ Reference-style:
 
 [gantt]: https://github.com/GreggSchofield/Ceres/blob/master/misc/gantt.png "Gantt chart"
 
-_Above all, thank you for viewing the Ceres project! We hope that you will enjoy using it as much as we did building it (phahahahaha)_
+_Above all, thank you for viewing the Ceres project! We hope that you will enjoy using it as much as we did building it_

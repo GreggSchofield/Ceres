@@ -35,11 +35,24 @@
     }
   }
 
-  function updateInfo() {
-    //
+  function updateDisplayName($newDispName) {
+    // TODO:
+  }
+
+  function FunctionName($newEmailAddress) {
+    // TODO:
+  }
+
+  function FunctionName($email) {
+    // TODO:
+  }
+
+  function FunctionName($email) {
+    // TODO:
   }
 
   function updatePassword($updatedPassword) {
+    // TODO: please hash this as it is plain-text
     try {
       $stmt = 'UPDATE users SET password = ? WHERE email = ?';
 

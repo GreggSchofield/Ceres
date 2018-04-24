@@ -2,7 +2,6 @@
 	require_once 'sessionCookieHandlerLib.php';
 	require_once 'queryLib.php';
 	require_once 'userCredentialsValidationLib.php';
-	require 'redirect.php';
 	startSession();
 ?>
 
@@ -11,7 +10,7 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="Reset.css">
 		<link rel="stylesheet" type="text/css" href="SignInStyle.css">
-		<title>Group Project</title>
+		<title>Ceres || Sign-in</title>
 	</head>
 	<body>
 		<?php
