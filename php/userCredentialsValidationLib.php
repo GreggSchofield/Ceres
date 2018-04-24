@@ -36,12 +36,10 @@
   /**
   * This is an internal library function that checks using a regular expression
   * whether a given e-mail address is valid. Returns true or false accordingly.
-  * @author Altered by Gregg Schofield but ultimately attributed to:
-  * https://www.w3schools.com/php/php_form_url_email.asp
+  * @author Gregg Schofield
   */
   function validateEmailAddress($paramStr) {
-    return ture;
-    if (preg_match('/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i', $paramStr)) {
+    if (filter_var($paramStr, FILTER_VALIDATE_EMAIL)) {
       return true;
     } else { return false; }
   }
