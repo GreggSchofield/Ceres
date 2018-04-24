@@ -1,5 +1,5 @@
 <?php
-//	session_start();
+	session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,11 +12,11 @@
 
 	<div id="topBar">
 
-		<form id="return" action="main.htm">
+		<form id="return" action="homepage.php">
 		<input type="button" value="Return" />
 		</form>
 
-		<form id="account" action="AccountSettins.htm">
+		<form id="account" action="accountSettings.php">
 		<input type="button" value="Account" />
 		</form>
 
