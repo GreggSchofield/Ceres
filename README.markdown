@@ -6,10 +6,10 @@
 
 **The target demographic identified for the proposed software is health enthusiasts and people who enjoy cooking. However, this application will be available to anybody who wishes to use it as it is not contracted for any particular user. Users will need a consistent internet connection and web browser to access the system.**
 
-Ceres is currently under development by:
+**Ceres is currently under development by:
   @SirBozwellOx,
   @ChrisJM,
-  @GreggSchofield and others who are yet to join the repository.
+  @GreggSchofield and others who are yet to join the repository.**
 
 The list below represent a high-level checklist of important milestones that must be completed before April 27th.
 
@@ -19,5 +19,10 @@ The list below represent a high-level checklist of important milestones that mus
 - [ ] Implement search optimisation,
 - [ ] Implement basic machine learning (tentative)
 - [ ] Implement Android App (tentative)
+
+Reference-style:
+![alt text][gantt]
+
+[gantt]: https://github.com/GreggSchofield/Ceres/blob/master/misc/gantt.png "Gantt chart"
 
 _Above all, thank you for viewing the Ceres project! We hope that you will enjoy using it as much as we did building it (phahahahaha)_

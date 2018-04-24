@@ -56,7 +56,7 @@
   * called. Otherwise simply set the session variable to the current time.
   * IMPORTANT WE WILL EVENTUALLY HAVE TO CHANGE THE VARIABLE NAME x IF WE WANT THIS
   * FUNCTION TO WORK CORRECTLY! DELETE THIS COMMENT AFTER THE FACT.
-  * @author Altered but ultimately attributed to Gumbo
+  * @author Gregg Schofield but ultimately attributed to Gumbo
   * https://stackoverflow.com/questions/520237/how-do-i-expire-a-php-session-after-30-minutes
   */
   function expSession() {
@@ -78,7 +78,7 @@
   * This prevents session hijacking.
   * IMPORTANT WE WILL EVENTUALLY HAVE TO CHANGE THE VARIABLE NAME x IF WE WANT THIS
   * FUNCTION TO WORK CORRECTLY! DELETE THIS COMMENT AFTER THE FACT.
-  * @author Altered but ultimately attributed to Gumbo
+  * @author Gregg Schofield but ultimately attributed to Gumbo
   * https://stackoverflow.com/questions/520237/how-do-i-expire-a-php-session-after-30-minutes
   */
   function genNewSessionIdentifier() {

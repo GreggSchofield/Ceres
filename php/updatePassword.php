@@ -1,5 +1,5 @@
 <?php
-  session_start();
+  require 'redirect.php';
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +21,10 @@
                 // In this event an error message should be shown and the script
                 // should die or something?
             }
+      }
+
+      if (condition) {
+        // code...
       }
     ?>
     <div class="">

@@ -6,6 +6,8 @@
      Note that this script should be required on every module within the
      Ceres system that needs to interface with the database.
 
+     require 'dbconn.php';
+
      Created: 15/04/18
      Author: Gregg Schofield */
 

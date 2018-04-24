@@ -1,7 +1,8 @@
 <?php
-	require_once 'sessionCookieHandlerLib.php';
-	require_once 'queryLib.php';
-	require_once 'userCredentialsValidationLib.php';
+	require 'redirect.php';
+	require 'sessionCookieHandlerLib.php';
+	require 'queryLib.php';
+	require 'userCredentialsValidationLib.php';
 	startSession();
 ?>
 <!DOCTYPE html>
