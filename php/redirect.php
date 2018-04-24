@@ -3,6 +3,8 @@
      without having an acive session. In this event it will simple re-direct the
      log-in page.
 
+     require 'redirect.php';
+
 
     Created: 24/04/18
     Author: Gregg Schofield -->

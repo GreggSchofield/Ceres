@@ -1,5 +1,5 @@
 <?php
-  // remember to write all of the include statements here!
+  require 'redirect.php';
 ?>
 
 <!DOCTYPE html>
