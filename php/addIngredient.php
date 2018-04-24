@@ -1,4 +1,9 @@
 <?php
+  require_once 'sessionCookieHandlerLib.php';
+  require_once 'queryLib.php';
+  require_once 'userCredentialsValidationLib.php';
+  startSession();
+
   $name = htmlspecialchars($_POST["name"]);
   $calories = htmlspecialchars($_POST["calories"]);
   $protein = htmlspecialchars($_POST["protein"]);

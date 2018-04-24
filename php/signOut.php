@@ -3,6 +3,6 @@
   require_once 'queryLib.php';
   startSession();
   $_SESSION = array();
-  header("Location: signIn.php");
+  header("Location: homepage.php");
   die();
 ?>

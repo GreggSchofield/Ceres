@@ -1,4 +1,9 @@
 <?php
+  require_once 'sessionCookieHandlerLib.php';
+  require_once 'queryLib.php';
+  require_once 'userCredentialsValidationLib.php';
+  startSession();
+
   $userid = htmlspecialchars($_POST["userid"]);
   $name = htmlspecialchars($_POST["name"]);
   $instructions = htmlspecialchars($_POST["instructions"]);
