@@ -1,4 +1,9 @@
 <?php
+  require_once 'sessionCookieHandlerLib.php';
+  require_once 'queryLib.php';
+  require_once 'userCredentialsValidationLib.php';
+  startSession();
+
   $recipeID = htmlspecialchars($_POST["recipe"]);
   $ingredientID = htmlspecialchars($_POST["ingredient"]);
   $weight = htmlspecialchars($_POST["weight"]);

@@ -1,5 +1,8 @@
 <?php
-//  session_start();
+  require_once 'sessionCookieHandlerLib.php';
+  require_once 'queryLib.php';
+  require_once 'userCredentialsValidationLib.php';
+  startSession();
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +15,8 @@
 
   var ingredientsList = [];
   var tagList = [];
-  var tempUserID = 1;
+  var tempUserID = callPost("getUserID.php");
+  console.log(tempUserID);
 
   function Ingredient(ingID, ingName, weight) {
     this.ingID = ingID;

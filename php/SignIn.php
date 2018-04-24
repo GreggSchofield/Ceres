@@ -32,13 +32,13 @@
 						if ($password == $checkPassword) {
 							// Register new account and go to homepage
 							$id = createUser($email, $password, $email);
-//			        $_SESSION["userid"] = $id;
+			        $_SESSION["userid"] = $id;
 			        header("Location: homepage.php");
 			        die();
 						} else {
 							// Ask user to verify their password again
 							?>
-							<h>Register an account (6)</h>
+							<h>Register an account</h>
 							<form id="return" action="signOut.php">
 								<input type="button" value="Return" />
 							</form>
@@ -58,7 +58,7 @@
 						if ($checkPass != $password) {
 							// The given password is incorrect
 							?>
-							<h>Sign in (5)</h>
+							<h>Sign in</h>
 							<form id="return" action="signOut.php">
 								<input type="button" value="Return" />
 							</form>
@@ -85,7 +85,7 @@
 		      if (count($checkPass) != 1) {
 						// If the account with the given email doesn't exist
 					?>
-					<h>Register an account (4)</h>
+					<h>Register an account</h>
 					<form id="return" action="signOut.php">
 						<input type="button" value="Return" />
 					</form>
@@ -98,7 +98,7 @@
 					} else {
 						// If the account with the given email exists
 						?>
-						<h>Sign in (3)</h>
+						<h>Sign in</h>
 						<form id="return" action="signOut.php">
 							<input type="button" value="Return" />
 						</form>
@@ -111,7 +111,7 @@
 				}
 			} else {
 					?>
-					<h>Sign in / register (2)</h>
+					<h>Sign in / register</h>
 					<form id="return" action="signOut.php">
 						<input type="button" value="Return" />
 					</form>
@@ -124,7 +124,7 @@
 				}
 			} else {
 				?>
-				<h>Sign in / register (1)</h>
+				<h>Sign in / register</h>
 				<form id="return" action="signOut.php">
 					<input type="button" value="Return" />
 				</form>
