@@ -153,23 +153,11 @@
       var tagID = callPost("findTagID.php", "name='" + tagList[i] + "'");
       callPost("addRecipeTag.php", "recipe=" + recipeID + "&tag=" + tagID);
     }
-    var imageName = recipeID + "img";
-    document.getElementById("picture").action = "uploadImage2.php";
-    document.getElementById("picture").submit();
-//    uploadImageToServer(image, imageName);
-  }
 
-  /*
-  function uploadImage(file) {
-    var img = document.createElement("img");
-    var reader = new FileReader();
-    reader.onload = function(e) {img.src = e.target.result}
-    reader.readAsDataURL(file);
-    var ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0);
-    var dataurl = canvas.toDataURL("image/png");
+    var imageName = recipeID + "img";
+    document.getElementById("picture").action = "uploadRecipeImage.php?name=" + imageName + "&id=" + recipeID;
+    document.getElementById("picture").submit();
   }
-  */
 
   </script>
 
@@ -184,8 +172,8 @@
     <p>Recipe name: </p>
     <input type="text" id="txtName"></input>
     <p>Picture: </p>
-    <form id="picture" action="php/uploadImage2.php" method="post" enctype="multipart/form-data">
-      <input type="file" accept=".jpg, .jpeg, .png">
+    <form id="picture" action="uploadRecipeImage.php" method="post" enctype="multipart/form-data">
+      <input type="file" name="fileToUpload" id="fileToUpload" accept=".jpg, .jpeg, .png">
     </form>
     <p>Instructions: </p>
     <textarea id="txtInstructions" cols=50 rows=20></textarea>

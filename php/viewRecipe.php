@@ -1,5 +1,4 @@
 <?php
-	require 'redirect.php';
 	require 'sessionCookieHandlerLib.php';
 	require 'queryLib.php';
 	require 'userCredentialsValidationLib.php';
@@ -17,13 +16,14 @@
 
     include 'dbconn.php';
 
-    $stmt = $pdo->query("select userID, recipeName, dateUploaded, steps, uses, recipeViews, servings from recipes where recipeID=".$recipe.";");
+    $stmt = $pdo->query("select userID, recipeName, dateUploaded, pictureURL, steps, uses, recipeViews, servings from recipes where recipeID=".$recipe.";");
 
     $row = $stmt->fetch();
 
     $userID = $row["userID"];
     $recipeName = $row["recipeName"];
     $dateUploaded = $row["dateUploaded"];
+		$pictureURL = $row["pictureURL"];
     $steps = $row["steps"];
     $uses = $row["uses"];
     $recipeViews = $row["recipeViews"];
@@ -45,6 +45,7 @@
     echo "<h1>".$recipeName." - serves ".$servings."</h1>\n";
     echo "<p>Uploaded by ".$username." on ".$dateUploaded."</p>\n";
     echo "<p>Views: ".$recipeViews." Uses: ".$uses."</p>\n";
+		echo "<img src=".$pictureURL."></img>";
     echo "<h3>Ingredients:</h3>\n";
     $stmt = $pdo->query("select ingredientID, weight from recipe_ingredients where recipeID=".$recipe.";");
     foreach ($stmt as $row) {

@@ -1,14 +1,24 @@
 <?php
-  #requires "file_uploads = On" in the .ini file
-  #this var needs to be replaced with the directory in which the file will be placed
-//  $imageName = htmlspecialchars($_GET["name"]);
-  $uploadDir = "../images/";
-  $uploadFile = $uploadDir . basename($_FILES['fileToUpload']['name']);
-  $uploadCheck = 1;
+  require_once 'sessionCookieHandlerLib.php';
+  require_once 'queryLib.php';
+  require_once 'userCredentialsValidationLib.php';
+  startSession();
+
+//  requires "file_uploads = On" in the .ini file
+//  this var needs to be replaced with the directory in which the file will be placed
+  $imageName = htmlspecialchars($_GET["name"]);
+  $recipeID = htmlspecialchars($_GET["id"]);
+
   $errorCode = -1;
+
+  $uploadDir = "../images/";
+  $uploadCheck = 1;
+  $uploadFile = $uploadDir . basename($_FILES['fileToUpload']['name']);
   $imageFileType = strtolower(pathinfo($uploadFile, PATHINFO_EXTENSION));
+  $uploadFile = $uploadDir . $imageName . "." . $imageFileType;
 
   $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+
   if($check !== false) {
 //    echo "File is an image - " . $check["mime"] . ". <br>";
     $uploadOk = 1;
@@ -36,12 +46,22 @@
   }
   else {
     if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $uploadFile)) {
+      $errorCode = 0;
 //      echo "File " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded. <br>";
     } else {
+      $errorCode = 4;
 //      echo "Unknown error uploading file. <br>";
     }
   }
 
+  include 'dbconn.php';
+
+  $query = "update recipes set pictureURL='".$uploadFile."' where recipeID=".$recipeID.";";
+  $stmt = $pdo->query($query);
+
   echo $errorCode;
+
+  header("Location: homepage.php");
+  die();
 
 ?>
