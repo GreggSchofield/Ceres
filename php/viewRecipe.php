@@ -45,7 +45,7 @@
     echo "<h1>".$recipeName." - serves ".$servings."</h1>\n";
     echo "<p>Uploaded by ".$username." on ".$dateUploaded."</p>\n";
     echo "<p>Views: ".$recipeViews." Uses: ".$uses."</p>\n";
-		echo "<img src=".$pictureURL."></img>";
+		echo "<img src=".$pictureURL." width='600' height='auto'></img>";
     echo "<h3>Ingredients:</h3>\n";
     $stmt = $pdo->query("select ingredientID, weight from recipe_ingredients where recipeID=".$recipe.";");
     foreach ($stmt as $row) {

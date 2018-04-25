@@ -17,14 +17,27 @@
   function featuredRecipes() {
     var divRecipes = document.getElementById("featuredRecipes");
     var recipeList = (callPost("getFeaturedRecipes.php").split(","));
-    for (var i = 0; i < recipeList.length - 2; i += 2) {
-      var button = document.createElement("button");
+    for (var i = 0; i < recipeList.length - 4; i += 4) {
+      var recipeButton = document.createElement("a");
       var id = recipeList[i];
       var name = recipeList[i+1];
-      button.id = id;
-      button.innerHTML = name;
-      button.onclick = function() {selectRecipe(this);};
-      divRecipes.appendChild(button);
+      var pictureURL = recipeList[i+2];
+      var username = recipeList[i+3];
+      recipeButton.id = id;
+      var text = document.createTextNode(name + " - uploaded by " + username);
+      var picture = document.createElement("img");
+      if (pictureURL == "") {
+        picture.setAttribute("src", "../placeholder.png");
+      } else {
+        picture.setAttribute("src", pictureURL);
+      }
+      picture.setAttribute("height", "150");
+      picture.setAttribute("width", "auto");
+      recipeButton.onclick = function() {selectRecipe(this);};
+      recipeButton.href = "viewRecipe.php?recipe=" + id;
+      recipeButton.appendChild(picture);
+      recipeButton.appendChild(text);
+      divRecipes.appendChild(recipeButton);
       divRecipes.appendChild(document.createElement("br"));
     }
   }
