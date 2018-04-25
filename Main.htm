@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Group Project</title>
+		<link rel="stylesheet" type="text/css" href="Reset.css">
+		<link rel="stylesheet" type="text/css" href="MainStyle.css">
+	</head>
+	<body>
+		<img src="" id="logo">
+		
+		<div id="topRight">
+			<form id="account" action="AccountSettings.htm">
+			<input type="button" value="Account" />
+			</form>
+		
+			<textarea name="CalorieAllowance" id="calorieCount"placeholder="Calorie Allowance" disabled></textarea>
+		</div>
+		
+		<div id="searchContainer">
+		
+		<div id="searchBar">
+			<form action="RecipeResults.htm">
+				<input type="text" placeholder="Search..." name="search">
+				<button type="submit">Search</button>
+			</form>
+			<textarea name="tagBox" placeholder="Tags" disabled></textarea>
+		</div>
+
+		</div>
+	
+	<div id ="menuBar">
+			<table>
+				<tr>
+					<th>
+					<form class="menuButton" action="RecipeResults.htm">
+					<input type="button" value="Saved Recipes" />
+					</form>
+				</th>
+				<th>
+					<form class="menuButton" action="RecipeResults.htm">
+					<input type="button" value="My Recipes" />
+					</form>
+				</th>
+				<th>
+					<form class="menuButton" action="RecipeResults.htm">
+					<input type="button" value="History" />
+					</form>
+				</th>
+				<th>
+					<form class="menuButton" action="RecipeResults.htm">
+					<input type="button" value="AccountSettings" />
+					</form>
+				</th>
+				</tr>
+			</table>
+	</div>
+	
+	<div id="centerContain">
+		<div id="slideshow">
+			<img class="Slides" src="img_la.jpg">
+			<img class="Slides" src="img_ny.jpg">
+			<img class="Slides" src="img_chicago.jpg">
+		
+		<!--
+		
+		function to create slideshow of images, needs to be edited to show images of featured 
+		recipes and include buttons with links to the recipe on image 
+		
+		var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+-->
+		
+		</div>
+	
+		<div id="mostUsed">
+		
+		</div>
+		
+	</div>
+	
+	<div id="tailoredRecipes">
+			
+	</div>
+
+	</body>
+
+</html>
