@@ -9,28 +9,33 @@
 			<input type="submit" value="Back">
 		</form>
 
-		<div id="pagelogo">
-			<h2>Logo</h2>
-		</div>
+		<div id="settingContainer" class="uploadAreas">
 
-		<div id="title">
-			<input name="Title" type="text" value="Title"><br>
-		</div>
+			<div id="pagelogo">
+				<h2>Logo</h2>
+			</div>
 
-		<div id="ingredient">
-			<input name="Ingridient" type="text" value="Ingredient"><br>
-		</div>
+			<div id="title" class="uploadAreas">
+				<input name="Title" type="text" value="Title"><br>
+			</div>
 
-		<div id="imageUpload">
-			<input id="submitBtn" type="submit" value="Upload Picture">
-		</div>
+			<div id="imageUpload" class="uploadAreas">
+				<input id="submitBtn" type="submit" value="Upload Picture">
+			</div>
 
-		<div id="method">
-			<input name="Method" type="text" value="Method"><br>
-		</div>
+			<div id="method" class="uploadAreas">
+				<textarea name="Method"></textarea>
 
-		<form id="update" action= "/UpdateRecipe.php" action="Recipe.htm">
-			<input id="submitBtn" type="submit" value="Save">
-		</form>
+			</div>
+
+			<div id="ingredient" class="uploadAreas">
+				<textarea name="Ingridient"></textarea> 
+
+			</div>
+
+			<form id="update" class="uploadAreas" action="Recipe.htm">
+				<input id="submitBtn" type="submit" value="Save">
+			</form>
+		</div>
   </body>
 </html>
