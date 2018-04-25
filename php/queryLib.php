@@ -36,19 +36,65 @@
   }
 
   function updateDisplayName($newDispName) {
-    // TODO:
+    try {
+      $stmt = 'UPDATE users SET displayName = ? WHERE userid = ?';
+
+      $stmt = $pdo->prepare($stmt);
+      $stmt->bindParam(1,$newDispName,PDO::PARAM_STR);
+      // Note that this PDO::PARAM_INT may cause an error - if so, change to STR
+      $stmt->bindParam(2,$_SESSION['userid'],PDO::PARAM_INT);
+      $stmt->execute();
+      return true;
+    } catch (PDOException $PDOException) {
+        echo "PDO Error: ".$PDOException->getMessage()."<br>";
+        return false;
+    }
   }
 
-  function FunctionName($newEmailAddress) {
-    // TODO:
+  function updateEmailAddress($newEmailAddress) {
+    try {
+      $stmt = 'UPDATE users SET email = ? WHERE userid = ?';
+
+      $stmt = $pdo->prepare($stmt);
+      $stmt->bindParam(1,$newEmailAddress,PDO::PARAM_STR);
+      // Note that this PDO::PARAM_INT may cause an error - if so, change to STR
+      $stmt->bindParam(2,$_SESSION['userid'],PDO::PARAM_INT);
+      $stmt->execute();
+    } catch (PDOException $PDOException) {
+        echo "PDO Error: ".$PDOException->getMessage()."<br>";
+        return false;
+    }
   }
 
-  function FunctionName($email) {
-    // TODO:
+  function hasBio() {
+    try {
+      $stmt = 'SELECT bio FROM users WHERE userid = ?';
+      $stmt = $pdo->prepare($stmt);
+      // Note that this PDO::PARAM_INT may cause an error - if so, change to STR
+      $stmt->bindParam(1,$_SESSION['userid'],PDO::PARAM_INT);
+      $stmt->execute();
+
+      if ($stmt->rowCount() !== 0) {
+        return true;
+      } else { return false; }
+    } catch (PDOException $PDOException) {
+        echo "PDO Error: ".$PDOException->getMessage()."<br>";
+        return false;
+    }
   }
 
-  function FunctionName($email) {
-    // TODO:
+  function getBioContents() {
+    try {
+      $stmt = 'SELECT bio FROM users WHERE userid = ?';
+      $stmt = $pdo->prepare($stmt);
+      // Note that this PDO::PARAM_INT may cause an error - if so, change to STR
+      $stmt->bindParam(1,$_SESSION['userid'],PDO::PARAM_INT);
+      $stmt->execute();
+      return $retString = $stmt->getAttribute();
+    } catch (PDOException $PDOException) {
+        echo "PDO Error: ".$PDOException->getMessage()."<br>";
+        return false;
+    }
   }
 
   function updatePassword($updatedPassword) {
@@ -60,8 +106,10 @@
       $stmt->bindParam(1,$updatedPassword,PDO::PARAM_STR);
       $stmt->bindParam(2,$_SESSION['email'],PDO::PARAM_STR);
       $stmt->execute();
+      return true;
     } catch (PDOException $PDOException) {
-        exit("PDO Error: ".$PDOException->getMessage()."<br>");
+        echo "PDO Error: ".$PDOException->getMessage()."<br>";
+        return false;
     }
 
   }
@@ -81,7 +129,8 @@
       } else {
           return false;
       }
-    } catch (\Exception $e) {
+    } catch (PDOException $PDOException) {
+        echo "PDO Error: ".$PDOException->getMessage()."<br>";
         return false;
     }
 
