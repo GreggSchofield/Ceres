@@ -12,7 +12,7 @@ textarea{
 #topBar{
 	height:50px;
 }
-#searchBar{
+#txtSearch{
 	margin-bottom: 10px;
 }
 #results{
@@ -37,7 +37,7 @@ textarea{
 #searchContainer{
     margin:auto;
 	clear:both;
-	width:235.25px;
+	width:640px;
 	margin-bottom:10px;
 }
 #resultsTable{

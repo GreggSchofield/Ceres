@@ -11,6 +11,18 @@
 		<form action="homepage.php">
 			<input type="submit" value="Return">
 		</form>
+		<script src="../js/phpFunctions.js"></script>
+	  <script src="../js/searchRecipes.js"></script>
+		<script>
+
+			function submitComment() {
+				var text = document.getElementById("txtCommentArea").value;
+				var recipeID = $_GET["recipe"];
+				callPost("addComment.php", "recipe=" + recipeID + "&comment=" + text)
+				location.reload();
+			}
+
+		</script>
 		<?php
     $recipe = htmlspecialchars($_GET["recipe"]);
 
@@ -63,6 +75,22 @@
     echo "<b>".$totalCalories." calories per serving</b>\n<br><br>\n";
 
     echo "<h3>Steps:</h3>\n<p style='white-space: pre-line'>".$steps."</p>\n";
+
+		if (isset($_SESSION["userid"])) {
+			echo "<b>Leave a review:</b>\n<br>\n";
+			echo "<textarea id='txtCommentArea' placeholder='Comment' cols='50' rows='3'></textarea>\n<br>\n";
+			echo "<button onclick='submitComment()'>Submit</button>\n<br>\n";
+		}
+
+		$stmt = $pdo->query("select userID, reviewText, dateTimePosted from reviews where recipeID=".$recipe.";");
+		foreach ($stmt as $row) {
+			$userID = $row["userID"];
+			$text = $row["reviewText"];
+			$datePosted = $row["dateTimePosted"];
+			$username = $pdo->query("select displayName from users where userID=".$userID.";");
+			$username = $username->fetch()["displayName"];
+			echo "<p><b>".$username." </b> at ".$datePosted."</p>\n<p>".$text."</p>\n<br>\n";
+		}
 
 		?>
   </body>

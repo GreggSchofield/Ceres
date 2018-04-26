@@ -17,7 +17,7 @@
       <button type="button" name="updateDisplayName" onclick="updateDisplayName.php"></button><br>
       <button type="button" name="updateProfilePicture" onclick="updateDisplayName.php"></button><br>
       <button type="button" name="updateEmail" onclick="updateEmail.php"></button><br>
-      <button type="button" name="updatePassword" onclick="updatePassword"></button><br>
+      <button type="button" name="updatePassword" onclick="updatePassword.php"></button><br>
       <button type="button" name="updateBiography" onclick="updateBiography.php"></button><br>
       <button type="button" name="calculateMetrics" onclick="calculateMetrics.php"></button>
     </div>
