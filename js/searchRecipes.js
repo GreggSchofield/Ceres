@@ -56,6 +56,22 @@ function search() {
   if (tagList.length == 0) {
     alert("Please input a set of search terms");
   } else {
-//      callStr =
+    var callStr = "recipeResults.php?tags=";
+    for (var i = 0; i < tagList.length; i ++) {
+      if (tagList[i].tagType == "tag")
+      {
+        callStr += tagList[i].tagID + ";";
+      }
+    }
+    callStr = callStr.substring(0, callStr.length - 1);
+    callStr += "&ingredients=";
+    for (var i = 0; i < tagList.length; i ++) {
+      if (tagList[i].tagType == "ingredient")
+      {
+        callStr += tagList[i].tagID + ";";
+      }
+    }
+    callStr = callStr.substring(0, callStr.length - 1);
+    window.location = callStr;
   }
 }

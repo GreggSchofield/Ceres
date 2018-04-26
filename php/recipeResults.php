@@ -18,7 +18,7 @@
 			var tagList = $_GET["tags"].split(";");
 			var ingredientList = $_GET["ingredients"].split(";");
 			var divRecipes = document.getElementById("results");
-	    var recipeList = (callPost("getRecipesByTag.php").split(","));
+//	    var recipeList = (callPost("getRecipesByTag.php").split(","));
 	    for (var i = 0; i < recipeList.length - 4; i += 4) {
 	      var recipeButton = document.createElement("a");
 	      var id = recipeList[i];
@@ -69,15 +69,11 @@
 
 	<div id="searchContainer">
 
-		<h2>Title</h2>
+		<h2>Search for recipes</h2>
 
-
-		<div id="searchBar">
-			<form action="">
-				<input type="text" placeholder="Search..." name="search">
-				<button type="submit">Search</button>
-			</form>
-		</div>
+		<div id="tagList"><input type="text" id="txtSearch" onkeyup="checkTag()" placeholder="Search for tags"></input></div>
+    <div id="suggestedTags"></div>
+    <button id="btnSearch" onclick="search()">Search</button>
 
 		<div class="dropdown">
 			<button class="dropbtn">Sort</button>
@@ -87,9 +83,6 @@
 				<a href="#">Alphabetical</a>
 			</div>
 		</div>
-
-		<textarea name="tagBox" placeholder="Tags" disabled></textarea>
-
 
 
 	</div>
