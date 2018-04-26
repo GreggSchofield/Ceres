@@ -1,8 +1,9 @@
 <?php
+
+/* This */
+
   require_once 'sessionCookieHandlerLib.php';
-  require_once 'queryLib.php';
-  startSession();
-  $_SESSION = array();
+  endSession();
   header("Location: homepage.php");
   die();
 ?>

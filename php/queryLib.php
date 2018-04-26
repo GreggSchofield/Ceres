@@ -8,7 +8,7 @@ Created: 17/04/18
 Author[s]: Gregg Schofield
 */
 
-  include 'dbconn.php';
+  require 'dbconn.php';
 
   function createUser($email, $pswd, $dispName) {
     // TODO: think about why this has been implemented as a transaction! Check

@@ -3,7 +3,7 @@
      that contain those ingredients and tags -->
 
 <?php
-  include 'dbconn.php';
+  require 'dbconn.php';
 
   function query($ingredientList, $tagList) {
     // returns false if the two lists are empty
