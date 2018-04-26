@@ -135,15 +135,20 @@
   }
 
   /**
-  *
+  * Function to validate the name of an ingredient. A valid ingredient recipie
+  * name is a non-empty string which consists of upper-case and lower-case characters,
+  * hyphens and spaces. The size of the string must be between 2 and 64
+  * characters inclusive.
   * @author Gregg Schofield
   */
   function validateIngredientName($ingredientName) {
-    // code...
+    if (preg_match('/^[a-zA-Z]+([ -]?[a-zA-Z]){2,64}$/', $recipieName)) {
+      return true;
+    } else { return false; }
   }
 
   /**
-  *
+  * Validates the...
   * @author Gregg Schofield
   */
   function validateCalories($calories) {
@@ -155,30 +160,52 @@
   * @author Gregg Schofield
   */
   function validateProtein($protein) {
-    // code...
+    if (condition) {
+      return true;
+    } else { return false; }
   }
 
   /**
-  *
+  * Validates the fat content of a particular ingredient. A valid value of fat
+  * is one that satisfies...
   * @author Gregg Schofield
   */
   function validateFat($fat) {
-    // code...
+    if (true) {
+      return true;
+    } else { return false; }
   }
 
   /**
-  *
+  * Validates the sugar content of a particular ingredient. A valid value of
+  * sugar is one that satisfies...
   * @author Gregg Schofield
   */
   function validateSugar($fiber) {
-    // code...
+    if (true) {
+      return true;
+    } else { return false; }
   }
 
   /**
-  *
+  * Validates the fiber content of a particular ingredient. A valid value of
+  * fiber is one that satisfies...
+  * @author Gregg Schofield
+  */
+  function validateFiber($fiber) {
+    if (true) {
+      return true;
+    } else { return false; }
+  }
+
+  /**
+  * Validates the carbohydrate content of a particular ingredient. A valid value
+  * of carbohydrate is one that satisfies...
   * @author Gregg Schofield
   */
   function validateCarbohydrates($carboydrates) {
-    // code...
+    if (true) {
+      return true;
+    } else { return false; }
   }
 ?>
