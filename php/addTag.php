@@ -18,7 +18,6 @@
   }
   if ($id == "") {
     $stmt = $pdo->query("insert into tags (tagName, weight) values (".$name.", 1);");
-//  }
   } else {
     $stmt = $pdo->query("select weight from tags where tagID=".$id.";");
     $weight = $stmt->fetch()["weight"];
