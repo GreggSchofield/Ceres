@@ -8,8 +8,12 @@
 
   include 'dbconn.php';
 
-  $recipes = $pdo->query("select recipeID, recipeName from recipes order by recipeViews");
+  $recipes = $pdo->query("select recipeID, recipeName, pictureURL, userID from recipes order by recipeViews");
   foreach ($recipes as $row) {
-    echo $row["recipeID"].",".$row["recipeName"].",";
+    echo $row["recipeID"].",".$row["recipeName"].",".$row["pictureURL"].",";
+    $id = $row["userID"];
+    $username = $pdo->query("select displayName from users where userID=".$id.";");
+    $username = $username->fetch()["displayName"];
+    echo $username.",";
   }
 ?>
