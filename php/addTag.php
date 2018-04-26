@@ -9,7 +9,7 @@
   include 'dbconn.php';
 
   $query = "select tagID from tags where tagName=".$name.";";
-  echo $query."\n";
+//  echo $query."\n";
   $stmt = $pdo->query($query);
   $id = "";
   if (!empty($stmt)) {

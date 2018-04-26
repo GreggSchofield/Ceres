@@ -1,4 +1,8 @@
 <?php
+	require 'sessionCookieHandlerLib.php';
+	require 'queryLib.php';
+	require 'userCredentialsValidationLib.php';
+	startSession();
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,16 +29,55 @@
       location.reload();
     }
 
+		function changeVal(varToChange) {
+			console.log(varToChange);
+			var div = document.getElementById("div" + varToChange);
+			var textBox = document.createElement("input");
+			textBox.type = "text";
+			textBox.id = "txt" + varToChange;
+			div.insertBefore(textBox, div.children[1]);
+			var button = document.getElementById("btn" + varToChange);
+			button.onclick = function() {updateVal(varToChange);};
+			button.innerHTML = "Change";
+		}
+
+		function updateVal(varToUpdate) {
+			var value = document.getElementById("txt" + varToUpdate).value;
+			var varName = "";
+			if (varToUpdate == "DisplayName") {
+				varName = "displayName";
+				value = "'" + value + "'";
+			}
+			if (varToUpdate == "Email") {
+				varName = "email";
+				value = "'" + value + "'";
+			}
+			if (varToUpdate == "Gender") {
+				varName = "gender";
+				value = "'" + value + "'";
+			}
+			if (varToUpdate == "DoB") {
+				varName = "dateOfBirth";
+			}
+			if (varToUpdate == "Height") {
+				varName = "height";
+			}
+			if (varToUpdate == "Weight") {
+				varName = "weight";
+			}
+			callPost("updateUserInfo.php", "user=" + callPost("getUserID.php", "") + "&varName=" + varName + "&value=" + value);
+			location.reload();
+		}
+
+		function gotoPage(page) {
+			window.location = page;
+		}
+
     window.onload = loadGet;
 
     </script>
     <body>
     <?php
-  require 'sessionCookieHandlerLib.php';
-  require 'queryLib.php';
-  require 'userCredentialsValidationLib.php';
-  startSession();
-
   $userID = -1;
   if (isset($_SESSION["userid"])) {
     $userID = $_SESSION["userid"];
@@ -58,13 +101,14 @@
   $weight = $row["weight"];
 
   if ($userID == $pageID) {
-    echo "<b>Welcome to your page ".$displayName."</b>\n";
-    echo "<p>Email: ".$email."</p><button onclick='changeEmail()'>Update email address</button>\n";
-    echo "<p>Bio:<br>".$bio."</p><button onclick='changeBio()'>Update bio</button>\n";
-    echo "<p>Gender: ".$gender."</p><button onclick='changeGender()'>Update gender</button>\n";
-    echo "<p>Date of birth: ".$height."</p><button onclick='changeDoB()'>Update date of birth</button>\n";
-    echo "<p>Height: ".$height."</p><button onclick='changeHeight()'>Update height</button>\n";
-    echo "<p>Weight: ".$gender."</p><button onclick='changeWeight()'>Update weight</button>\n";
+    echo "<b>Welcome to your page</b>\n";
+		echo "<div id='divDisplayName'><p>Display name: ".$displayName."</p><button id='btnDisplayName' onclick='gotoPage(\"updateDisplayName.php\")'>Update display name</button></div>\n";
+    echo "<div id='divEmail'><p>Email: ".$email."</p><button id='btnEmail' onclick='gotoPage(\"updateEmail.php\")'>Update email address</button></div>\n";
+    echo "<div id='divBio'><p>Bio:<br>".$bio."</p><button id='btnBio' onclick='gotoPage(\"updateBiography.php\")'>Update bio</button></div>\n";
+//    echo "<div id='divGender'><p>Gender: ".$gender."</p><button id='btnGender' onclick='gotoPage(\"updateGender.php\")'>Update gender</button></div>\n";
+//    echo "<div id='divDoB'><p>Date of birth: ".$dateOfBirth."</p><button id='btnDoB' onclick='gotoPage(\"updateDateOfBirth.php\")'>Update date of birth</button></div>\n";
+//    echo "<div id='divHeight'><p>Height: ".$height."</p><button id='btnHeight' onclick='gotoPage(\"updateHeight.php\")'>Update height</button></div>\n";
+//    echo "<div id='divWeight'><p>Weight: ".$gender."</p><button id='btnWeight' onclick='gotoPage(\"updateWeight.php\")'>Update weight</button></div>\n";
   } else {
     echo "<b>".$displayName."'s page</b>";
     echo "<p>Email: ".$email."</p>\n";
