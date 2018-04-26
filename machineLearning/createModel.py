@@ -19,7 +19,16 @@ from parser import load_data
 training_data = load_data('')
 validation_data = load_data('')
 
-# Build the
+# Create a sequential model (simpler than a standard graph model) that has three
+# layers. Each layer will have a convolutional 2d filter that will filter the
+# input images (that consist of three layers, namely RGB) and output the probability
+# that the target image is classified as belonging to the same class as the training
+# data (namely the input file of faces). We then sequentially pass the output of the
+# convolutional # into a rectified linear unit (relu) activation layer which will
+# increases the non-linear properties of the model to enable the model to recognise
+# non-linear functions (i.e. more complex functions than linear regression). Finally
+# the feature map of the relu activation layer is passed (again sequentially) to the
+# pooling function so that the
 model = Sequential()
 model.add(Convolutional2D(32,3,3 input_shape=(img_width,img_height,3)))
 model.add(Activation('relu'))
