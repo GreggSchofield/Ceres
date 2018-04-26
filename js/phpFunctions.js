@@ -1,4 +1,23 @@
 // Return the resutl of a PHP request
+
+var $_GET = {};
+function loadGet() {
+  if(document.location.toString().indexOf('?') !== -1) {
+      var query = document.location
+                     .toString()
+                     // get the query string
+                     .replace(/^.*?\?/, '')
+                     // and remove any existing hash string (thanks, @vrijdenker)
+                     .replace(/#.*$/, '')
+                     .split('&');
+
+      for(var i=0, l=query.length; i<l; i++) {
+         var aux = decodeURIComponent(query[i]).split('=');
+         $_GET[aux[0]] = aux[1];
+      }
+  }
+}
+
 function callGet(filename){
   console.log("Calling " + filename);
   var xmlhttp;
@@ -37,7 +56,7 @@ function callPost(filename, variables) {
 }
 
 function uploadImageToServer(file, filename) {
-  
+
 }
 
 // Output the result of a PHP request to an alert message
