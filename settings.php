@@ -1,3 +1,7 @@
+<?php
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -15,7 +19,7 @@
       <button type="button" name="updateEmail" onclick="updateEmail.php"></button><br>
       <button type="button" name="updatePassword" onclick="updatePassword"></button><br>
       <button type="button" name="updateBiography" onclick="updateBiography.php"></button><br>
-      <button type="button" name="calculateBiometricInformation"></button>
+      <button type="button" name="calculateMetrics" onclick="calculateMetrics.php"></button>
     </div>
   </body>
 </html>
