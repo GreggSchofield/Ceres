@@ -47,6 +47,10 @@
     window.location = 'viewRecipe.php?recipe=' + id;
   }
 
+  function gotoAccount() {
+    window.location = 'accountPage.php?user=' + callPost("getUserID.php", "");
+  }
+
   window.onload = featuredRecipes;
 
   </script>
@@ -61,6 +65,7 @@
         <form action="addRecipePage.php">
           <input type="submit" id="addRecipe" value="Upload new recipe"></input>
         </form>
+        <button onclick="gotoAccount()">Your account</button>
         <?php
       } else {
         ?>

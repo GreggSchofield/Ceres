@@ -55,7 +55,7 @@
     $stmt = $pdo->query("update recipes set recipeViews=".$recipeViews." where recipeID=".$recipe.";");
 
     echo "<h1>".$recipeName." - serves ".$servings."</h1>\n";
-    echo "<p>Uploaded by ".$username." on ".$dateUploaded."</p>\n";
+    echo "<p>Uploaded by <a href='accountPage.php?user=".$userID."'>".$username."</a> on ".$dateUploaded."</p>\n";
     echo "<p>Views: ".$recipeViews." Uses: ".$uses."</p>\n";
 		echo "<img src=".$pictureURL." width='600' height='auto'></img>";
     echo "<h3>Ingredients:</h3>\n";
@@ -89,7 +89,7 @@
 			$datePosted = $row["dateTimePosted"];
 			$username = $pdo->query("select displayName from users where userID=".$userID.";");
 			$username = $username->fetch()["displayName"];
-			echo "<p><b>".$username." </b> at ".$datePosted."</p>\n<p>".$text."</p>\n<br>\n";
+			echo "<p><a href='accountPage.php?user=".$userID."'><b>".$username." </b></a> at ".$datePosted."</p>\n<p>".$text."</p>\n<br>\n";
 		}
 
 		?>

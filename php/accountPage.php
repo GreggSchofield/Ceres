@@ -125,6 +125,22 @@
         echo "<button onclick='follow()'>Follow this user</button>\n";
       }
     }
+		echo "<h2>Recipes this user has uploaded</h2>\n";
+		$stmt = $pdo->query("select recipeID, recipeName, dateUploaded, pictureURL from recipes where userID=".$pageID.";");
+		foreach ($stmt as $row) {
+			$recipeID = $row["recipeID"];
+			$recipeName = $row["recipeName"];
+			$dateUploaded = $row["dateUploaded"];
+			$pictureURL = $row["pictureURL"];
+			echo "<a href=\"viewRecipe.php?recipe=".$recipeID."\">\n";
+			if ($pictureURL == "") {
+				echo "<img src='../placeholder.png' height='150' width='auto'>\n";
+			} else {
+				echo "<img src=\"".$pictureURL."\" height='150' width='auto'>";
+			}
+			echo $recipeName." - uploaded on ".$dateUploaded."\n";
+			echo "</a>\n<br>\n";
+		}
   }
 
   ?>

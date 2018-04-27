@@ -15,10 +15,17 @@
 		<script>
 
 		function listResults() {
-			var tagList = $_GET["tags"].split(";");
-			var ingredientList = $_GET["ingredients"].split(";");
+			var tempTagList = $_GET["tags"];
+//			console.log(tempTagList);
+			var tempIngredientList = $_GET["ingredients"];
+//			console.log(tempIngredientList);
 			var divRecipes = document.getElementById("results");
-//	    var recipeList = (callPost("getRecipesByTag.php").split(","));
+	    var recipeList = callPost("getRecipesByTag.php", "tags="+tempTagList+"&ingredients="+tempIngredientList);
+			console.log(recipeList);
+//			for (var i = 0; i < recipeList.length; i ++) {
+//				console.log(recipeList[i]);
+//			}
+			/*
 	    for (var i = 0; i < recipeList.length - 4; i += 4) {
 	      var recipeButton = document.createElement("a");
 	      var id = recipeList[i];
@@ -43,9 +50,15 @@
 	      divRecipes.appendChild(recipeButton);
 	      divRecipes.appendChild(document.createElement("br"));
 	    }
+			*/
 		}
 
-		window.onload = listResults;
+		function loadPage() {
+			loadGet();
+			listResults();
+		}
+
+		window.onload = loadPage;
 
 		</script>
 

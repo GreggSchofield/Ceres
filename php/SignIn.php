@@ -8,8 +8,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="Reset.css">
-		<link rel="stylesheet" type="text/css" href="SignInStyle.css">
+		<link rel="stylesheet" type="text/css" href="../Reset.css">
+		<link rel="stylesheet" type="text/css" href="../SignInStyle.css">
 		<title>Ceres || Sign-in</title>
 	</head>
 	<body>
