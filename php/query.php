@@ -1,10 +1,5 @@
 <?php
-
-  /*
-  So when you search you provide a list of ingredients and a list of tags.
-       I want a query that takes those two lists and outputs a list of recipes
-       that contain those ingredients and tags
- */
+  require 'dbconn.php';
 
   function query($ingredientList, $tagList) {
     // returns false if the two lists are empty

@@ -1,15 +1,13 @@
 <?php
 
-  /*
-  This is a small library that will contain functions to allow high-level
+  /* This is a small library that will contain functions to allow high-level
       function calls from the HTHL webpages to complete psudo-complex tasts such
       as starting a session and regenerating the session id. Essentially, this
       library will allow you to complete tasks which would otherwise take 2 or more
       lines of PHP in a single line.
 
       Created: 17/04/18
-      Author[s]: Gregg Schofield
-        */
+      Author[s]: Gregg Schofield */
 
   // Temporal constant definitions.
   define("UNIXTIME", 2592000);
@@ -89,4 +87,5 @@
       $_SESSION['x'] = time();
     }
   }
+  
 ?>
