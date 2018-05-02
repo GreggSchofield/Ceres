@@ -110,6 +110,7 @@ Author[s]: Gregg Schofield */
   * Returns true/false accordingly.
   * @author Gregg Schofield
   */
+  /*
   function hasBio() {
     try {
       $stmt = 'SELECT bio FROM users WHERE email = ?';
@@ -128,6 +129,7 @@ Author[s]: Gregg Schofield */
         return false;
     }
   }
+  */
 
   /**
   * Function to return the contents of a user biography.
@@ -215,7 +217,7 @@ Author[s]: Gregg Schofield */
       $stmt->bindParam(1,$height);
       $stmt->bindParam(2,$weight);
       $stmt->bindParam(3,$loa);
-      $stmt->bindParam(4,$_SESSION['email'],PDO:PARAM_STR);
+      $stmt->bindParam(4,$_SESSION['email'],PDO::PARAM_STR);
       $stmt->execute();
 
       return true;
