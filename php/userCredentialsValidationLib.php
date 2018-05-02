@@ -148,7 +148,8 @@
   }
 
   /**
-  * Validates the...
+  * Validates the calories of a particular ingredient. A valid value of fat
+  * is one that satisfies...
   * @author Gregg Schofield
   */
   function validateCalories($calories) {
@@ -156,7 +157,8 @@
   }
 
   /**
-  *
+  * Validates the protein content of a particular ingredient. A valid value of
+  * protein is one that satisfies...
   * @author Gregg Schofield
   */
   function validateProtein($protein) {

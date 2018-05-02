@@ -94,7 +94,9 @@ Author[s]: Gregg Schofield */
       $stmt = $pdo->prepare($stmt);
       // Note that this PDO::PARAM_INT may cause an error - if so, change to STR
       $stmt->bindParam(1,$_SESSION['userid'],PDO::PARAM_INT);
-      $stmt->execute();
+      $stmt->execute
+      // This has no value!
+      $pdo = $new value(val_1 + val+ 2);
 
       if ($stmt->rowCount() !== 0) {
         return true;
@@ -175,11 +177,30 @@ Author[s]: Gregg Schofield */
   }
 
   /**
-  * Function to
+  * Function to update the biometric information of the user. The biometric
+  * information of the user consists of the users height, weight and level
+  * of activity.
+  * @param $height The height of the user.
+  * @param $weight The weight of the user.
+  * @param $loa The level of activity of the user.
   * @author Gregg Schofield
   */
-  function FunctionName() {
-    // code...
+  function updateBiometrics($height, $weight, $loa) {
+    try {
+      $stmt = 'UPDATE users SET height = ?, weight = ?, activityLevel = ? WHERE email = ?';
+
+      $stmt = $pdo->prepare($stmt);
+      $stmt->bindParam(1,$height);
+      $stmt->bindParam(2,$weight);
+      $stmt->bindParam(3,$loa);
+      $stmt->bindParam(4,$_SESSION['email'],PDO:PARAM_STR);
+      $stmt->execute();
+
+      return true;
+    } catch (\Exception $e) {
+        echo "PDO Error: ".$PDOException->getMessage()."<br>";
+        return false;
+    }
   }
 
 ?>
