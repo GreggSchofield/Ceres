@@ -84,7 +84,7 @@
     <?php
   $userID = -1;
   if (isset($_SESSION["userid"])) {
-    $userID = $_SESSION["userid"];
+    $userID = (int)$_SESSION["userid"];
   }
   $pageID = htmlspecialchars($_GET["user"]);
 
@@ -130,7 +130,7 @@
       $stmt = $pdo->query("select * from follows where userIDa=".$userID." and userIDb=".$pageID.";");
       $following = $stmt->fetch();
       if (gettype($following) == "array") {
-        echo "<button onclick='unfollow()'>Stop following this user</button>\n";
+        echo "<button onclick='unfollow()'>Unfollow this user</button>\n";
       } else {
         echo "<button onclick='follow()'>Follow this user</button>\n";
       }

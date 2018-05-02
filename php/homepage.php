@@ -38,8 +38,6 @@
       var pictureURL = recipeList[i+2];
       var username = recipeList[i+3];
 
-//      featuredRecipeList.push(new Recipe(id, name, pictureURL, username));
-
       var recipeButton = document.createElement("a");
       recipeButton.setAttribute("class", "Slides");
       recipeButton.id = id;
