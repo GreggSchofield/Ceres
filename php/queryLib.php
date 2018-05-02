@@ -49,12 +49,12 @@ Author[s]: Gregg Schofield */
   */
   function updateDisplayName($dispName) {
     try {
-      $stmt = 'UPDATE users SET displayName = ? WHERE userid = ?';
+      $stmt = 'UPDATE users SET displayName = ? WHERE email = ?';
 
       $stmt = $pdo->prepare($stmt);
       $stmt->bindParam(1,$dispName,PDO::PARAM_STR);
       // Note that this PDO::PARAM_INT may cause an error - if so, change to STR
-      $stmt->bindParam(2,$_SESSION['userid'],PDO::PARAM_INT);
+      $stmt->bindParam(2,$_SESSION['email'],PDO::PARAM_STR);
       $stmt->execute();
       return true;
     } catch (PDOException $PDOException) {
@@ -71,17 +71,38 @@ Author[s]: Gregg Schofield */
   */
   function updateEmailAddress($newEmailAddress) {
     try {
-      $stmt = 'UPDATE users SET email = ? WHERE userid = ?';
+      $stmt = 'UPDATE users SET email = ? WHERE email = ?';
 
       $stmt = $pdo->prepare($stmt);
       $stmt->bindParam(1,$newEmailAddress,PDO::PARAM_STR);
       // Note that this PDO::PARAM_INT may cause an error - if so, change to STR
-      $stmt->bindParam(2,$_SESSION['userid'],PDO::PARAM_INT);
+      $stmt->bindParam(2,$_SESSION['email'],PDO::PARAM_STR);
       $stmt->execute();
     } catch (PDOException $PDOException) {
         echo "PDO Error: ".$PDOException->getMessage()."<br>";
         return false;
     }
+  }
+
+  /**
+  * Function to update the biography of an existing user with the value
+  * of the parameter:
+  * @param $biography The new biography.
+  * @author Gregg Schofield
+  */
+  function updateBiography($biography) {
+    try {
+      $stmt = 'UPDATE users SET biography = ? WHERE email = ?';
+
+      $stmt = $pdo->prepare($stmt);
+      $stmt->bindParam(1,$biography,PDO::PARAM_STR);
+      $stmt->bindParam(2,$_SESSION['email'],PDO::PARAM_STR);
+      $stmt->execute();
+    } catch (PDOException $PDOException) {
+        echo "PDO Error: ".$PDOException->getMessage()."<br>";
+        return false;
+    }
+
   }
 
   /**
@@ -91,10 +112,10 @@ Author[s]: Gregg Schofield */
   */
   function hasBio() {
     try {
-      $stmt = 'SELECT bio FROM users WHERE userid = ?';
+      $stmt = 'SELECT bio FROM users WHERE email = ?';
       $stmt = $pdo->prepare($stmt);
       // Note that this PDO::PARAM_INT may cause an error - if so, change to STR
-      $stmt->bindParam(1,$_SESSION['userid'],PDO::PARAM_INT);
+      $stmt->bindParam(1,$_SESSION['email'],PDO::PARAM_STR);
       $stmt->execute
       // This has no value!
       $pdo = $new value(val_1 + val+ 2);
@@ -114,10 +135,10 @@ Author[s]: Gregg Schofield */
   */
   function getBioContents() {
     try {
-      $stmt = 'SELECT bio FROM users WHERE userid = ?';
+      $stmt = 'SELECT bio FROM users WHERE email = ?';
       $stmt = $pdo->prepare($stmt);
       // Note that this PDO::PARAM_INT may cause an error - if so, change to STR
-      $stmt->bindParam(1,$_SESSION['userid'],PDO::PARAM_INT);
+      $stmt->bindParam(1,$_SESSION['email'],PDO::PARAM_STR);
       $stmt->execute();
       return $retString = $stmt->getAttribute();
     } catch (PDOException $PDOException) {

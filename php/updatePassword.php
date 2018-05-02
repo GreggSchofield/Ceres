@@ -5,9 +5,10 @@
     Author[s]: Gregg Schofield -->
 
 <?php
-  include 'redirect.php';
-  include 'userCredentialsValidationLib.php';
-  include 'queryLib.php';
+  include 'sessionCookieHandlerLib';
+  include 'userCredentialsValidationLib';
+
+  start_session();
 ?>
 
 <!DOCTYPE html>
@@ -18,16 +19,31 @@
   </head>
   <body>
     <?php
-      if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        echo "<strong>Hello</strong>";
+      if (isset($_POST['curPass']) && isset($_POST['newPass']) && isset($_POST['newPassReTy'])) {
+        if ($_POST['newPass'] === $_POST['newPassReTy']) {
+          if (loginAuthenticated($_POST['curPass'])) {
+            if (validatePassword($_POST['newPass'])) {
+              updatePassword($_POST['newPass']);
+              echo "<p>You have successfully updated your password!</p>";
+            } else {
+                echo "<p>Ensure that your new password is valid!</p>";
+            }
+          } else {
+            echo "<p>Ensure that your current password is correct.</p>";
+          }
+        } else {
+            echo "<p>Ensure that your new passwords match each other.</p>";
+        }
+      } else {
+          echo "<p>Ensure that all fields are completed.</p>";
       }
     ?>
     <div class="">
       <form class="" action="updatePassword.php" method="post">
-        <input type="password" name="curPass" placeholder="Current Password"><br>
-        <input type="password" name="newPass" placeholder="New Password"><br>
-        <input type="password" name="newPassReTy" placeholder="Retype New Password"><br>
-        <button type="submit" name="buttonSubmit">Change/Update</button>
+        <input type="password" name="curPass" placeholder="Current Password" required><br>
+        <input type="password" name="newPass" placeholder="New Password" required><br>
+        <input type="password" name="newPassReTy" placeholder="Retype New Password" required><br>
+        <input type="submit" name="button" value="Change/Update">
       </form>
     </div>
   </body>

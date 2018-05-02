@@ -147,67 +147,71 @@
     } else { return false; }
   }
 
+/*VALIDATION FOR THE BELOW IS GRAMS PER GRAM*/
+
   /**
-  * Validates the calories of a particular ingredient. A valid value of fat
-  * is one that satisfies...
+  * Validates the calories of a particular ingredient. A valid value of calories
+  * is one that satisfies 0 <= value <= 1.
   * @author Gregg Schofield
   */
   function validateCalories($calories) {
-    // code...
+    if ((0 <= $calories) && ($calories <= 1)) {
+      return true;
+    } else { return false;}
   }
 
   /**
-  * Validates the protein content of a particular ingredient. A valid value of
-  * protein is one that satisfies...
+  * Validates the protein of a particular ingredient. A valid value of protein
+  * is one that satisfies 0 <= value <= 1.
   * @author Gregg Schofield
   */
   function validateProtein($protein) {
-    if (condition) {
+    if ((0 <= $protein) && ($protein <= 1)) {
       return true;
-    } else { return false; }
+    } else { return false;}
   }
 
   /**
-  * Validates the fat content of a particular ingredient. A valid value of fat
-  * is one that satisfies...
+  * Validates the fat of a particular ingredient. A valid value of fat
+  * is one that satisfies 0 <= value <= 1.
   * @author Gregg Schofield
   */
   function validateFat($fat) {
-    if (true) {
+    if ((0 <= $fat) && ($fat <= 1)) {
       return true;
-    } else { return false; }
+    } else { return false;}
   }
 
   /**
-  * Validates the sugar content of a particular ingredient. A valid value of
-  * sugar is one that satisfies...
+  * Validates the sugar of a particular ingredient. A valid value of sugar
+  * is one that satisfies 0 <= value <= 1.
   * @author Gregg Schofield
   */
   function validateSugar($fiber) {
-    if (true) {
+    if ((0 <= $sugar) && ($sugar <= 1)) {
       return true;
-    } else { return false; }
+    } else { return false;}
   }
 
   /**
-  * Validates the fiber content of a particular ingredient. A valid value of
-  * fiber is one that satisfies...
+  * Validates the fiber of a particular ingredient. A valid value of fiber
+  * is one that satisfies 0 <= value <= 1.
   * @author Gregg Schofield
   */
   function validateFiber($fiber) {
-    if (true) {
+    if ((0 <= $fiber) && ($fiber <= 1)) {
       return true;
-    } else { return false; }
+    } else { return false;}
   }
 
   /**
-  * Validates the carbohydrate content of a particular ingredient. A valid value
-  * of carbohydrate is one that satisfies...
+  * Validates the carboydrate of a particular ingredient. A valid value of
+  * carboydrate is one that satisfies 0 <= value <= 1.
   * @author Gregg Schofield
   */
   function validateCarbohydrates($carboydrates) {
-    if (true) {
+    if ((0 <= $carboydrates) && ($carboydrates <= 1)) {
       return true;
-    } else { return false; }
+    } else { return false;}
   }
 ?>
