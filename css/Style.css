@@ -9,7 +9,7 @@ table{
 input{
 border: none;
 border-radius: 12px;
-padding: 12px 20px; 	
+padding: 12px 20px;
 }
 button{
 	width:150px;
@@ -30,7 +30,7 @@ button{
 	margin-bottom:10px;
 }
 .profileImg{
-	
+
 }
 #settingsReturn{
 	float : left;
@@ -236,4 +236,3 @@ button{
 	height:200px;
 	margin:20px;
 }
-	
