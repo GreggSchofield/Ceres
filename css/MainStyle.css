@@ -1,0 +1,73 @@
+textarea{
+	width:229.25px;
+	height:20px;
+	resize:none;
+}
+table{
+	margin:0 auto;
+}
+.menuButton{
+	
+}
+#topRight{
+	float: right;
+	margin-top:-80px;
+	margin-right:20px;
+	width:156px;
+}
+#calorieCount{
+	width:150px;
+	margin-top:60px;
+}
+#logo{
+	float: left;
+	margin-top:20px;
+	margin-left:20px;
+}
+#account{
+	float:right;
+	border-radius: 12px;
+}
+#searchBar{
+	margin-bottom: 10px;
+}
+#menuBar{
+	margin:0 auto;
+	clear:both;
+}
+#slideshow{
+	width:530px;
+	height:400px;
+	float:left;
+	border-style:solid;
+	border-width:2px;
+}
+#centerContain{
+	margin:0 auto;
+	clear:both;
+	margin-top:20px;
+	width:900px;
+	height: 400px;
+}
+#mostUsed{
+	width:350px;
+	height:400px;
+	float:right;
+	border-style:solid;
+	border-width:2px;
+}
+#searchContainer{
+    margin:0 auto;
+	margin-top:100px;
+	width:235.25px;
+	margin-bottom:10px;
+}
+#tailoredRecipes{
+	margin:0 auto;
+	clear:both;
+	margin-top:20px;
+	width:900px;
+	height:300px;
+	border-style:solid;
+	border-width:2px;
+}

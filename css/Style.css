@@ -1,0 +1,239 @@
+textarea {
+	text-align:left;
+	border-radius: 12px;
+	padding: 12px 50px;
+}
+table{
+	margin:0 auto;
+}
+input{
+border: none;
+border-radius: 12px;
+padding: 12px 20px; 	
+}
+button{
+	width:150px;
+	height:20px;
+	margin:5px;
+}
+.uploadAreas{
+	margin-top:20px;
+	border-radius: 12px;
+}
+.inputArea{
+	text-align:center;
+	height:-webkit-fill-available;
+	width:-webkit-fill-available;
+}
+.content{
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.profileImg{
+	
+}
+#settingsReturn{
+	float : left;
+	margin-top : -130px;
+	margin-left : 20px;
+}
+
+#topRight{
+	float: right;
+	margin-top:-80px;
+	margin-right:20px;
+	width:156px;
+}
+#returnSignInAlign{
+	margin-top:50px;
+}
+#uploadImgBtn{
+	margin-top:30%;
+	border: none;
+  border-radius: 12px;
+  padding: 12px 50px;
+}
+.settingContainer{
+	margin:0 auto;
+	position:inherit;
+	width: 900px
+}
+#childSettingsContainer{
+	width:300px;
+	margin-top:150px;
+	text-align:center;
+}
+
+#submitBtn {
+	padding : 12px 28px;
+	border: none;
+	border-radius: 12px;
+	margin-bottom: 20px;
+}
+
+#signlogo {
+	position : fixed;
+    top : 25%;
+    left : 50%;
+    width : 300px;
+    height : 100px;
+    margin-top : -150px;
+    margin-left : -200px;
+    border : 1px solid #ccc;
+    background-color : #f3f3f3;
+	text-align : center;
+}
+
+#pagelogo {
+	margin:0 auto;
+	margin-top:100px;
+	width: 200px;
+    border : 1px solid #ccc;
+    background-color : #f3f3f3;
+	text-align : center;
+}
+
+#container{
+	position:fixed;
+    top: 50%;
+    left: 50%;
+    width:250px;
+    height:200px;
+    margin-top: -200px;
+    margin-left: -100px;
+    border: 1px solid #ccc;
+    background-color: #f3f3f3;
+	text-align: center;
+}
+
+#details {
+	position : fixed;
+    top : 25%;
+    left : 50%;
+    width : 500px;
+    height : 400px;
+    margin-top : 0px;
+    margin-left : -300px;
+    border : 1px solid #ccc;
+    background-color : #f3f3f3;
+	text-align : center;
+}
+
+#password {
+	position : fixed;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 200px;
+    margin-top: -200px;
+    margin-left: -250px;
+    border: 1px solid #ccc;
+    background-color: #f3f3f3;
+	text-align : center;
+}
+
+#title {
+	float:left;
+    width : 425px;
+    height : 120px;
+    border : 1px solid #ccc;
+    background-color : #f3f3f3;
+	text-align : center;
+}
+
+#method {
+	float:left;
+    width : 425px;
+    height : 550px;
+    border : 1px solid #ccc;
+    background-color : #f3f3f3;
+	text-align : center;
+}
+
+#image {
+
+}
+
+#imageUpload {
+	float:right;
+    width : 425px;
+    height : 350px;
+    border : 1px solid #ccc;
+    background-color : #f3f3f3;
+	text-align : center;
+}
+
+#ingredient {
+	float:right;
+    width : 425px;
+    height : 320px;
+    border : 1px solid #ccc;
+    background-color : #f3f3f3;
+	text-align : center;
+}
+
+#similar {
+	position : fixed;
+    top: 50%;
+    left: 50%;
+    width: 925px;
+    height: 200px;
+    margin-top: -440px;
+    margin-left: -500px;
+    border: 1px solid #ccc;
+    background-color: #f3f3f3;
+	text-align : center;
+}
+
+#star {
+	position : fixed;
+    top : 25%;
+    left : 50%;
+    width : 300px;
+    height : 60px;
+    margin-top : -200px;
+    margin-left : -200px;
+    border : 1px solid #ccc;
+    background-color : #f3f3f3;
+	text-align : center;
+}
+
+#update {
+	float:right;
+}
+
+#back {
+	float : left;
+	margin-top : -80px;
+	margin-left : 20px;
+}
+
+#return {
+	float : left;
+	margin-top : -30px;
+	margin-left : 20px;
+}
+#password{
+	position:fixed;
+    top: 50%;
+    left: 50%;
+    width:250px;
+    height:200px;
+    margin-top: -200px; /*set to a negative number 1/2 of your height*/
+    margin-left: -125px; /*set to a negative number 1/2 of your width*/
+    border: 1px solid #ccc;
+    background-color: #f3f3f3;
+	text-align: center;
+
+}
+#return{
+	float: left;
+	margin-top:-30px;
+	margin-left:20px;
+}
+#similarMeals{
+	clear:both;
+	height:200px;
+	margin:20px;
+}
+	
