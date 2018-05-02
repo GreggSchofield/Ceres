@@ -109,6 +109,7 @@
 //    echo "<div id='divDoB'><p>Date of birth: ".$dateOfBirth."</p><button id='btnDoB' onclick='gotoPage(\"updateDateOfBirth.php\")'>Update date of birth</button></div>\n";
 //    echo "<div id='divHeight'><p>Height: ".$height."</p><button id='btnHeight' onclick='gotoPage(\"updateHeight.php\")'>Update height</button></div>\n";
 //    echo "<div id='divWeight'><p>Weight: ".$gender."</p><button id='btnWeight' onclick='gotoPage(\"updateWeight.php\")'>Update weight</button></div>\n";
+		echo "<h2>Your recipes</h2>\n";
   } else {
     echo "<b>".$displayName."'s page</b>";
     echo "<p>Email: ".$email."</p>\n";
@@ -126,22 +127,22 @@
       }
     }
 		echo "<h2>Recipes this user has uploaded</h2>\n";
-		$stmt = $pdo->query("select recipeID, recipeName, dateUploaded, pictureURL from recipes where userID=".$pageID.";");
-		foreach ($stmt as $row) {
-			$recipeID = $row["recipeID"];
-			$recipeName = $row["recipeName"];
-			$dateUploaded = $row["dateUploaded"];
-			$pictureURL = $row["pictureURL"];
-			echo "<a href=\"viewRecipe.php?recipe=".$recipeID."\">\n";
-			if ($pictureURL == "") {
-				echo "<img src='../placeholder.png' height='150' width='auto'>\n";
-			} else {
-				echo "<img src=\"".$pictureURL."\" height='150' width='auto'>";
-			}
-			echo $recipeName." - uploaded on ".$dateUploaded."\n";
-			echo "</a>\n<br>\n";
-		}
   }
+	$stmt = $pdo->query("select recipeID, recipeName, dateUploaded, pictureURL from recipes where userID=".$pageID.";");
+	foreach ($stmt as $row) {
+		$recipeID = $row["recipeID"];
+		$recipeName = $row["recipeName"];
+		$dateUploaded = $row["dateUploaded"];
+		$pictureURL = $row["pictureURL"];
+		echo "<a href=\"viewRecipe.php?recipe=".$recipeID."\">\n";
+		if ($pictureURL == "") {
+			echo "<img src='../placeholder.png' height='150' width='auto'>\n";
+		} else {
+			echo "<img src=\"".$pictureURL."\" height='150' width='auto'>";
+		}
+		echo $recipeName." - uploaded on ".$dateUploaded."\n";
+		echo "</a>\n<br>\n";
+	}
 
   ?>
   </body>
