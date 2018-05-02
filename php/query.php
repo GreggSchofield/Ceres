@@ -33,7 +33,7 @@
 
         $stmtFinal = $stmt1.' INTERSECT '.$stmt2;
         $stmtFinal .= ";";
-        $stmtFinal = $pdo->prepare($stmtFinal);
+//        $stmtFinal = $pdo->prepare($stmtFinal);
         echo $stmtFinal;
 //        return $stmtFinal->execute();
     }
