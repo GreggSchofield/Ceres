@@ -7,6 +7,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<title>Ceres || Settings</title>
+      <link rel="stylesheet" type="text/css" href="../css/Reset.css">
+  		<link rel="stylesheet" type="text/css" href="../css/Style.css">
   </head>
 		<form action="homepage.php">
 			<input type="submit" value="Return">
@@ -101,15 +104,13 @@
   $weight = $row["weight"];
 
   if ($userID == $pageID) {
-    echo "<b>Welcome to your page</b>\n";
-		echo "<div id='divDisplayName'><p>Display name: ".$displayName."</p><button id='btnDisplayName' onclick='gotoPage(\"updateDisplayName.php\")'>Update display name</button></div>\n";
-    echo "<div id='divEmail'><p>Email: ".$email."</p><button id='btnEmail' onclick='gotoPage(\"updateEmail.php\")'>Update email address</button></div>\n";
-    echo "<div id='divBio'><p>Bio:<br>".$bio."</p><button id='btnBio' onclick='gotoPage(\"updateBiography.php\")'>Update bio</button></div>\n";
-//    echo "<div id='divGender'><p>Gender: ".$gender."</p><button id='btnGender' onclick='gotoPage(\"updateGender.php\")'>Update gender</button></div>\n";
-//    echo "<div id='divDoB'><p>Date of birth: ".$dateOfBirth."</p><button id='btnDoB' onclick='gotoPage(\"updateDateOfBirth.php\")'>Update date of birth</button></div>\n";
-//    echo "<div id='divHeight'><p>Height: ".$height."</p><button id='btnHeight' onclick='gotoPage(\"updateHeight.php\")'>Update height</button></div>\n";
-//    echo "<div id='divWeight'><p>Weight: ".$gender."</p><button id='btnWeight' onclick='gotoPage(\"updateWeight.php\")'>Update weight</button></div>\n";
-		echo "<h2>Your recipes</h2>\n";
+		?>
+    <h2>Welcome to your page</h2>
+		<form action="updateDisplayName.php">
+			<p>Display name: <b> <?php echo $displayName; ?> </b> <input type="submit" value="Update display name" /> </p>
+		</form>
+		<h2>Your recipes</h2>
+		<?php
   } else {
     echo "<b>".$displayName."'s page</b>";
     echo "<p>Email: ".$email."</p>\n";

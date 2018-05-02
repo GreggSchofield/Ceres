@@ -40,7 +40,7 @@
 							?>
 							<h>Register an account</h>
 							<form id="return" action="signOut.php">
-								<input type="button" value="Return" />
+								<input type="submit" value="Return" />
 							</form>
 							<b>Those passwords don't match</b><br>
 							<form action="signIn.php" method="post">
@@ -60,7 +60,7 @@
 							?>
 							<h>Sign in</h>
 							<form id="return" action="signOut.php">
-								<input type="button" value="Return" />
+								<input type="submit" value="Return" />
 							</form>
 							<b>That password is incorrect</b><br>
 							<form action="signIn.php" method="post">
@@ -87,7 +87,7 @@
 					?>
 					<h>Register an account</h>
 					<form id="return" action="signOut.php">
-						<input type="button" value="Return" />
+						<input type="submit" value="Return" />
 					</form>
 					<form action="signIn.php" method="post">
 						<input type="text" name="txtPassword" placeholder="Type password"><br>
@@ -100,7 +100,7 @@
 						?>
 						<h>Sign in</h>
 						<form id="return" action="signOut.php">
-							<input type="button" value="Return" />
+							<input type="submit" value="Return" />
 						</form>
 						<form action="signIn.php" method="post">
 							<input type="text" name="txtPassword" placeholder="Password"><br>
@@ -113,7 +113,7 @@
 					?>
 					<h>Sign in / register</h>
 					<form id="return" action="signOut.php">
-						<input type="button" value="Return" />
+						<input type="submit" value="Return" />
 					</form>
 					<b>Please enter a valid email address</b><br>
 					<form action="signIn.php" method="post">
@@ -126,7 +126,7 @@
 				?>
 				<h>Sign in / register</h>
 				<form id="return" action="signOut.php">
-					<input type="button" value="Return" />
+					<input type="submit" value="Return" />
 				</form>
 				<form action="signIn.php" method="post">
 					<input type="text" name="txtEmail" placeholder="Email"><br>

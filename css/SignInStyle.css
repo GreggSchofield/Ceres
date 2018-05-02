@@ -2,7 +2,7 @@ input{
 margin-top: 50px;
 border: none;
 border-radius: 12px;
-padding: 12px 20px; 	
+padding: 12px 20px;
 }
 #submitBtn{
 	padding: 12px 28px;
@@ -18,11 +18,4 @@ padding: 12px 20px;
     border: 1px solid #ccc;
     background-color: #f3f3f3;
 	text-align: center;
-
 }
-#return{
-	float: left;
-	margin-top:-30px;
-	margin-left:20px;
-}
-	

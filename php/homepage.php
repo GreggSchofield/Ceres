@@ -26,7 +26,7 @@
   var featuredRecipeList = [];
 
   function featuredRecipes() {
-    var divRecipes = document.getElementById("featuredRecipes");
+    var divRecipes = document.getElementById("slideshow");
     var recipeList = (callPost("getFeaturedRecipes.php").split(","));
     var cropLength = 10;
     if (recipeList.length > cropLength * 4) {
@@ -50,11 +50,12 @@
       } else {
         picture.setAttribute("src", pictureURL);
       }
-      picture.setAttribute("height", "150");
-      picture.setAttribute("width", "auto");
+      picture.setAttribute("width", "530");
+      picture.setAttribute("height", "auto");
       recipeButton.onclick = function() {selectRecipe(this);};
       recipeButton.href = "viewRecipe.php?recipe=" + id;
       recipeButton.appendChild(picture);
+      recipeButton.appendChild(document.createElement("br"));
       recipeButton.appendChild(text);
       divRecipes.appendChild(recipeButton);
     }
@@ -70,7 +71,7 @@
     x[slideIndex].style.display = "block";
     slideIndex++;
     if (slideIndex >= x.length) {slideIndex = 0;}
-    setTimeout(carousel, 2000);
+    setTimeout(carousel, 2500);
   }
 
   function selectRecipe(element) {
@@ -98,17 +99,17 @@
           ?>
   				<th>
   					<form class="menuButton" action="addRecipePage.php">
-  					<input type="button" value="Upload new recipe" />
+  					<input type="submit" value="Upload new recipe" />
   					</form>
   				</th>
           <th>
-  					<form class="menuButton" action="gotoAccount()">
-  					<input type="button" value="Account settings" />
-  					</form>
+            <form class="menuButton">
+  					  <input type="button" onclick="gotoAccount()" value="Account settings"/>
+            </form>
   				</th>
           <th>
   					<form class="menuButton" action="signOut.php">
-  					<input type="button" value="Sign out" />
+  					<input type="submit" value="Sign out" />
   					</form>
   				</th>
           <?php
@@ -116,7 +117,7 @@
           ?>
           <th>
   					<form class="menuButton" action="signIn.php">
-  					<input type="button" value="Sign in / register" />
+  					<input type="submit" value="Sign in / register" />
   					</form>
   				</th>
           <?php
@@ -132,8 +133,9 @@
       <button id="btnSearch" onclick="search()">Search</button>
     </div>
 
-    <h3>Featured recipes</h3><br>
-    <div id="featuredRecipes">
+    <div id="centerContain">
+      <div id="slideshow">
+      </div>
     </div>
 
   </body>

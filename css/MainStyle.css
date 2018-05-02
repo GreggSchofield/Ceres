@@ -7,7 +7,7 @@ table{
 	margin:0 auto;
 }
 .menuButton{
-	
+
 }
 #topRight{
 	float: right;
@@ -70,4 +70,25 @@ table{
 	height:300px;
 	border-style:solid;
 	border-width:2px;
+}
+input{
+margin-top: 50px;
+border: none;
+border-radius: 12px;
+padding: 12px 20px;
+}
+#submitBtn{
+	padding: 12px 28px;
+}
+#container{
+	position:fixed;
+    top: 50%;
+    left: 50%;
+    width:250px;
+    height:200px;
+    margin-top: -200px; /*set to a negative number 1/2 of your height*/
+    margin-left: -125px; /*set to a negative number 1/2 of your width*/
+    border: 1px solid #ccc;
+    background-color: #f3f3f3;
+	text-align: center;
 }
