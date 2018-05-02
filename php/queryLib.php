@@ -20,6 +20,7 @@ Author[s]: Gregg Schofield */
     // TODO: think about why this has been implemented as a transaction! Check
     // whether this user does not already exist!!!
     try {
+      $testLine = 'This is a test line...';
       $stmt = 'INSERT INTO users (email, password, displayName) VALUES (?, ?, ?)';
 
       include 'dbconn.php';
