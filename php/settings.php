@@ -1,5 +1,7 @@
 <?php
-  session_start();
+  include 'sessionCookieHandlerLib';
+
+  start_session();
 ?>
 
 <!DOCTYPE html>

@@ -2,6 +2,7 @@
 	require 'sessionCookieHandlerLib.php';
 	require 'queryLib.php';
 	require 'userCredentialsValidationLib.php';
+
 	startSession();
 ?>
 <!DOCTYPE html>
@@ -106,8 +107,15 @@
   if ($userID == $pageID) {
 		?>
     <h2>Welcome to your page</h2>
-		<form action="updateDisplayName.php">
-			<p>Display name: <b> <?php echo $displayName; ?> </b> <input type="submit" value="Update display name" /> </p>
+		<form>
+			<p>Display name: <b> <?php echo $displayName; ?></b>
+			<button type="submit" name="updateDispNameBtn"></button>
+			<input type="submit" value="Update display name" /> </p>
+      <input type="submit" name="updateProfilePicture" onclick="redirect('uploadImage.php')"></input><p>
+      <input type="submit" name="updateEmail" onclick="redirect('updateEmail.php')"></input><p>
+      <input type="submit" name="updatePassword" onclick="redirect('updatePassword.php')"></input><p>
+      <input type="submit" name="updateBiography" onclick="redirect('updateBiography.php')"></input><p>
+      <input type="submit" name="calculateMetrics" onclick="redirect('calculateMetrics.php')"></input>
 		</form>
 		<h2>Your recipes</h2>
 		<?php
@@ -146,5 +154,11 @@
 	}
 
   ?>
+
+	<script>
+		function redirect(url) {
+			window.location.href = url;
+		}
+	</script>
   </body>
 </html>
