@@ -9,9 +9,10 @@
   $usedRecipes = [];
 
   if (isset($_SESSION["userid"])) {
-    $follows = $pdo->query("select userIDb from follows where userIDa=".$_SESSION["userid"].";");
+    $tempID = (int)$_SESSION["userid"];
+    $follows = $pdo->query("select userIDb from follows where userIDa=".$tempID.";");
     foreach ($follows as $row) {
-      $recipes = $pdo->query("select recipeID, recipeName, pictureURL, userID from recipes where userID=".$row["userIDb"]." order by recipeViews");
+      $recipes = $pdo->query("select recipeID, recipeName, pictureURL, userID from recipes where userID=".$row["userIDb"]." order by recipeViews desc");
       foreach ($recipes as $recipeRow) {
         echo $recipeRow["recipeID"].",".$recipeRow["recipeName"].",".$recipeRow["pictureURL"].",";
         $id = $recipeRow["userID"];
@@ -23,7 +24,7 @@
     }
   }
 
-  $recipes = $pdo->query("select recipeID, recipeName, pictureURL, userID from recipes order by uses, recipeViews");
+  $recipes = $pdo->query("select recipeID, recipeName, pictureURL, userID from recipes order by uses desc, recipeViews desc");
   foreach ($recipes as $row) {
     $used = false;
     foreach ($usedRecipes as $recipeID) {

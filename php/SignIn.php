@@ -8,11 +8,13 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="../Reset.css">
-		<link rel="stylesheet" type="text/css" href="../SignInStyle.css">
+		<link rel="stylesheet" type="text/css" href="../css/Reset.css">
+		<link rel="stylesheet" type="text/css" href="../css/SignInStyle.css">
+		<link rel= "stylesheet" type="text/css" href="../css/checkPassword.css">
 		<title>Ceres || Sign-in</title>
 	</head>
 	<body>
+		<script src="../js/checkPassword.js"></script>
 		<?php
 			$email = "";
 			if (isset($_SESSION["userEmail"])) {
@@ -32,7 +34,7 @@
 						if ($password == $checkPassword) {
 							// Register new account and go to homepage
 							$id = createUser($email, $password, $email);
-			        $_SESSION["userid"] = $id;
+			        $_SESSION["userid"] = (int)$id;
 			        header("Location: homepage.php");
 			        die();
 						} else {
@@ -45,6 +47,13 @@
 							<b>Those passwords don't match</b><br>
 							<form action="signIn.php" method="post">
 								<input type="text" name="txtPassword" placeholder="Type password"><br>
+								<table border="0" cellpadding="0" cellspacing="0">
+								 <tr align="center">
+								  <td id="pwd_Weak" class="pwd pwd_c"> </td>
+								  <td id="pwd_Medium" class="pwd pwd_c pwd_f"></td>
+								  <td id="pwd_Strong" class="pwd pwd_c pwd_c_r"> </td>
+								 </tr>
+							 	</table>
 								<input type="text" name="txtCheckPassword" placeholder="Type password again"><br>
 								<input id="submitBtn" type="submit" value="Submit">
 							</form>
@@ -73,7 +82,7 @@
 							$query = "select userID from users where email='".$email."';";
 			        $stmt = $pdo->query($query);
 			        $id = $stmt->fetch()["userID"];
-			        $_SESSION["userid"] = $id;
+			        $_SESSION["userid"] = (int)$id;
 							header("Location: homepage.php");
 			        die();
 						}
@@ -90,7 +99,14 @@
 						<input type="submit" value="Return" />
 					</form>
 					<form action="signIn.php" method="post">
-						<input type="text" name="txtPassword" placeholder="Type password"><br>
+						<input type="text" name="txtPassword" placeholder="Type password" onkeyup="Checkpassword(this.value)"><br>
+						<table border="0" cellpadding="0" cellspacing="0">
+						 <tr align="center">
+						  <td id="pwd_Weak" class="pwd pwd_c"> </td>
+						  <td id="pwd_Medium" class="pwd pwd_c pwd_f"></td>
+						  <td id="pwd_Strong" class="pwd pwd_c pwd_c_r"> </td>
+						 </tr>
+					 	</table>
 						<input type="text" name="txtCheckPassword" placeholder="Type password again"><br>
 						<input id="submitBtn" type="submit" value="Submit">
 					</form>
