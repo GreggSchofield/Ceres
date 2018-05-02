@@ -1,0 +1,30 @@
+<?php
+  session_start();
+?>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ceres || Settings</title>
+      <link rel="stylesheet" type="text/css" href="Reset.css">
+  		<link rel="stylesheet" type="text/css" href="Style.css">
+  </head>
+  <body>
+  
+  <form id="settingsReturn" action="Main.htm">
+		<input type="submit" value="Return">
+
+	</form>
+
+    <div class="settingContainer" id="childSettingsContainer">
+	
+		<h2>Account settings</h2>
+      <button type="button" name="updateDisplayName" onclick="updateDisplayName.php">updateDisplayName</button><br>
+      <button type="button" name="updateProfilePicture" onclick="updateDisplayName.php">updateProfilePicture</button><br>
+      <button type="button" name="updateEmail" onclick="updateEmail.php">updateEmail</button><br>
+      <button type="button" name="updatePassword" onclick="updatePassword.php">updatePassword</button><br>
+      <button type="button" name="updateBiography" onclick="updateBiography.php">updateBiography</button><br>
+      <button type="button" name="calculateMetrics" onclick="calculateMetrics.php">calculateMetrics</button>
+    </div>
+  </body>
+</html>
