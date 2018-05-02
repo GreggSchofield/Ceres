@@ -40,6 +40,7 @@ table{
 	height:400px;
 	float:left;
 	border-width:2px;
+	margin:0 auto;
 }
 #centerContain{
 	margin:0 auto;
