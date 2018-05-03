@@ -9,6 +9,8 @@
       Created: 17/04/18
       Author[s]: Gregg Schofield */
 
+  include 'dbconn.php';
+
   // Temporal constant definitions.
   define("UNIXTIME", 2592000);
   define("MINS30", 1800);
@@ -87,5 +89,5 @@
       $_SESSION['x'] = time();
     }
   }
-  
+
 ?>

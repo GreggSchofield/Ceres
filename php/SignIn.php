@@ -2,6 +2,7 @@
 	require_once 'sessionCookieHandlerLib.php';
 	require_once 'queryLib.php';
 	require_once 'userCredentialsValidationLib.php';
+
 	startSession();
 ?>
 
@@ -35,6 +36,9 @@
 							// Register new account and go to homepage
 							$id = createUser($email, $password, $email);
 			        $_SESSION["userid"] = (int)$id;
+							// NOTE: Gregg call the new function here!!!
+							// please call the setAllSuperglobals() located in the queryLib.php
+							// file to eliviate any potential superglobal issues!
 			        header("Location: homepage.php");
 			        die();
 						} else {
@@ -83,6 +87,9 @@
 			        $stmt = $pdo->query($query);
 			        $id = $stmt->fetch()["userID"];
 			        $_SESSION["userid"] = (int)$id;
+							// NOTE: Gregg call the new function here!!!
+							// please call the setAllSuperglobals() located in the queryLib.php
+							// file to eliviate any potential superglobal issues!
 							header("Location: homepage.php");
 			        die();
 						}

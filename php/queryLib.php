@@ -10,6 +10,38 @@ Author[s]: Gregg Schofield */
   require 'dbconn.php';
 
   /**
+  * Sets all of the superglobal variables in the event of a successful log-in.
+  * Although we currently think that this is not needed because Jack runs querys
+  * on pages that require information such as email and userid present in the
+  * session superglobal array, this method provides reassurance that such values
+  * will be present on all pages of the Ceres system minus the log-in page.
+  * This is especially important for the demonstration.
+  * @param $email The E-mail used to retrieve all of the users information and
+  * store in the sessios superglobal array.
+  * @author Gregg Schofield
+  */
+  function setAllSuperglobals($email) {
+    $stmt = 'SELECT userID, joinDate, gender, dateOfBirth, displayName, bio,
+             dietaryRequirements, height, weight, activityLevel,
+             dateSinceLasAccess FROM users WHERE email = ?';
+
+    $stmt->prepare($stmt);
+    $stmt->bindParam(1,$_SESSION['email'],PDO::PARAM_STR);
+    $stmt->execute();
+
+    $sessionKeys = ['userID', 'joinDate', 'gender', 'dateOfBirth',
+                    'displayName', 'bio', 'dietaryRequirements', 'height',
+                    'weight', 'activityLevel', 'dateSinceLasAccess'];
+
+    $cnt = 0;
+
+    foreach ($sessionKeys as $key) {
+      $_SESSION[$key] = $stmt->fetchColumn($cnt);
+      $cnt++;
+    }
+  }
+
+  /**
   * Function to create a user profile with the following parameters:
   * @param $email The email for the new user.
   * @param $pswd The password for the new user
