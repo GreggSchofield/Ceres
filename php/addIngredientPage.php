@@ -7,6 +7,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="../css/Reset.css">
+		<link rel="stylesheet" type="text/css" href="../css/MainStyle.css">
     <title>Add new ingredient</title>
   </head>
   <script src="../js/phpFunctions.js"></script>

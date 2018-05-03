@@ -10,7 +10,7 @@
 	<head>
 		<title>Ceres || Settings</title>
       <link rel="stylesheet" type="text/css" href="../css/Reset.css">
-  		<link rel="stylesheet" type="text/css" href="../css/Style.css">
+  		<link rel="stylesheet" type="text/css" href="../css/MainStyle.css">
   </head>
 		<form action="homepage.php">
 			<input type="submit" value="Return">
