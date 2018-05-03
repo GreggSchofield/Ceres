@@ -130,7 +130,7 @@ Author[s]: Gregg Schofield */
   function updateBiography($biography) {
     include 'dbconn.php';
     try {
-      $stmt = 'UPDATE users SET biography = ? WHERE userid='.$_SESSION["userid"];
+      $stmt = 'UPDATE users SET bio = ? WHERE userid='.$_SESSION["userid"];
 
       $stmt = $pdo->prepare($stmt);
       $stmt->bindParam(1,$biography,PDO::PARAM_STR);
@@ -196,14 +196,16 @@ Author[s]: Gregg Schofield */
   function updatePassword($password) {
 
     // Hashes the value of $password using the default hashing algorithm.
-    $password = password_hash($password, PASSWORD_DEFAULT);
+//    $password = password_hash($password, PASSWORD_DEFAULT);
+
+    include 'dbconn.php';
 
     try {
-      $stmt = 'UPDATE users SET password = ? WHERE email = ?';
+      $stmt = 'UPDATE users SET password = ? WHERE userID='.$_SESSION["userid"];
 
       $stmt = $pdo->prepare($stmt);
-      $stmt->bindParam(1,$updatedPassword,PDO::PARAM_STR);
-      $stmt->bindParam(2,$_SESSION['email'],PDO::PARAM_STR);
+      $stmt->bindParam(1,$password,PDO::PARAM_STR);
+//      $stmt->bindParam(2,$_SESSION['email'],PDO::PARAM_STR);
       $stmt->execute();
       return true;
     } catch (PDOException $PDOException) {
@@ -222,15 +224,15 @@ Author[s]: Gregg Schofield */
   function loginAuthenticated($password) {
     include 'dbconn.php';
     try {
-      $stmt = 'SELECT password FROM users WHERE email = ?';
+      $stmt = 'SELECT password FROM users WHERE userID = '.$_SESSION["userid"];
 
       $stmt = $pdo->prepare($stmt);
-      $stmt->bindParam(1,$_SESSION['email'],PDO::PARAM_STR);
+//      $stmt->bindParam(1,$_SESSION['email'],PDO::PARAM_STR);
       $stmt->execute();
 
       $dbHash = $stmt->fetchColumn();
       // verifies that the given hash matches the given password
-      if (password_verify($password, $dbHash)) {
+      if ($password == $dbHash) {
         return true;
       } else {
           return false;

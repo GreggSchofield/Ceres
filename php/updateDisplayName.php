@@ -10,6 +10,7 @@
     <meta>
     <link rel="stylesheet" type="text/css" href="../css/Reset.css">
 		<link rel="stylesheet" type="text/css" href="../css/MainStyle.css">
+    <link rel="icon" href="../logo.jpeg">
     <title>Ceres || Update Display-name</title>
   </head>
   <body>
@@ -25,7 +26,7 @@
             echo "<p>Ensure that your new display names match each other.</p>";
         }
       } else {
-          echo "<p>Ensure that all fields are completed.</p>";
+          echo "<p>Please enter your new display name</p>";
       }
     ?>
 
