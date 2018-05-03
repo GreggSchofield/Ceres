@@ -154,9 +154,13 @@
       callPost("addRecipeTag.php", "recipe=" + recipeID + "&tag=" + tagID);
     }
 
-    var imageName = recipeID + "img";
-    document.getElementById("picture").action = "uploadRecipeImage.php?name=" + imageName + "&id=" + recipeID;
-    document.getElementById("picture").submit();
+    if (document.getElementById("fileToUpload").value != undefined) {
+      var imageName = recipeID + "img";
+      document.getElementById("picture").action = "uploadRecipeImage.php?name=" + imageName + "&id=" + recipeID;
+      document.getElementById("picture").submit();
+    } else {
+      window.location.href="homepage.php";
+    }
   }
 
   </script>

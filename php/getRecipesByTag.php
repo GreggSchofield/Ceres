@@ -69,10 +69,34 @@
     }
   }
 
+  if (isset($_SESSION["userid"])) {
+    $followedRecipesList = array();
+    for ($i = 0; $i < count($finalRecipesList); $i++) {
+      $userID = $pdo->query("select userID from recipes where recipeID=".$finalRecipesList[$i].";");
+      $userID = $userID->fetch()["userID"];
+      $follows = $pdo->query("select userIDb from follows where userIDa=".$_SESSION["userid"]." and userIDb=".$userID.";");
+      $follows = $follows->fetch()["userIDb"];
+      if (count($follows) > 0) {
+        array_push($followedRecipesList, $finalRecipesList[$i]);
+        array_splice($finalRecipesList, $i, 1);
+        $i--;
+      }
+    }
+    foreach ($finalRecipesList as $id) {
+      array_push($followedRecipesList, $id);
+    }
+    $finalRecipesList = array();
+    foreach ($followedRecipesList as $id) {
+      array_push($finalRecipesList, $id);
+    }
+  }
+
   for ($i = 0; $i < count($finalRecipesList); $i++) {
     $tempRecipe = $pdo->query("select distinct recipeID, recipeName, pictureURL, userID from recipes where recipeID=".$finalRecipesList[$i].";");
     $tempRecipe = $tempRecipe->fetch();
-    echo $tempRecipe["recipeID"].",".$tempRecipe["recipeName"].",".$tempRecipe["pictureURL"].",".$tempRecipe["userID"].",";
+    $username = $pdo->query("select displayName from users where userID=".$tempRecipe["userID"].";");
+    $username = $username->fetch()["displayName"];
+    echo $tempRecipe["recipeID"].",".$tempRecipe["recipeName"].",".$tempRecipe["pictureURL"].",".$username.",";
   }
 
 ?>

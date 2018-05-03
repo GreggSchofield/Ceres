@@ -10,6 +10,8 @@
 
   include 'dbconn.php';
 
-  $pdo->query("insert into reviews (userID, recipeID, reviewText) values (".$userid.", ".$recipe.", '".$comment."')");
+  $query = "insert into reviews (userID, recipeID, reviewText) values (".$userid.", ".$recipe.", '".$comment."')";
+  $pdo->query($query);
+  echo $query;
 
 ?>
