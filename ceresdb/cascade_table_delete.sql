@@ -8,16 +8,16 @@
 -- Author: Gregg Schofield
 
 -- First delete all of the existing tables:
-DROP TABLE IF EXISTS 'follows';
-DROP TABLE IF EXISTS 'recipe_tags';
-DROP TABLE IF EXISTS 'recipe_ingredients';
-DROP TABLE IF EXISTS 'reviews';
-DROP TABLE IF EXISTS 'recipes';
-DROP TABLE IF EXISTS 'saved_recipes';
-DROP TABLE IF EXISTS 'tags';
-DROP TABLE IF EXISTS 'user_ingredients';
-DROP TABLE IF EXISTS 'ingredients';
-DROP TABLE IF EXISTS 'users';
+DROP TABLE IF EXISTS follows;
+DROP TABLE IF EXISTS recipe_tags;
+DROP TABLE IF EXISTS recipe_ingredients;
+DROP TABLE IF EXISTS reviews;
+DROP TABLE IF EXISTS recipes;
+DROP TABLE IF EXISTS saved_recipes;
+DROP TABLE IF EXISTS tags;
+DROP TABLE IF EXISTS user_ingredients;
+--DROP TABLE IF EXISTS ingredients;
+DROP TABLE IF EXISTS users;
 
 -- Then re-build the tables:
 CREATE TABLE IF NOT EXISTS users (
