@@ -73,7 +73,7 @@
     x[slideIndex].style.display = "block";
     slideIndex++;
     if (slideIndex >= x.length) {slideIndex = 0;}
-    setTimeout(carousel, 2500);
+    setTimeout(carousel, 6000);
   }
 
   function selectRecipe(element) {
