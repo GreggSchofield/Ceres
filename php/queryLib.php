@@ -52,7 +52,7 @@ Author[s]: Gregg Schofield */
     $stmt = 'INSERT INTO users (email, password, displayName) VALUES (?, ?, ?)';
 
     // Hashes the value of $password using the default hashing algorithm.
-//    $password = password_hash($password, PASSWORD_DEFAULT);
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     include 'dbconn.php';
 
@@ -60,7 +60,7 @@ Author[s]: Gregg Schofield */
       $pdo->beginTransaction();
       $stmt = $pdo->prepare($stmt);
       $stmt->bindParam(1,$email,PDO::PARAM_STR);
-      $stmt->bindParam(2,$password,PDO::PARAM_STR);
+      $stmt->bindParam(2,$hashed_password,PDO::PARAM_STR);
       $stmt->bindParam(3,$displayName,PDO::PARAM_STR);
       $stmt->execute();
       $pdo->commit();
@@ -196,13 +196,13 @@ Author[s]: Gregg Schofield */
   function updatePassword($password) {
 
     // Hashes the value of $password using the default hashing algorithm.
-    $password = password_hash($password, PASSWORD_DEFAULT);
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     try {
       $stmt = 'UPDATE users SET password = ? WHERE email = ?';
 
       $stmt = $pdo->prepare($stmt);
-      $stmt->bindParam(1,$updatedPassword,PDO::PARAM_STR);
+      $stmt->bindParam(1,$hashed_password,PDO::PARAM_STR);
       $stmt->bindParam(2,$_SESSION['email'],PDO::PARAM_STR);
       $stmt->execute();
       return true;
