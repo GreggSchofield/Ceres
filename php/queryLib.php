@@ -46,10 +46,8 @@ Author[s]: Gregg Schofield */
   * @param $email The email for the new user.
   * @param $pswd The password for the new user
   * @author Gregg Schofield
-  * NOTE: This password needs hashig before saving to the database!!!
   */
   function createUser($email, $password, $displayName) {
-    $testLine = 'This is a test line...';
     $stmt = 'INSERT INTO users (email, password, displayName) VALUES (?, ?, ?)';
 
     // Hashes the value of $password using the default hashing algorithm.
