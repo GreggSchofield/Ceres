@@ -4,6 +4,7 @@
 	require 'userCredentialsValidationLib.php';
 
 	startSession();
+	logTimeLoggedIn();
 ?>
 <!DOCTYPE html>
 <html>

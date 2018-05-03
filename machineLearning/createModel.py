@@ -1,11 +1,20 @@
-# Python script description...
+# This python script will be used to classify using a probability distribution
+# whether or not a given image can be classified as a face or not. The script
+# will create a multi-layaerd convolutional neural network to classify
+# arbitrary images and classify them as a face image or not. This script will be
+# used within one of the php scripts of the Ceres application to decide whether
+# an image uploaded by a user as a profile picture is in fact a facial image.
 
 # This python script was written in keras, an open source convolutional
 # neural-network library library written in Python. Keras is essentially a
 # wrapper language for Google's TensorFlow library, which enables you to
 # build machine-learning models quickly.
-# Author: Gregg Schofield
+# Author: Gregg Schofield - I have altered this piece of code with the help of a
+# tutorial posted by Siraj Raval named 'How to Make an Image Classifier - Intro to Deep Learning #6'.
+# An accompanying video is available at https://www.youtube.com/watch?v=cAICT4Al5Ow.
 # Created: 22/04/18
+
+# TODO: 
 
 # Import the keras and numpy modules
 import keras
