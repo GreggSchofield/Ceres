@@ -109,13 +109,12 @@
     <h2>Welcome to your page</h2>
 		<form>
 			<p>Display name: <b> <?php echo $displayName; ?></b>
-			<button type="submit" name="updateDispNameBtn"></button>
-			<input type="submit" value="Update display name" /> </p>
-      <input type="submit" name="updateProfilePicture" onclick="redirect('uploadImage.php')"></input><p>
-      <input type="submit" name="updateEmail" onclick="redirect('updateEmail.php')"></input><p>
-      <input type="submit" name="updatePassword" onclick="redirect('updatePassword.php')"></input><p>
-      <input type="submit" name="updateBiography" onclick="redirect('updateBiography.php')"></input><p>
-      <input type="submit" name="calculateMetrics" onclick="redirect('calculateMetrics.php')"></input>
+			<input type="button" value="Update display name" onclick="window.location.href='updateDisplayName.php'" /> </p>
+			<p>Email address: <b> <?php echo $email; ?></b>
+			<input type="button" value="Update email address" onclick="window.location.href='updateEmail.php'" /> </p>
+			<p>Biography: <b> <?php echo $bio; ?></b>
+			<input type="button" value="Update bio" onclick="window.location.href='updateBiography.php'" /> </p>
+			<input type="button" value="Change password" onclick="window.location.href='updatePassword.php'" /> </p>
 		</form>
 		<h2>Your recipes</h2>
 		<?php

@@ -80,12 +80,12 @@ Author[s]: Gregg Schofield */
   */
   function updateDisplayName($dispName) {
     try {
-      $stmt = 'UPDATE users SET displayName = ? WHERE email = ?';
+      $stmt = 'UPDATE users SET displayName = ? WHERE userID = ?';
 
       $stmt = $pdo->prepare($stmt);
       $stmt->bindParam(1,$dispName,PDO::PARAM_STR);
       // Note that this PDO::PARAM_INT may cause an error - if so, change to STR
-      $stmt->bindParam(2,$_SESSION['email'],PDO::PARAM_STR);
+      $stmt->bindParam(2,$_SESSION['userid'],PDO::PARAM_STR);
       $stmt->execute();
       return true;
     } catch (PDOException $PDOException) {
