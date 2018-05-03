@@ -7,8 +7,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="../Reset.css">
-		<link rel="stylesheet" type="text/css" href="../ResultsStyle.css">
+		<link rel="stylesheet" type="text/css" href="../css/Reset.css">
+		<link rel="stylesheet" type="text/css" href="../css/ResultsStyle.css">
 		<script src="../js/phpFunctions.js"></script>
 	  <script src="../js/searchRecipes.js"></script>
 
@@ -20,12 +20,25 @@
 			var tempIngredientList = $_GET["ingredients"];
 //			console.log(tempIngredientList);
 			var divRecipes = document.getElementById("results");
-	    var recipeList = callPost("getRecipesByTag.php", "tags="+tempTagList+"&ingredients="+tempIngredientList);
-			console.log(recipeList);
-//			for (var i = 0; i < recipeList.length; i ++) {
-//				console.log(recipeList[i]);
-//			}
-			/*
+			var postStr = "";
+			if (tempTagList != undefined) {
+				postStr += "tags=";
+				postStr += tempTagList;
+			}
+			if (tempIngredientList != undefined) {
+				if (tempTagList != undefined) {
+					postStr += "&ingredients=";
+				} else {
+					postStr += "ingredients=";
+				}
+				postStr += tempIngredientList;
+			}
+			console.log(postStr);
+	    var recipeList = callPost("getRecipesByTag.php", postStr).split(",");
+//			console.log(recipeList);
+			for (var i = 0; i < recipeList.length; i ++) {
+				console.log(recipeList[i]);
+			}
 	    for (var i = 0; i < recipeList.length - 4; i += 4) {
 	      var recipeButton = document.createElement("a");
 	      var id = recipeList[i];
@@ -50,7 +63,6 @@
 	      divRecipes.appendChild(recipeButton);
 	      divRecipes.appendChild(document.createElement("br"));
 	    }
-			*/
 		}
 
 		function loadPage() {
