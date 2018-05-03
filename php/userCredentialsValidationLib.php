@@ -40,12 +40,17 @@
   /**
   * Function that checks using a pre-defined PHP constant whether a valid e-mail
   * address has been entered. Returns true or false accordingly.
+  * @param $email The E-mail address to be validated.
   * @author Gregg Schofield
   */
-  function validateEmailAddress($paramStr) {
+  function validateEmailAddress($email) {
     if (filter_var($paramStr, FILTER_VALIDATE_EMAIL)) {
       return true;
     } else { return false; }
+  }
+
+  if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    // code...
   }
 
   /**

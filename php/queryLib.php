@@ -219,7 +219,7 @@ Author[s]: Gregg Schofield */
   * @param $password The password entered by the user.
   * @author Gregg Schofield
   */
-  function loginAuthenticated($password) {
+  function loginAuthenticated($plainText) {
     include 'dbconn.php';
     try {
       $stmt = 'SELECT password FROM users WHERE userID = '.$_SESSION["userid"];
@@ -230,7 +230,7 @@ Author[s]: Gregg Schofield */
 
       $dbHash = $stmt->fetchColumn();
       // verifies that the given hash matches the given password
-      if ($password == $dbHash) {
+      if (password_verify($plainText, $dbHash)) {
         return true;
       } else {
           return false;
