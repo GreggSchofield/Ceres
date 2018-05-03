@@ -68,15 +68,15 @@
       <input type="text" id="txtPrep"></input>
       <p>Please enter data to 3 decimal places where possible</p>
       <p>Protein (grams per gram of ingredient): </p>
-      <input type="number" id="txtProtein"></input>
+      <input type="number" id="txtProtein" value = "0"></input>
       <p>Fat (per gram): </p>
-      <input type="number" id="txtFat"></input>
+      <input type="number" id="txtFat" value = "0"></input>
       <p>Sugar (per gram): </p>
-      <input type="number" id="txtSugar"></input>
+      <input type="number" id="txtSugar" value = "0"></input>
       <p>Fiber (per gram): </p>
-      <input type="number" id="txtFiber"></input>
+      <input type="number" id="txtFiber" value = "0"></input>
       <p>Carbohydrates (per gram): </p>
-      <input type="number" id="txtCarbs"></input>
+      <input type="number" id="txtCarbs" value = "0"></input>
       <p>Content: </p>
       <input type="checkbox" id="boxNuts">Contains nuts</input><br>
       <input type="checkbox" id="boxGluten">Contains gluten</input><br>
