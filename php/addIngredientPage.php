@@ -9,6 +9,7 @@
   <head>
     <link rel="stylesheet" type="text/css" href="../css/Reset.css">
 		<link rel="stylesheet" type="text/css" href="../css/MainStyle.css">
+    <link rel="icon" href="../logo.jpeg">
     <title>Add new ingredient</title>
   </head>
   <script src="../js/phpFunctions.js"></script>

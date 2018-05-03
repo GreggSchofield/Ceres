@@ -10,6 +10,7 @@
 		<link rel="stylesheet" type="text/css" href="../css/Reset.css">
 		<link rel="stylesheet" type="text/css" href="../css/MainStyle.css">
 		<link rel="stylesheet" type="text/css" href="../css/ResultsStyle.css">
+		<link rel="icon" href="../logo.jpeg">
 		<script src="../js/phpFunctions.js"></script>
 	  <script src="../js/searchRecipes.js"></script>
 

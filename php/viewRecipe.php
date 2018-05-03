@@ -9,6 +9,7 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="../css/Reset.css">
 		<link rel="stylesheet" type="text/css" href="../css/MainStyle.css">
+		<link rel="icon" href="../logo.jpeg">
   </head>
 		<form action="homepage.php">
 			<input type="submit" value="Return">
@@ -86,7 +87,63 @@
 
     $totalCalories /= $servings;
 
-    echo "<b>".floor($totalCalories)." calories per serving</b>\n<br><br>\n";
+		$totalProtein = 0;
+		$totalFat = 0;
+		$totalSugar = 0;
+		$totalFiber = 0;
+		$totalCarbs = 0;
+
+    echo "<br>\n<h3>".floor($totalCalories)." calories per serving</h3>\n<br>\n";
+
+		$contentsList = array();
+
+		$stmt = $pdo->query("select ingredientID, weight from recipe_ingredients where recipeID=".$recipe.";");
+		foreach ($stmt as $row) {
+			$ingID = $row["ingredientID"];
+			$weight = $row["weight"];
+			$ingQuery = $pdo->query("select contentTags, protein, fat, sugar, fiber, carbohydrates from ingredients where ingredientID=".$ingID.";");
+			$ingQuery = $ingQuery->fetch();
+			$contentsQuery = $ingQuery["contentTags"];
+			$totalProtein += $ingQuery["protein"] * $weight;
+			$totalFat += $ingQuery["fat"] * $weight;
+			$totalSugar += $ingQuery["sugar"] * $weight;
+			$totalFiber += $ingQuery["fiber"] * $weight;
+			$totalCarbs += $ingQuery["carbohydrates"] * $weight;
+			$contents = explode(";", $contentsQuery);
+			if (count($contents) > 0 && isset($contents)) {
+				array_splice($contents, count($contents) - 1, 1);
+			}
+			foreach ($contents as $A) {
+				if (in_array($A, $contentsList)) {
+          if (($key = array_search($A, $contents)) !== false) {
+              array_splice($contents, $key, 1);
+          }
+        }
+			}
+			foreach ($contents as $A) {
+				array_push($contentsList, $A);
+			}
+		}
+
+		if (count($contentsList) > 0) {
+			$contentStr = "";
+			foreach ($contentsList as $A) {
+				$contentStr .= $A.", ";
+			}
+			$contentStr = substr($contentStr, 0, -2);
+			echo "<p><b>Contains: </b>".$contentStr." </p>\n<br>\n";
+		}
+
+		$totalProtein /= $servings;
+		$totalFat /= $servings;
+		$totalSugar /= $servings;
+		$totalFiber /= $servings;
+		$totalCarbs /= $servings;
+		echo "<p><b>Protein per serving: </b>".$totalProtein."g </p>\n";
+		echo "<p><b>Fat per serving: </b>".$totalFat."g </p>\n";
+		echo "<p><b>Sugar per serving: </b>".$totalSugar."g </p>\n";
+		echo "<p><b>Fiber per serving: </b>".$totalFiber."g </p>\n";
+		echo "<p><b>Carbohydrates per serving: </b>".$totalCarbs."g </p>\n<br>\n";
 
     echo "<h3>Steps:</h3>\n<p style='white-space: pre-line'>".$steps."</p>\n";
 

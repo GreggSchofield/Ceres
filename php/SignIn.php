@@ -3,6 +3,7 @@
 	require_once 'queryLib.php';
 	require_once 'userCredentialsValidationLib.php';
 
+	logTimeLoggedIn();
 	startSession();
 ?>
 
@@ -12,6 +13,7 @@
 		<link rel="stylesheet" type="text/css" href="../css/Reset.css">
 		<link rel="stylesheet" type="text/css" href="../css/SignInStyle.css">
 		<link rel= "stylesheet" type="text/css" href="../css/checkPassword.css">
+		<link rel="icon" href="../logo.jpeg">
 		<title>Ceres || Sign-in</title>
 	</head>
 	<body>

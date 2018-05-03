@@ -11,6 +11,7 @@
 		<title>Ceres || Settings</title>
       <link rel="stylesheet" type="text/css" href="../css/Reset.css">
   		<link rel="stylesheet" type="text/css" href="../css/MainStyle.css">
+			<link rel="icon" href="../logo.jpeg">
   </head>
 		<form action="homepage.php">
 			<input type="submit" value="Return">

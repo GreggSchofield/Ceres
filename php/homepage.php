@@ -3,6 +3,8 @@
   require_once 'queryLib.php';
   require_once 'userCredentialsValidationLib.php';
   startSession();
+  expSession();
+  genNewSessionIdentifier();
 ?>
 
 <!DOCTYPE html>
