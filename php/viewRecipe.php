@@ -14,17 +14,25 @@
 		<script src="../js/phpFunctions.js"></script>
 	  <script src="../js/searchRecipes.js"></script>
 		<script>
-
 			function submitComment() {
 				var text = document.getElementById("txtCommentArea").value;
 				var recipeID = $_GET["recipe"];
 				callPost("addComment.php", "recipe=" + recipeID + "&comment=" + text)
 				location.reload();
 			}
-
 		</script>
+
 		<?php
-    $recipe = htmlspecialchars($_GET["recipe"]);
+		//$teststmt = 'SELECT protein, fat, sugar, fiber, carbohydrates FROM ingredients WHERE ';
+		//need to execute this for each nutritional factor of each ingredient and each ingredient of the recipe
+		$teststmt = 'SELECT protein, weight FROM ingredients JOIN recipe_ingredients where ingredientID=ingredientID AND recipeID='.$recipeID.';';
+		$teststmt = 'SELECT fat, weight FROM ingredients JOIN recipe_ingredients where ingredientID=ingredientID AND recipeID='.$recipeID.';';
+		$teststmt = 'SELECT sugar, weight FROM ingredients JOIN recipe_ingredients where ingredientID=ingredientID AND recipeID='.$recipeID.';';
+		$teststmt = 'SELECT fiber, weight FROM ingredients JOIN recipe_ingredients where ingredientID=ingredientID AND recipeID='.$recipeID.';';
+		$teststmt = 'SELECT carbohydrates, weight FROM ingredients JOIN recipe_ingredients where ingredientID=ingredientID AND recipeID='.$recipeID.';';
+
+
+    $recipe = htmlspecialchars ($_GET["recipe"]);
 
     include 'dbconn.php';
 
