@@ -10,6 +10,8 @@
   <head>
     <title>Upload recipe</title>
   </head>
+  <link rel="stylesheet" type="text/css" href="../css/Reset.css">
+  <link rel="stylesheet" type="text/css" href="../css/AddStyle.css">
   <script src="../js/phpFunctions.js"></script>
   <script>
 
@@ -175,6 +177,7 @@
 
     <p>Recipe name: </p>
     <input type="text" id="txtName"></input>
+    <br>
     <p>Picture: </p>
     <form id="picture" action="uploadRecipeImage.php" method="post" enctype="multipart/form-data">
       <input type="file" name="fileToUpload" id="fileToUpload" accept=".jpg, .jpeg, .png">

@@ -7,6 +7,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="stylesheet" type="text/css" href="../css/Reset.css">
+		<link rel="stylesheet" type="text/css" href="../css/MainStyle.css">
   </head>
 		<form action="homepage.php">
 			<input type="submit" value="Return">
@@ -21,7 +23,9 @@
 				console.log(result);
 				location.reload();
 			}
+
 			window.onload = loadGet;
+
 		</script>
 
 		<?php
@@ -64,9 +68,9 @@
 
     $stmt = $pdo->query("update recipes set recipeViews=".$recipeViews." where recipeID=".$recipe.";");
 
-    echo "<h1>".$recipeName." - serves ".$servings."</h1>\n";
+    echo "<h2>".$recipeName." - serves ".$servings."</h2>\n";
     echo "<p>Uploaded by <a href='accountPage.php?user=".$userID."'>".$username."</a> on ".$dateUploaded."</p>\n";
-    echo "<p>Views: ".$recipeViews." Uses: ".$uses."</p>\n";
+    echo "<p>Views: ".$recipeViews."</p>\n";
 		echo "<img src=".$pictureURL." width='600' height='auto'></img>";
     echo "<h3>Ingredients:</h3>\n";
     $stmt = $pdo->query("select ingredientID, weight from recipe_ingredients where recipeID=".$recipe.";");
@@ -87,10 +91,12 @@
     echo "<h3>Steps:</h3>\n<p style='white-space: pre-line'>".$steps."</p>\n";
 
 		if (isset($_SESSION["userid"])) {
-			echo "<b>Leave a review:</b>\n<br>\n";
+			echo "<br>\n<b>Leave a review:</b>\n<br>\n";
 			echo "<textarea id='txtCommentArea' placeholder='Comment' cols='50' rows='3'></textarea>\n<br>\n";
 			echo "<button onclick='submitComment()'>Submit</button>\n<br>\n";
 		}
+
+		echo "<h3>Comments:</h3>\n";
 
 		$stmt = $pdo->query("select userID, reviewText, dateTimePosted from reviews where recipeID=".$recipe.";");
 		foreach ($stmt as $row) {

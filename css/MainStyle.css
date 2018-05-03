@@ -19,10 +19,19 @@ table{
 	width:150px;
 	margin-top:60px;
 }
+#logoContainer{
+	float: right;
+	width: 100%;
+	position: fixed;
+}
 #logo{
-	float: left;
+	position: sticky;
+	float: right;
 	margin-top:20px;
-	margin-left:20px;
+	margin-right:20px;
+	width:200px;
+	height:200px;
+	align: right;
 }
 #account{
 	float:right;
