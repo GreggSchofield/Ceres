@@ -3,6 +3,7 @@
 	require_once 'queryLib.php';
 	require_once 'userCredentialsValidationLib.php';
 
+	logTimeLoggedIn();
 	startSession();
 ?>
 
