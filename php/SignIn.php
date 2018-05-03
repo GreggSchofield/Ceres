@@ -52,7 +52,7 @@
 							</form>
 							<b>Those passwords don't match</b><br>
 							<form action="signIn.php" method="post">
-								<input type="password" name="txtPassword" placeholder="Type password"><br>
+								<input type="password" name="txtPassword" placeholder="Type password"></input>
 								<table border="0" cellpadding="0" cellspacing="0">
 								 <tr align="center">
 								  <td id="pwd_Weak" class="pwd pwd_c"> </td>
@@ -60,7 +60,7 @@
 								  <td id="pwd_Strong" class="pwd pwd_c pwd_c_r"> </td>
 								 </tr>
 							 	</table>
-								<input type="text" name="txtCheckPassword" placeholder="Type password again"><br>
+								<input type="password" name="txtCheckPassword" placeholder="Type password again"></input><br>
 								<input id="submitBtn" type="submit" value="Submit">
 							</form>
 							<?php
@@ -79,7 +79,7 @@
 							</form>
 							<b>That password is incorrect</b><br>
 							<form action="signIn.php" method="post">
-								<input type="text" name="txtPassword" placeholder="Password"><br>
+								<input type="password" name="txtPassword" placeholder="Password"></input><br>
 								<input id="submitBtn" type="submit" value="Submit">
 							</form>
 							<?php
@@ -108,7 +108,7 @@
 						<input type="submit" value="Return" />
 					</form>
 					<form action="signIn.php" method="post">
-						<input type="text" name="txtPassword" placeholder="Type password" onkeyup="Checkpassword(this.value)"><br>
+						<input type="password" name="txtPassword" placeholder="Type password" onkeyup="Checkpassword(this.value)"></input>
 						<table border="0" cellpadding="0" cellspacing="0">
 						 <tr align="center">
 						  <td id="pwd_Weak" class="pwd pwd_c"> </td>
@@ -116,20 +116,20 @@
 						  <td id="pwd_Strong" class="pwd pwd_c pwd_c_r"> </td>
 						 </tr>
 					 	</table>
-						<input type="text" name="txtCheckPassword" placeholder="Type password again"><br>
+						<input type="password" name="txtCheckPassword" placeholder="Type password again"></input><br>
 						<input id="submitBtn" type="submit" value="Submit">
 					</form>
 					<?php
 					} else {
 						// If the account with the given email exists
 						?>
-						<h>Sign in</h>
+						<h>Sign in AH</h>
 						<form id="return" action="signOut.php">
 							<input type="submit" value="Return" />
 						</form>
 						<form action="signIn.php" method="post">
-							<input type="text" name="txtPassword" placeholder="Password"><br>
-							<input id="submitBtn" type="submit" value="Submit">
+							<input type="password" name="txtPassword" placeholder="Password"></input><br>
+							<input id="submitBtn" type="submit" value="Submit"></input>
 						</form>
 						<?php
 					}
@@ -142,8 +142,8 @@
 					</form>
 					<b>Please enter a valid email address</b><br>
 					<form action="signIn.php" method="post">
-						<input type="text" name="txtEmail" placeholder="Email"><br>
-						<input id="submitBtn" type="submit" value="Submit">
+						<input type="text" name="txtEmail" placeholder="Email"></input><br>
+						<input id="submitBtn" type="submit" value="Submit"></input>
 					</form>
 					<?php
 				}
@@ -154,8 +154,8 @@
 					<input type="submit" value="Return" />
 				</form>
 				<form action="signIn.php" method="post">
-					<input type="text" name="txtEmail" placeholder="Email"><br>
-					<input id="submitBtn" type="submit" value="Submit">
+					<input type="text" name="txtEmail" placeholder="Email"></input><br>
+					<input id="submitBtn" type="submit" value="Submit"></input>
 				</form>
 				<?php
 			}

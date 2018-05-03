@@ -29,10 +29,10 @@
             echo "<p>Ensure that your current password is correct.</p>";
           }
         } else {
-            echo "<p>Ensure that your new passwords match each other.</p>";
+          echo "<p>Ensure that your new passwords match each other.</p>";
         }
       } else {
-          echo "<p>Please enter your current password and your new password</p>";
+        echo "<p>Please enter your current password and your new password</p>";
       }
     ?>
     <div class="">

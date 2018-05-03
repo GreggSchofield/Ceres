@@ -23,10 +23,10 @@
           updateDisplayName($_POST['newDispName']);
           echo "<p>You have successfully updated your display name!</p>";
         } else {
-            echo "<p>Ensure that your new display names match each other.</p>";
+          echo "<p>Ensure that your new display names match each other.</p>";
         }
       } else {
-          echo "<p>Please enter your new display name</p>";
+        echo "<p>Please enter your new display name</p>";
       }
     ?>
 
