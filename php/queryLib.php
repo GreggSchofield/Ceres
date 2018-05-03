@@ -48,6 +48,7 @@ Author[s]: Gregg Schofield */
   * @author Gregg Schofield
   */
   function createUser($email, $password, $displayName) {
+    $testLine = 'This is a test line...';
     $stmt = 'INSERT INTO users (email, password, displayName) VALUES (?, ?, ?)';
 
     // Hashes the value of $password using the default hashing algorithm.
