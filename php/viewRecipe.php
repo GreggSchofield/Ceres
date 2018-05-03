@@ -139,11 +139,11 @@
 		$totalSugar /= $servings;
 		$totalFiber /= $servings;
 		$totalCarbs /= $servings;
-		echo "<p><b>Protein per serving: </b>".round($totalProtein)."g </p>\n";
-		echo "<p><b>Fat per serving: </b>".round($totalFat)."g </p>\n";
-		echo "<p><b>Sugar per serving: </b>".round($totalSugar)."g </p>\n";
-		echo "<p><b>Fiber per serving: </b>".round($totalFiber)."g </p>\n";
-		echo "<p><b>Carbohydrates per serving: </b>".round($totalCarbs)."g </p>\n<br>\n";
+		echo "<p><b>Protein per serving: </b>".floor($totalProtein)."g </p>\n";
+		echo "<p><b>Fat per serving: </b>".floor($totalFat)."g </p>\n";
+		echo "<p><b>Sugar per serving: </b>".floor($totalSugar)."g </p>\n";
+		echo "<p><b>Fiber per serving: </b>".floor($totalFiber)."g </p>\n";
+		echo "<p><b>Carbohydrates per serving: </b>".floor($totalCarbs)."g </p>\n<br>\n";
 
     echo "<h3>Steps:</h3>\n<p style='white-space: pre-line'>".$steps."</p>\n";
 
