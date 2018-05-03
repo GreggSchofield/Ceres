@@ -8,6 +8,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="../css/Reset.css">
+		<link rel="stylesheet" type="text/css" href="../css/MainStyle.css">
 		<link rel="stylesheet" type="text/css" href="../css/ResultsStyle.css">
 		<script src="../js/phpFunctions.js"></script>
 	  <script src="../js/searchRecipes.js"></script>
@@ -100,6 +101,8 @@
     <div id="suggestedTags"></div>
     <button id="btnSearch" onclick="search()">Search</button>
 
+		<!--
+
 		<div class="dropdown">
 			<button class="dropbtn">Sort</button>
 			<div class="dropdown-content">
@@ -109,6 +112,7 @@
 			</div>
 		</div>
 
+	-->
 
 	</div>
 

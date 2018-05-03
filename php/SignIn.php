@@ -35,7 +35,7 @@
 						if ($password == $checkPassword) {
 							// Register new account and go to homepage
 							$id = createUser($email, $password, $email);
-			        $_SESSION["userid"] = $id;
+			        $_SESSION["userid"] = (int)$id;
 							// NOTE: Gregg call the new function here!!!
 							// please call the setAllSuperglobals() located in the queryLib.php
 							// file to eliviate any potential superglobal issues!
@@ -67,9 +67,7 @@
 						// Check the password is correct
 						$query = "select password from users where email='".$email."';";
 			      $stmt = $pdo->query($query);
-//						$checkPass = password_hash("hello", PASSWORD_DEFAULT);
 			      $checkPass = $stmt->fetch()["password"];
-//						if (password_verify($password, $checkPass))
 						if ($checkPass != $password) {
 							// The given password is incorrect
 							?>
