@@ -14,7 +14,7 @@
     <title>Ceres</title>
     <link rel="stylesheet" type="text/css" href="../css/Reset.css">
 		<link rel="stylesheet" type="text/css" href="../css/MainStyle.css">
-    <link rel="icon" href="logo.jpeg">
+    <link rel="icon" href="../logo.jpeg">
   </head>
   <script src="../js/phpFunctions.js"></script>
   <script src="../js/searchRecipes.js"></script>
@@ -91,7 +91,7 @@
 
   <body>
 
-    <img src="logo.jpeg" id="logo">
+    <img src="../logo.jpeg" id="logo">
 
     <div id ="menuBar">
   		<table>
