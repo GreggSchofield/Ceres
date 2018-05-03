@@ -18,9 +18,12 @@
 			function submitComment() {
 				var text = document.getElementById("txtCommentArea").value;
 				var recipeID = $_GET["recipe"];
-				callPost("addComment.php", "recipe=" + recipeID + "&comment=" + text)
+				var result = callPost("addComment.php", "recipe=" + recipeID + "&comment=" + text);
+				console.log(result);
 				location.reload();
 			}
+
+			window.onload = loadGet;
 
 		</script>
 		<?php

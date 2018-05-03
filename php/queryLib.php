@@ -53,7 +53,9 @@ Author[s]: Gregg Schofield */
     $stmt = 'INSERT INTO users (email, password, displayName) VALUES (?, ?, ?)';
 
     // Hashes the value of $password using the default hashing algorithm.
-    $password = password_hash($password, PASSWORD_DEFAULT);
+//    $password = password_hash($password, PASSWORD_DEFAULT);
+
+    include 'dbconn.php';
 
     try {
       $pdo->beginTransaction();
@@ -63,14 +65,17 @@ Author[s]: Gregg Schofield */
       $stmt->bindParam(3,$displayName,PDO::PARAM_STR);
       $stmt->execute();
       $pdo->commit();
-      $stmt = $pdo->query("select last_insert_id();");
-      $id = $stmt->fetch();
+      $stmt = "select userID from users where email=?;";
+      $stmt = $pdo->prepare($stmt);
+      $stmt->bindParam(1,$email,PDO::PARAM_STR);
+      $id = $stmt->fetch()["userID"];
       return $id;
     } catch (PDOException $PDOException) {
       $pdo->rollback();
         exit("PDO Error: ".$PDOException->getMessage()."<br>");
       return -1;
     }
+    return -1;
   }
 
   /**
@@ -79,13 +84,14 @@ Author[s]: Gregg Schofield */
   * @param $dispName The new display name.
   */
   function updateDisplayName($dispName) {
+    include 'dbconn.php';
     try {
-      $stmt = 'UPDATE users SET displayName = ? WHERE userID = ?';
+      $stmt = 'UPDATE users SET displayName = ? WHERE userID = '.$_SESSION["userid"];
 
       $stmt = $pdo->prepare($stmt);
       $stmt->bindParam(1,$dispName,PDO::PARAM_STR);
       // Note that this PDO::PARAM_INT may cause an error - if so, change to STR
-      $stmt->bindParam(2,$_SESSION['userid'],PDO::PARAM_STR);
+//      $stmt->bindParam(2,$_SESSION['userid'],PDO::PARAM_STR);
       $stmt->execute();
       return true;
     } catch (PDOException $PDOException) {
@@ -101,13 +107,14 @@ Author[s]: Gregg Schofield */
   * @author Gregg Schofield
   */
   function updateEmailAddress($newEmailAddress) {
+    include 'dbconn.php';
     try {
-      $stmt = 'UPDATE users SET email = ? WHERE email = ?';
+      $stmt = 'UPDATE users SET email = ? WHERE userid = '.$_SESSION["userid"];
 
       $stmt = $pdo->prepare($stmt);
       $stmt->bindParam(1,$newEmailAddress,PDO::PARAM_STR);
       // Note that this PDO::PARAM_INT may cause an error - if so, change to STR
-      $stmt->bindParam(2,$_SESSION['email'],PDO::PARAM_STR);
+//      $stmt->bindParam(2,$_SESSION['email'],PDO::PARAM_STR);
       $stmt->execute();
     } catch (PDOException $PDOException) {
         echo "PDO Error: ".$PDOException->getMessage()."<br>";
@@ -122,12 +129,13 @@ Author[s]: Gregg Schofield */
   * @author Gregg Schofield
   */
   function updateBiography($biography) {
+    include 'dbconn.php';
     try {
-      $stmt = 'UPDATE users SET biography = ? WHERE email = ?';
+      $stmt = 'UPDATE users SET biography = ? WHERE userid='.$_SESSION["userid"];
 
       $stmt = $pdo->prepare($stmt);
       $stmt->bindParam(1,$biography,PDO::PARAM_STR);
-      $stmt->bindParam(2,$_SESSION['email'],PDO::PARAM_STR);
+//      $stmt->bindParam(2,$_SESSION['email'],PDO::PARAM_STR);
       $stmt->execute();
     } catch (PDOException $PDOException) {
         echo "PDO Error: ".$PDOException->getMessage()."<br>";
@@ -213,6 +221,7 @@ Author[s]: Gregg Schofield */
   * @author Gregg Schofield
   */
   function loginAuthenticated($password) {
+    include 'dbconn.php';
     try {
       $stmt = 'SELECT password FROM users WHERE email = ?';
 

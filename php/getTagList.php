@@ -29,6 +29,7 @@
   $ingredientList = $pdo->query("select ingredientID, ingredientName, weighting from ingredients where ingredientName like '".$t."%'");
   $tagList = $pdo->query("select tagID, tagName, weight from tags where tagName like '".$t."%'");
 
+
   foreach ($ingredientList as $row) {
     array_push($tags, new tag("ingredient", $row["ingredientID"], $row["ingredientName"], $row["weighting"]));
   }
