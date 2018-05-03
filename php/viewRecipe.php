@@ -72,7 +72,7 @@
 
     $totalCalories /= $servings;
 
-    echo "<b>".$totalCalories." calories per serving</b>\n<br><br>\n";
+    echo "<b>".round_down($totalCalories)." calories per serving</b>\n<br><br>\n";
 
     echo "<h3>Steps:</h3>\n<p style='white-space: pre-line'>".$steps."</p>\n";
 
