@@ -50,7 +50,7 @@
 							</form>
 							<b>Those passwords don't match</b><br>
 							<form action="signIn.php" method="post">
-								<input type="text" name="txtPassword" placeholder="Type password"><br>
+								<input type="password" name="txtPassword" placeholder="Type password"><br>
 								<table border="0" cellpadding="0" cellspacing="0">
 								 <tr align="center">
 								  <td id="pwd_Weak" class="pwd pwd_c"> </td>
