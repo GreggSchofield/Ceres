@@ -23,7 +23,9 @@
     function follow() {
       var pageID = $_GET["user"];
       var userID = callPost("getUserID.php", "");
-      callPost("addFollow.php", "userIDa=" + userID + "&userIDb=" + pageID);
+			var postStr = "userIDa=" + userID + "&userIDb=" + pageID;
+      callPost("addFollow.php", postStr);
+			console.log(postStr);
       location.reload();
     }
 
@@ -85,8 +87,9 @@
     <?php
   $userID = -1;
   if (isset($_SESSION["userid"])) {
-    $userID = (int)$_SESSION["userid"];
+    $userID = $_SESSION["userid"];
   }
+
   $pageID = htmlspecialchars($_GET["user"]);
 
   include 'dbconn.php';

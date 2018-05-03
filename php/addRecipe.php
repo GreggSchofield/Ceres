@@ -11,7 +11,7 @@
 
   include 'dbconn.php';
 
-  $query = "insert into recipes (userID, recipeName, steps, uses, recipeViews, servings) values (".$userid.", ".$name.", ".$instructions.", 0, 0, ".$servings.");";
+  $query = "insert into recipes (userID, recipeName, steps, uses, recipeViews, servings, pictureURL) values (".$userid.", ".$name.", ".$instructions.", 0, 0, ".$servings.", '');";
   $stmt = $pdo->query($query);
   $stmt = $pdo->query("select last_insert_id();");
   $id = $stmt->fetch()["last_insert_id()"];
