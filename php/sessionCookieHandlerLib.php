@@ -52,22 +52,30 @@
   }
 
   /**
+  * Logs the time that the user loged in by setting a session superglobal
+  * equal to the pre-defined php time() function, thus effectively updating the
+  * timestamp representing the last log-in.
+  * @author Gregg Schofield
+  */
+  function logTimeLoggedIn() {
+    $_SESSION['TIME_LOGGED_IN'] = time();
+  }
+
+  /**
   * If a client has been inactive for over 30 minutes then the endSession() is
   * called. Otherwise simply set the session variable to the current time.
-  * IMPORTANT WE WILL EVENTUALLY HAVE TO CHANGE THE VARIABLE NAME x IF WE WANT THIS
-  * FUNCTION TO WORK CORRECTLY! DELETE THIS COMMENT AFTER THE FACT.
   * @author Gregg Schofield but ultimately attributed to Gumbo
   * https://stackoverflow.com/questions/520237/how-do-i-expire-a-php-session-after-30-minutes
   */
   function expSession() {
-    if (isset($_SESSION['x'])) {
-      if (time() - $_SESSION['x'] > MINS30) {
+    if (isset($_SESSION['TIME_LOGGED_IN'])) {
+      if (time() - $_SESSION['TIME_LOGGED_IN'] > MINS30) {
         endSession();
         if (session_id() != "" || isset($_COOKIE[session_name()])) {
           setcookie(session_name(), session_id(), time()-UNIXTIME, '/');
         }
       } else {
-        $_SESSION['x'] = time();
+          $_SESSION['TIME_LOGGED_IN'] = time();
       }
     }
   }
@@ -76,17 +84,15 @@
   * This function will set a new session identifier if there is not one already
   * set, or in the event that it is more than 30 minutes, a new one is generated.
   * This prevents session hijacking.
-  * IMPORTANT WE WILL EVENTUALLY HAVE TO CHANGE THE VARIABLE NAME x IF WE WANT THIS
-  * FUNCTION TO WORK CORRECTLY! DELETE THIS COMMENT AFTER THE FACT.
   * @author Gregg Schofield but ultimately attributed to Gumbo
   * https://stackoverflow.com/questions/520237/how-do-i-expire-a-php-session-after-30-minutes
   */
   function genNewSessionIdentifier() {
-    if (!isset($_SESSION['x'])) {
-      $_SESSION['x'] = time();
-    } elseif (time() - $_SESSION['x'] > MINS30) {
-      session_regenerate_id();
-      $_SESSION['x'] = time();
+    if (!isset($_SESSION['TIME_LOGGED_IN'])) {
+      $_SESSION['TIME_LOGGED_IN'] = time();
+    } elseif (time() - $_SESSION['TIME_LOGGED_IN'] > MINS30) {
+        session_regenerate_id();
+        $_SESSION['TIME_LOGGED_IN'] = time();
     }
   }
 
