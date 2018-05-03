@@ -14,7 +14,6 @@
 		<script src="../js/phpFunctions.js"></script>
 	  <script src="../js/searchRecipes.js"></script>
 		<script>
-
 			function submitComment() {
 				var text = document.getElementById("txtCommentArea").value;
 				var recipeID = $_GET["recipe"];
@@ -26,8 +25,18 @@
 			window.onload = loadGet;
 
 		</script>
+
 		<?php
-    $recipe = htmlspecialchars($_GET["recipe"]);
+		//$teststmt = 'SELECT protein, fat, sugar, fiber, carbohydrates FROM ingredients WHERE ';
+		//need to execute this for each nutritional factor of each ingredient and each ingredient of the recipe
+		$teststmt = 'SELECT protein, weight FROM ingredients JOIN recipe_ingredients where ingredientID=ingredientID AND recipeID='.$recipeID.';';
+		$teststmt = 'SELECT fat, weight FROM ingredients JOIN recipe_ingredients where ingredientID=ingredientID AND recipeID='.$recipeID.';';
+		$teststmt = 'SELECT sugar, weight FROM ingredients JOIN recipe_ingredients where ingredientID=ingredientID AND recipeID='.$recipeID.';';
+		$teststmt = 'SELECT fiber, weight FROM ingredients JOIN recipe_ingredients where ingredientID=ingredientID AND recipeID='.$recipeID.';';
+		$teststmt = 'SELECT carbohydrates, weight FROM ingredients JOIN recipe_ingredients where ingredientID=ingredientID AND recipeID='.$recipeID.';';
+
+
+    $recipe = htmlspecialchars ($_GET["recipe"]);
 
     include 'dbconn.php';
 
@@ -75,7 +84,7 @@
 
     $totalCalories /= $servings;
 
-    echo "<b>".$totalCalories." calories per serving</b>\n<br><br>\n";
+    echo "<b>".floor($totalCalories)." calories per serving</b>\n<br><br>\n";
 
     echo "<h3>Steps:</h3>\n<p style='white-space: pre-line'>".$steps."</p>\n";
 
